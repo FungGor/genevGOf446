@@ -1,0 +1,11 @@
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:202:13:ICS_GetPhaseCurrents	5
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:261:13:ICS_HFCurrentsCalibration	2
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:62:13:ICS_Init	7
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:287:13:ICS_TurnOnLowSides	3
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:317:13:ICS_SwitchOnPWM	4
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:370:13:ICS_SwitchOffPWM	4
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:148:13:ICS_CurrentReadingCalibration	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:407:17:ICS_WriteTIMRegisters	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:438:15:ICS_TIMx_UP_IRQHandler	7
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:489:15:ICS_BRK_IRQHandler	2
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Src/ics_f4xx_pwm_curr_fdbk.c:509:17:ICS_IsOverCurrentOccurred	2
