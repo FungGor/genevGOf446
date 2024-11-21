@@ -73,6 +73,8 @@ void Error_Handler(void);
 #define M1_HALL_H3_GPIO_Port GPIOA
 #define M1_BUS_VOLTAGE_Pin GPIO_PIN_3
 #define M1_BUS_VOLTAGE_GPIO_Port GPIOA
+#define DASHBOARD_Pin GPIO_PIN_5
+#define DASHBOARD_GPIO_Port GPIOA
 #define M1_CURR_AMPL_U_Pin GPIO_PIN_7
 #define M1_CURR_AMPL_U_GPIO_Port GPIOA
 #define M1_CURR_AMPL_V_Pin GPIO_PIN_4
