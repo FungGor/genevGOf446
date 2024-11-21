@@ -9,12 +9,17 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include UDHAL/subdir.mk
 -include Middlewares/MotorControl/subdir.mk
 -include Middlewares/FreeRTOS/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/subdir.mk
 -include Drivers/CMSIS/subdir.mk
 -include Application/User/subdir.mk
 -include Application/Startup/subdir.mk
+-include Application/Safety_Protection/subdir.mk
+-include Application/MainTask/subdir.mk
+-include Application/Hardware/subdir.mk
+-include Application/BootAndShutDown/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
