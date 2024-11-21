@@ -112,7 +112,10 @@ Application/User/main.o: \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
- ../../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+ ../../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_SYSCLK.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_GPIO.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_UART.h
 ../../Inc/main.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../../Inc/stm32f4xx_hal_conf.h:
@@ -232,3 +235,6 @@ Application/User/main.o: \
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h:
 ../../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_SYSCLK.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_GPIO.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/UDHAL/UDHAL_UART.h:
