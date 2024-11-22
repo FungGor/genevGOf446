@@ -22,6 +22,7 @@
 #include "UDHAL_SYSCLK.h"
 #include "UDHAL_GPIO.h"
 #include "UDHAL_UART.h"
+#include "drive_tasks.h"
 
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
@@ -50,12 +51,16 @@ int main(void)
   UART_Init();
   MX_MotorControl_Init();
   MX_NVIC_Init();
+
+  GoInit();
+
   osThreadDef(mediumFrequency, startMediumFrequencyTask, osPriorityNormal, 0, 128);
   mediumFrequencyHandle = osThreadCreate(osThread(mediumFrequency), NULL);
 
   /* definition and creation of safety */
   osThreadDef(safety, StartSafetyTask, osPriorityAboveNormal, 0, 128);
   safetyHandle = osThreadCreate(osThread(safety), NULL);
+
   osKernelStart();
 
   while (1)

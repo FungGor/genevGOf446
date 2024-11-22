@@ -45,11 +45,15 @@ void go_errorReportRegister(uint8_t *report)
 
 void GoInit()
 {
+	/*Monitors the motor driver's power status*/
 	powerModeInit();
+	/*Reports existing errors to the Dash-Board constantly*/
 	ERROR_REPORT_INIT();
 	brake_and_throttle_init();
 	tail_light_off();
+	/*Handles transmission timeout when the connection is lost*/
 	UDHAL_TIMEOUT_init();
+	/*It is the main task for controlling the E-Scooter*/
 	createDrivingTasks();
 }
 
