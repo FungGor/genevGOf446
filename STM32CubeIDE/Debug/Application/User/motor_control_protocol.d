@@ -76,7 +76,11 @@ Application/User/motor_control_protocol.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/encoder_speed_pos_fdbk.h \
  ../../Inc/motor_control_protocol.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h \
- ../../Inc/user_interface.h
+ ../../Inc/user_interface.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/BootAndShutDown/SleepAndWake.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/brake_and_throttle.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/tail_light.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h
 ../../Inc/user_interface.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 ../../Inc/mc_stm_types.h:
@@ -155,3 +159,7 @@ Application/User/motor_control_protocol.o: \
 ../../Inc/motor_control_protocol.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/UILibrary/Inc/frame_communication_protocol.h:
 ../../Inc/user_interface.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/BootAndShutDown/SleepAndWake.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/brake_and_throttle.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/tail_light.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h:

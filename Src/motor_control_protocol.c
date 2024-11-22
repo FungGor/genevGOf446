@@ -22,6 +22,10 @@
 /* Includes ------------------------------------------------------------------*/
 #include "user_interface.h"
 #include "motor_control_protocol.h"
+#include "SleepAndWake.h"
+#include "brake_and_throttle.h"
+#include "tail_light.h"
+#include "ERROR_REPORT.h"
 
 /**
  * @addtogroup MCSDK
@@ -581,6 +585,134 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
       bNoError = true;
     }
     break;
+
+    case DEFINE_ESCOOTER_BEHAVIOR:
+    {
+    	EScooter_Behavior_t behaviorID = (EScooter_Behavior_t)buffer[0];
+    	switch(behaviorID)
+    	{
+    	   case BOOT_ACK:
+    	   {
+    		   /*$2E$01$00$2F*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t bootDone = 0x01;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&bootDone,1);
+    	   }
+    	   break;
+
+    	   case ERROR_REPORT:
+    	   {
+    		   /*$2E$01$01$30*/
+    	   }
+    	   break;
+
+    	   case THORTTLE_TRIGGER:
+    	   {
+    		   /*$2E$01$02$31*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t twistedThorttle = 0x03;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&twistedThorttle,1);
+    	   }
+    	   break;
+
+    	   case BRAKE_PRESS:
+    	   {
+    		   /*$2E$01$03$32*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t pressBrake = 0x04;
+    		   updateBrakeStatus(true);
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&pressBrake,1);
+
+    	   }
+    	   break;
+
+    	   case BRAKE_RELEASE:
+    	   {
+    		   /*$2E$01$04$33*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t releaseBrake = 0x05;
+    		   updateBrakeStatus(false);
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&releaseBrake,1);
+    	   }
+    	   break;
+
+    	   case TAIL_LIGHT_TOGGLE:
+    	   {
+    		   /*$2E$01$05$34*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t toggle = 0x06;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&toggle,1);
+    	   }
+    	   break;
+
+    	   case TAIL_LIGHT_OFF:
+    	   {
+    		   /*$2E$01$06$35*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t lightOff = 0x07;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
+    	   }
+    	   break;
+
+    	   case SHUT_DOWN:
+    	   {
+    		   /*$2E$01$07$36*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   changePowerMode();
+    	   }
+    	   break;
+
+    	   default:
+    	   {
+    		   uint8_t invalidCMD = 0xFF;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&invalidCMD,1);
+    	   }
+    	   break;
+
+    	}
+    }
+    break;
+
+    case TOGGLE_SPEED_MODE:
+     {
+         /*Decode the input dummy data, pass them to the API or UART2 fcpSend*/
+     	  /*Example :
+     	   * CMD LIST --> Configure different driving modes! !:
+     	   * Sports  : $33$0A$86$3D$00$00$97$02$00$00$D0$07$72
+     	   * Leisure : $33$0A$BA$2C$00$00$E0$01$00$00$B8$0B$C9
+     	   * Amble   : $33$0A$64$19$00$00$0E$01$00$00$A0$0F$79
+     	   * CMD is sent by the Dash-board
+     	   * Those commands are defined and encoded through STM32MCP the protocol in CC2640 / Master Devices
+     	   * */
+  	   bNoError = true;
+  	   RequireAck = false;
+  	   uint8_t changeDone = 0x13;
+  	   int16_t  speed_mode_IQmax = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
+  	   int16_t  allowable_rpm    = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
+  	   uint16_t ramp             = buffer[8] + (buffer[9] << 8);
+  	   changeSpeedMode(speed_mode_IQmax,allowable_rpm,ramp);
+  	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&changeDone,1);
+     }
+     break;
+
+    case APPLY_THROTTLE_IQ:
+     {
+  	   bNoError = true;
+  	   RequireAck = false;
+  	   uint8_t IQReceived = 0x14;
+  	   int16_t allowable_rpm = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
+  	   int16_t IQ_value      = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
+  	   setIQ(IQ_value);
+  	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&IQReceived,1);
+     }
+     break;
 
   case MC_PROTOCOL_CODE_NONE:
     {
