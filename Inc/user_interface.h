@@ -189,6 +189,18 @@ typedef enum
   MC_PROTOCOL_REG_UNDEFINED
 } MC_Protocol_REG_t;
 
+typedef enum
+{
+	BOOT_ACK,
+	ERROR_REPORT,
+	THORTTLE_TRIGGER,
+	BRAKE_PRESS,
+	BRAKE_RELEASE,
+	TAIL_LIGHT_TOGGLE,
+	TAIL_LIGHT_OFF,
+	SHUT_DOWN
+}EScooter_Behavior_t;
+
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/
 #define UI_SCODE_NONE     0x0u
 #define UI_SCODE_HALL     0x1u /*!< This code identifies the Hall sensor.*/
@@ -239,6 +251,9 @@ typedef enum
 #define MC_PROTOCOL_CODE_GET_FW_VERSION   0x0C
 #define MC_PROTOCOL_CODE_SET_TORQUE_RAMP  0x0D
 #define MC_PROTOCOL_CODE_SET_POSITION_CMD 0x12
+#define DEFINE_ESCOOTER_BEHAVIOR          0x0E
+#define TOGGLE_SPEED_MODE                 0x13
+#define APPLY_THROTTLE_IQ                 0x14
 
 #define MC_PROTOCOL_CMD_START_MOTOR       0x01
 #define MC_PROTOCOL_CMD_STOP_MOTOR        0x02

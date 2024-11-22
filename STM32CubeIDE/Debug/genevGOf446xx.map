@@ -518,7 +518,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00000000      0x154 ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00000000      0x169 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x58 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
@@ -530,7 +530,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x1c6 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000      0x100 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_line    0x00000000      0xf0c ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_str     0x00000000    0xe1d36 ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_str     0x00000000    0xe1d82 ./Application/Safety_Protection/ERROR_REPORT.o
  .comment       0x00000000       0x44 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_frame   0x00000000       0x58 ./Application/Safety_Protection/ERROR_REPORT.o
  .ARM.attributes
@@ -715,7 +715,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/freertos.o
  .debug_macro   0x00000000       0x1c ./Application/User/freertos.o
  .debug_macro   0x00000000       0x1c ./Application/User/freertos.o
- .debug_macro   0x00000000      0x154 ./Application/User/freertos.o
+ .debug_macro   0x00000000      0x169 ./Application/User/freertos.o
  .debug_macro   0x00000000       0x58 ./Application/User/freertos.o
  .debug_macro   0x00000000       0x1c ./Application/User/freertos.o
  .debug_macro   0x00000000       0x1c ./Application/User/freertos.o
@@ -889,7 +889,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/main.o
  .debug_macro   0x00000000       0x1c ./Application/User/main.o
  .debug_macro   0x00000000       0x1c ./Application/User/main.o
- .debug_macro   0x00000000      0x154 ./Application/User/main.o
+ .debug_macro   0x00000000      0x169 ./Application/User/main.o
  .debug_macro   0x00000000       0x58 ./Application/User/main.o
  .debug_macro   0x00000000       0x1c ./Application/User/main.o
  .debug_macro   0x00000000       0x1c ./Application/User/main.o
@@ -1124,12 +1124,12 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/mc_api.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_api.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_api.o
- .debug_macro   0x00000000      0x154 ./Application/User/mc_api.o
+ .debug_macro   0x00000000      0x169 ./Application/User/mc_api.o
  .debug_macro   0x00000000       0x58 ./Application/User/mc_api.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_api.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_api.o
  .debug_line    0x00000000     0x101f ./Application/User/mc_api.o
- .debug_str     0x00000000    0xe069d ./Application/User/mc_api.o
+ .debug_str     0x00000000    0xe06e9 ./Application/User/mc_api.o
  .comment       0x00000000       0x44 ./Application/User/mc_api.o
  .debug_frame   0x00000000      0x250 ./Application/User/mc_api.o
  .ARM.attributes
@@ -1270,7 +1270,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/mc_config.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_config.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_config.o
- .debug_macro   0x00000000      0x154 ./Application/User/mc_config.o
+ .debug_macro   0x00000000      0x169 ./Application/User/mc_config.o
  .debug_macro   0x00000000       0x58 ./Application/User/mc_config.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_config.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_config.o
@@ -1668,7 +1668,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/mc_parameters.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_parameters.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_parameters.o
- .debug_macro   0x00000000      0x154 ./Application/User/mc_parameters.o
+ .debug_macro   0x00000000      0x169 ./Application/User/mc_parameters.o
  .debug_macro   0x00000000       0x58 ./Application/User/mc_parameters.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_parameters.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_parameters.o
@@ -1846,7 +1846,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/mc_tasks.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_tasks.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_tasks.o
- .debug_macro   0x00000000      0x154 ./Application/User/mc_tasks.o
+ .debug_macro   0x00000000      0x169 ./Application/User/mc_tasks.o
  .debug_macro   0x00000000       0x58 ./Application/User/mc_tasks.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_tasks.o
  .debug_macro   0x00000000       0x1c ./Application/User/mc_tasks.o
@@ -2018,7 +2018,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motor_control_protocol.o
- .debug_macro   0x00000000      0x154 ./Application/User/motor_control_protocol.o
+ .debug_macro   0x00000000      0x169 ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0x58 ./Application/User/motor_control_protocol.o
  .group         0x00000000        0xc ./Application/User/motorcontrol.o
  .group         0x00000000        0xc ./Application/User/motorcontrol.o
@@ -2155,7 +2155,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/motorcontrol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motorcontrol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motorcontrol.o
- .debug_macro   0x00000000      0x154 ./Application/User/motorcontrol.o
+ .debug_macro   0x00000000      0x169 ./Application/User/motorcontrol.o
  .debug_macro   0x00000000       0x58 ./Application/User/motorcontrol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motorcontrol.o
  .debug_macro   0x00000000       0x1c ./Application/User/motorcontrol.o
@@ -2301,7 +2301,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/regular_conversion_manager.o
  .debug_macro   0x00000000       0x1c ./Application/User/regular_conversion_manager.o
  .debug_macro   0x00000000       0x1c ./Application/User/regular_conversion_manager.o
- .debug_macro   0x00000000      0x154 ./Application/User/regular_conversion_manager.o
+ .debug_macro   0x00000000      0x169 ./Application/User/regular_conversion_manager.o
  .debug_macro   0x00000000       0x58 ./Application/User/regular_conversion_manager.o
  .debug_macro   0x00000000       0x1c ./Application/User/regular_conversion_manager.o
  .debug_macro   0x00000000       0x1c ./Application/User/regular_conversion_manager.o
@@ -2445,7 +2445,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_hal_msp.o
- .debug_macro   0x00000000      0x154 ./Application/User/stm32f4xx_hal_msp.o
+ .debug_macro   0x00000000      0x169 ./Application/User/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x58 ./Application/User/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_hal_msp.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_hal_msp.o
@@ -2683,7 +2683,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/stm32f4xx_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_it.o
- .debug_macro   0x00000000      0x154 ./Application/User/stm32f4xx_it.o
+ .debug_macro   0x00000000      0x169 ./Application/User/stm32f4xx_it.o
  .debug_macro   0x00000000       0x58 ./Application/User/stm32f4xx_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_it.o
@@ -2828,7 +2828,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/stm32f4xx_mc_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_mc_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_mc_it.o
- .debug_macro   0x00000000      0x154 ./Application/User/stm32f4xx_mc_it.o
+ .debug_macro   0x00000000      0x169 ./Application/User/stm32f4xx_mc_it.o
  .debug_macro   0x00000000       0x58 ./Application/User/stm32f4xx_mc_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_mc_it.o
  .debug_macro   0x00000000       0x1c ./Application/User/stm32f4xx_mc_it.o
@@ -3184,7 +3184,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/ui_task.o
  .debug_macro   0x00000000       0x1c ./Application/User/ui_task.o
  .debug_macro   0x00000000       0x1c ./Application/User/ui_task.o
- .debug_macro   0x00000000      0x154 ./Application/User/ui_task.o
+ .debug_macro   0x00000000      0x169 ./Application/User/ui_task.o
  .debug_macro   0x00000000       0x58 ./Application/User/ui_task.o
  .debug_macro   0x00000000       0x22 ./Application/User/ui_task.o
  .debug_macro   0x00000000       0x1c ./Application/User/ui_task.o
@@ -3326,7 +3326,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Application/User/user_interface.o
  .debug_macro   0x00000000       0x1c ./Application/User/user_interface.o
  .debug_macro   0x00000000       0x1c ./Application/User/user_interface.o
- .debug_macro   0x00000000      0x154 ./Application/User/user_interface.o
+ .debug_macro   0x00000000      0x169 ./Application/User/user_interface.o
  .debug_macro   0x00000000       0x58 ./Application/User/user_interface.o
  .debug_macro   0x00000000       0x1c ./Application/User/user_interface.o
  .debug_macro   0x00000000       0x1c ./Application/User/user_interface.o
@@ -7435,7 +7435,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./Middlewares/MotorControl/frame_communication_protocol.o
  .debug_macro   0x00000000       0x1c ./Middlewares/MotorControl/frame_communication_protocol.o
  .debug_macro   0x00000000       0x1c ./Middlewares/MotorControl/frame_communication_protocol.o
- .debug_macro   0x00000000      0x154 ./Middlewares/MotorControl/frame_communication_protocol.o
+ .debug_macro   0x00000000      0x169 ./Middlewares/MotorControl/frame_communication_protocol.o
  .debug_macro   0x00000000       0x58 ./Middlewares/MotorControl/frame_communication_protocol.o
  .group         0x00000000        0xc ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
  .group         0x00000000        0xc ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
@@ -9812,7 +9812,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./UDHAL/UDHAL_GPIO.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_GPIO.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_GPIO.o
- .debug_macro   0x00000000      0x154 ./UDHAL/UDHAL_GPIO.o
+ .debug_macro   0x00000000      0x169 ./UDHAL/UDHAL_GPIO.o
  .debug_macro   0x00000000       0x58 ./UDHAL/UDHAL_GPIO.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_GPIO.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_GPIO.o
@@ -10203,7 +10203,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./UDHAL/UDHAL_SYSCLK.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_SYSCLK.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_SYSCLK.o
- .debug_macro   0x00000000      0x154 ./UDHAL/UDHAL_SYSCLK.o
+ .debug_macro   0x00000000      0x169 ./UDHAL/UDHAL_SYSCLK.o
  .debug_macro   0x00000000       0x58 ./UDHAL/UDHAL_SYSCLK.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_SYSCLK.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_SYSCLK.o
@@ -10455,7 +10455,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x10 ./UDHAL/UDHAL_UART.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_UART.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_UART.o
- .debug_macro   0x00000000      0x154 ./UDHAL/UDHAL_UART.o
+ .debug_macro   0x00000000      0x169 ./UDHAL/UDHAL_UART.o
  .debug_macro   0x00000000       0x58 ./UDHAL/UDHAL_UART.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_UART.o
  .debug_macro   0x00000000       0x1c ./UDHAL/UDHAL_UART.o
@@ -12506,116 +12506,116 @@ LOAD C:/ST/STM32CubeIDE_1.12.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_aranges
                 0x00001cb0       0x28 ./UDHAL/UDHAL_UART.o
 
-.debug_str      0x00000000    0xf91cf
+.debug_str      0x00000000    0xf921b
  .debug_str     0x00000000       0xa2 ./Application/Startup/startup_stm32f446retx.o
- .debug_str     0x000000a2    0xe6baa ./Application/User/freertos.o
-                              0xe78f7 (size before relaxing)
- .debug_str     0x000e6c4c     0x3508 ./Application/User/main.o
-                              0xeaf06 (size before relaxing)
- .debug_str     0x000ea154     0x25fe ./Application/User/mc_config.o
-                              0xe445a (size before relaxing)
- .debug_str     0x000ec752      0x477 ./Application/User/mc_interface.o
+ .debug_str     0x000000a2    0xe6bf6 ./Application/User/freertos.o
+                              0xe7943 (size before relaxing)
+ .debug_str     0x000e6c98     0x3508 ./Application/User/main.o
+                              0xeaf52 (size before relaxing)
+ .debug_str     0x000ea1a0     0x25fe ./Application/User/mc_config.o
+                              0xe44a6 (size before relaxing)
+ .debug_str     0x000ec79e      0x477 ./Application/User/mc_interface.o
                               0xdfb42 (size before relaxing)
- .debug_str     0x000ecbc9      0xabd ./Application/User/mc_math.o
+ .debug_str     0x000ecc15      0xabd ./Application/User/mc_math.o
                               0xdfaa6 (size before relaxing)
- .debug_str     0x000ed686       0x58 ./Application/User/mc_parameters.o
-                              0xe1d1a (size before relaxing)
- .debug_str     0x000ed6de      0x800 ./Application/User/mc_tasks.o
-                              0xec3dc (size before relaxing)
- .debug_str     0x000edede     0x1287 ./Application/User/motor_control_protocol.o
-                              0xe2f2d (size before relaxing)
- .debug_str     0x000ef165      0x1bf ./Application/User/motorcontrol.o
-                              0xe3da0 (size before relaxing)
- .debug_str     0x000ef324      0x2eb ./Application/User/regular_conversion_manager.o
-                              0xdfdc9 (size before relaxing)
- .debug_str     0x000ef60f      0x423 ./Application/User/stm32f4xx_hal_msp.o
-                              0xe2b85 (size before relaxing)
- .debug_str     0x000efa32      0x187 ./Application/User/stm32f4xx_hal_timebase_tim.o
+ .debug_str     0x000ed6d2       0x58 ./Application/User/mc_parameters.o
+                              0xe1d66 (size before relaxing)
+ .debug_str     0x000ed72a      0x800 ./Application/User/mc_tasks.o
+                              0xec428 (size before relaxing)
+ .debug_str     0x000edf2a     0x1287 ./Application/User/motor_control_protocol.o
+                              0xe2f79 (size before relaxing)
+ .debug_str     0x000ef1b1      0x1bf ./Application/User/motorcontrol.o
+                              0xe3dec (size before relaxing)
+ .debug_str     0x000ef370      0x2eb ./Application/User/regular_conversion_manager.o
+                              0xdfe15 (size before relaxing)
+ .debug_str     0x000ef65b      0x423 ./Application/User/stm32f4xx_hal_msp.o
+                              0xe2bd1 (size before relaxing)
+ .debug_str     0x000efa7e      0x187 ./Application/User/stm32f4xx_hal_timebase_tim.o
                               0xd63f8 (size before relaxing)
- .debug_str     0x000efbb9       0x90 ./Application/User/stm32f4xx_it.o
-                              0xe2094 (size before relaxing)
- .debug_str     0x000efc49      0x294 ./Application/User/stm32f4xx_mc_it.o
-                              0xe41bc (size before relaxing)
- .debug_str     0x000efedd      0x173 ./Application/User/ui_task.o
-                              0xe3d33 (size before relaxing)
- .debug_str     0x000f0050      0x2b1 ./Application/User/user_interface.o
-                              0xe3150 (size before relaxing)
- .debug_str     0x000f0301      0x117 ./Drivers/CMSIS/system_stm32f4xx.o
+ .debug_str     0x000efc05       0x90 ./Application/User/stm32f4xx_it.o
+                              0xe20e0 (size before relaxing)
+ .debug_str     0x000efc95      0x294 ./Application/User/stm32f4xx_mc_it.o
+                              0xe4208 (size before relaxing)
+ .debug_str     0x000eff29      0x173 ./Application/User/ui_task.o
+                              0xe3d7f (size before relaxing)
+ .debug_str     0x000f009c      0x2b1 ./Application/User/user_interface.o
+                              0xe319c (size before relaxing)
+ .debug_str     0x000f034d      0x117 ./Drivers/CMSIS/system_stm32f4xx.o
                               0xd58c0 (size before relaxing)
- .debug_str     0x000f0418      0x5f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
+ .debug_str     0x000f0464      0x5f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
                               0xd648a (size before relaxing)
- .debug_str     0x000f0a0e      0x2fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
+ .debug_str     0x000f0a5a      0x2fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
                               0xd5e8d (size before relaxing)
- .debug_str     0x000f0d0a      0x21f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
+ .debug_str     0x000f0d56      0x21f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
                               0xd5ee1 (size before relaxing)
- .debug_str     0x000f0f29      0x34f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
+ .debug_str     0x000f0f75      0x34f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
                               0xd6198 (size before relaxing)
- .debug_str     0x000f1278      0x193 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
+ .debug_str     0x000f12c4      0x193 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
                               0xd5a40 (size before relaxing)
- .debug_str     0x000f140b      0x178 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
+ .debug_str     0x000f1457      0x178 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
                               0xd5a9d (size before relaxing)
- .debug_str     0x000f1583      0x319 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
+ .debug_str     0x000f15cf      0x319 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
                               0xd5d0f (size before relaxing)
- .debug_str     0x000f189c      0x35d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
+ .debug_str     0x000f18e8      0x35d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
                               0xd5d42 (size before relaxing)
- .debug_str     0x000f1bf9      0xce4 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
+ .debug_str     0x000f1c45      0xce4 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
                               0xd6c1a (size before relaxing)
- .debug_str     0x000f28dd      0x3db ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x000f2929      0x3db ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
                               0xd6436 (size before relaxing)
- .debug_str     0x000f2cb8      0x651 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
+ .debug_str     0x000f2d04      0x651 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
                               0xd6284 (size before relaxing)
- .debug_str     0x000f3309     0x20a2 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_str     0x000f3355     0x20a2 ./Middlewares/FreeRTOS/cmsis_os.o
                                0xec23 (size before relaxing)
- .debug_str     0x000f53ab      0x4b6 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_str     0x000f53f7      0x4b6 ./Middlewares/FreeRTOS/heap_4.o
                                0xb549 (size before relaxing)
- .debug_str     0x000f5861      0x163 ./Middlewares/FreeRTOS/list.o
+ .debug_str     0x000f58ad      0x163 ./Middlewares/FreeRTOS/list.o
                                0xac07 (size before relaxing)
- .debug_str     0x000f59c4      0x846 ./Middlewares/FreeRTOS/port.o
+ .debug_str     0x000f5a10      0x846 ./Middlewares/FreeRTOS/port.o
                                0xa3bb (size before relaxing)
- .debug_str     0x000f620a     0x108e ./Middlewares/FreeRTOS/tasks.o
+ .debug_str     0x000f6256     0x108e ./Middlewares/FreeRTOS/tasks.o
                                0xd2d2 (size before relaxing)
- .debug_str     0x000f7298       0xc4 ./Middlewares/MotorControl/bus_voltage_sensor.o
+ .debug_str     0x000f72e4       0xc4 ./Middlewares/MotorControl/bus_voltage_sensor.o
                               0xdef37 (size before relaxing)
- .debug_str     0x000f735c       0xb3 ./Middlewares/MotorControl/circle_limitation.o
+ .debug_str     0x000f73a8       0xb3 ./Middlewares/MotorControl/circle_limitation.o
                               0xdf0bf (size before relaxing)
- .debug_str     0x000f740f      0x106 ./Middlewares/MotorControl/frame_communication_protocol.o
-                              0xe1d5d (size before relaxing)
- .debug_str     0x000f7515      0x486 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_str     0x000f745b      0x106 ./Middlewares/MotorControl/frame_communication_protocol.o
+                              0xe1da9 (size before relaxing)
+ .debug_str     0x000f7561      0x486 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
                               0xdf695 (size before relaxing)
- .debug_str     0x000f799b      0x3e7 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_str     0x000f79e7      0x3e7 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
                               0xdf9b8 (size before relaxing)
- .debug_str     0x000f7d82       0xcd ./Middlewares/MotorControl/motor_power_measurement.o
+ .debug_str     0x000f7dce       0xcd ./Middlewares/MotorControl/motor_power_measurement.o
                               0xdeef1 (size before relaxing)
- .debug_str     0x000f7e4f       0xdd ./Middlewares/MotorControl/ntc_temperature_sensor.o
+ .debug_str     0x000f7e9b       0xdd ./Middlewares/MotorControl/ntc_temperature_sensor.o
                               0xdf025 (size before relaxing)
- .debug_str     0x000f7f2c      0x257 ./Middlewares/MotorControl/pid_regulator.o
+ .debug_str     0x000f7f78      0x257 ./Middlewares/MotorControl/pid_regulator.o
                               0xdf159 (size before relaxing)
- .debug_str     0x000f8183       0x9b ./Middlewares/MotorControl/pqd_motor_power_measurement.o
+ .debug_str     0x000f81cf       0x9b ./Middlewares/MotorControl/pqd_motor_power_measurement.o
                               0xdf0d9 (size before relaxing)
- .debug_str     0x000f821e      0x16c ./Middlewares/MotorControl/pwm_common.o
+ .debug_str     0x000f826a      0x16c ./Middlewares/MotorControl/pwm_common.o
                               0xdf0b8 (size before relaxing)
- .debug_str     0x000f838a      0x354 ./Middlewares/MotorControl/pwm_curr_fdbk.o
+ .debug_str     0x000f83d6      0x354 ./Middlewares/MotorControl/pwm_curr_fdbk.o
                               0xdf46b (size before relaxing)
- .debug_str     0x000f86de       0xeb ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
+ .debug_str     0x000f872a       0xeb ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
                               0xdf0d1 (size before relaxing)
- .debug_str     0x000f87c9      0x155 ./Middlewares/MotorControl/ramp_ext_mngr.o
+ .debug_str     0x000f8815      0x155 ./Middlewares/MotorControl/ramp_ext_mngr.o
                               0xdef24 (size before relaxing)
- .debug_str     0x000f891e      0x239 ./Middlewares/MotorControl/revup_ctrl.o
+ .debug_str     0x000f896a      0x239 ./Middlewares/MotorControl/revup_ctrl.o
                               0xdfb92 (size before relaxing)
- .debug_str     0x000f8b57      0x125 ./Middlewares/MotorControl/speed_pos_fdbk.o
+ .debug_str     0x000f8ba3      0x125 ./Middlewares/MotorControl/speed_pos_fdbk.o
                               0xdf049 (size before relaxing)
- .debug_str     0x000f8c7c      0x169 ./Middlewares/MotorControl/speed_torq_ctrl.o
+ .debug_str     0x000f8cc8      0x169 ./Middlewares/MotorControl/speed_torq_ctrl.o
                               0xdf484 (size before relaxing)
- .debug_str     0x000f8de5       0xed ./Middlewares/MotorControl/state_machine.o
+ .debug_str     0x000f8e31       0xed ./Middlewares/MotorControl/state_machine.o
                               0xdefbf (size before relaxing)
- .debug_str     0x000f8ed2      0x215 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_str     0x000f8f1e      0x215 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
                               0xdf544 (size before relaxing)
- .debug_str     0x000f90e7       0xaa ./UDHAL/UDHAL_GPIO.o
-                              0xe22ff (size before relaxing)
- .debug_str     0x000f9191       0x18 ./UDHAL/UDHAL_SYSCLK.o
-                              0xe1de5 (size before relaxing)
- .debug_str     0x000f91a9       0x26 ./UDHAL/UDHAL_UART.o
-                              0xe1fdc (size before relaxing)
+ .debug_str     0x000f9133       0xaa ./UDHAL/UDHAL_GPIO.o
+                              0xe234b (size before relaxing)
+ .debug_str     0x000f91dd       0x18 ./UDHAL/UDHAL_SYSCLK.o
+                              0xe1e31 (size before relaxing)
+ .debug_str     0x000f91f5       0x26 ./UDHAL/UDHAL_UART.o
+                              0xe2028 (size before relaxing)
 
 .debug_rnglists
                 0x00000000     0x26d3
