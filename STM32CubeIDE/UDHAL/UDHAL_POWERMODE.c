@@ -74,6 +74,7 @@ void bootStart()
 	/* Reset all the system peripherals ! Reset the program counter! You could de-active EXTI First
 	 * Resume RTOS tasks !
 	 * */
+	GET_RESET_SOURCE();
 	WakeUpPinDeInit();
 	SystemClock();
 	HAL_ResumeTick();

@@ -12,6 +12,7 @@
 #include "ERROR_REPORT.h"
 #include "UDHAL_TIMEOUT.h"
 #include "UDHAL_MOTOR.h"
+#include "hardwareParam.h"
 #include "cmsis_os.h"
 
 osThreadId driveHandle;
@@ -73,7 +74,11 @@ void ES_RunDrivingTasks(void const * argument)
 		CHECK_MOTOR_STATUS();
 		refreshThrottleStatus();
 		lightStateChange();
+#ifdef DEBUG
+		throttleSignalInput();
+#endif
 
+#ifdef MOTOR_CONTROL
 		if(*ptr_error_report == 0x00)
 		{
 			if(getThrottleStatus() == true)
@@ -89,6 +94,7 @@ void ES_RunDrivingTasks(void const * argument)
 			//ES_SafetyTask();
 			break; /*Please restart again*/
 		}
+#endif
 
 		if(getPowerMode() == false)
 		{

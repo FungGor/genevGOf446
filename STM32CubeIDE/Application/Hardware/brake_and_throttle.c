@@ -9,6 +9,7 @@
 #include "UDHAL_MOTOR.h"
 
 brakeAndThrottle_t *ptr_brakeAndThrottle;
+int16_t torque = 0;
 
 void brake_and_throttle_init()
 {
@@ -32,7 +33,12 @@ int16_t getIQ()
 
 void throttleSignalInput()
 {
+#ifdef DEBUG
+    torque = getIQ();
+#endif
+#ifdef MOTOR_CONTROL
 	accelerateIQMotor(ptr_brakeAndThrottle->IQ_applied,0);
+#endif
 }
 
 void refreshThrottleStatus()

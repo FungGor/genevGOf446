@@ -14,6 +14,7 @@ extern "C"{
 
 #include "stdbool.h"
 #include "stdint.h"
+#include "hardwareParam.h"
 
 typedef struct
 {
