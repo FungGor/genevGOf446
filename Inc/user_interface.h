@@ -198,7 +198,8 @@ typedef enum
 	BRAKE_RELEASE,
 	TAIL_LIGHT_TOGGLE,
 	TAIL_LIGHT_OFF,
-	SHUT_DOWN
+	SHUT_DOWN,
+	GET_SERIAL_NUM
 }EScooter_Behavior_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/

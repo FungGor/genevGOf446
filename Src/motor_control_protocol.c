@@ -669,6 +669,13 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   }
     	   break;
 
+    	   case GET_SERIAL_NUM:
+    	   {
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   /*Send Serial Number + Show Firmware Version*/
+    	   }
+
     	   default:
     	   {
     		   uint8_t invalidCMD = 0xFF;
