@@ -591,12 +591,14 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	EScooter_Behavior_t behaviorID = (EScooter_Behavior_t)buffer[0];
     	switch(behaviorID)
     	{
+    	   /*It's better to send boot done message to notify the RTOS*/
     	   case BOOT_ACK:
     	   {
     		   /*$2E$01$00$2F*/
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t bootDone = 0x01;
+    		   /*$F0$01$01$F2*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&bootDone,1);
     	   }
     	   break;
@@ -604,6 +606,12 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   case ERROR_REPORT:
     	   {
     		   /*$2E$01$01$30*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t FAULTS = GET_ERROR_REPORT();
+    		   /*$F0$01$??$??*/
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR, &FAULTS,1);
+
     	   }
     	   break;
 
@@ -613,6 +621,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t twistedThorttle = 0x03;
+    		   /*$F0$01$03$F4*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&twistedThorttle,1);
     	   }
     	   break;
@@ -624,6 +633,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   bNoError = true;
     		   uint8_t pressBrake = 0x04;
     		   updateBrakeStatus(true);
+    		   /*$F0$01$04$F5*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&pressBrake,1);
 
     	   }
@@ -636,6 +646,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   bNoError = true;
     		   uint8_t releaseBrake = 0x05;
     		   updateBrakeStatus(false);
+    		   /*$F0$01$05$F6*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&releaseBrake,1);
     	   }
     	   break;
@@ -646,6 +657,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t toggle = 0x06;
+    		   /*$F0$01$06$F7*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&toggle,1);
     	   }
     	   break;
@@ -656,6 +668,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t lightOff = 0x07;
+    		   /*$F0$01$07$F8*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
     	   }
     	   break;
@@ -705,6 +718,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   int16_t  allowable_rpm    = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
   	   uint16_t ramp             = buffer[8] + (buffer[9] << 8);
   	   changeSpeedMode(speed_mode_IQmax,allowable_rpm,ramp);
+  	   /*$F0$01$13$05*/
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&changeDone,1);
      }
      break;
@@ -714,9 +728,10 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   bNoError = true;
   	   RequireAck = false;
   	   uint8_t IQReceived = 0x14;
-  	   int16_t allowable_rpm = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
+  	   int16_t throttlePercent = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
   	   int16_t IQ_value      = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
   	   setIQ(IQ_value);
+  	   /*$F0$01$14$06*/
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&IQReceived,1);
      }
      break;

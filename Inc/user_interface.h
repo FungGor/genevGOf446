@@ -191,15 +191,15 @@ typedef enum
 
 typedef enum
 {
-	BOOT_ACK,
-	ERROR_REPORT,
-	THORTTLE_TRIGGER,
-	BRAKE_PRESS,
-	BRAKE_RELEASE,
-	TAIL_LIGHT_TOGGLE,
-	TAIL_LIGHT_OFF,
-	SHUT_DOWN,
-	GET_SERIAL_NUM
+	BOOT_ACK,           /*0x00*/
+	ERROR_REPORT,       /*0x01*/
+	THORTTLE_TRIGGER,   /*0x02*/
+	BRAKE_PRESS,        /*0x03*/
+	BRAKE_RELEASE,      /*0x04*/
+	TAIL_LIGHT_TOGGLE,  /*0x05*/
+	TAIL_LIGHT_OFF,     /*0x06*/
+	SHUT_DOWN,          /*0x07*/
+	GET_SERIAL_NUM      /*0x08*/
 }EScooter_Behavior_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/
