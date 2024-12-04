@@ -603,6 +603,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   }
     	   break;
 
+    	   /*Constantly reports if there's any errors in the driver*/
     	   case ERROR_REPORT:
     	   {
     		   /*$2E$01$01$30*/
