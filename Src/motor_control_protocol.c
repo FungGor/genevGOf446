@@ -679,6 +679,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$07$36*/
     		   RequireAck = false;
     		   bNoError = true;
+    		   /*Trigger Power Off*/
     		   changePowerMode();
     	   }
     	   break;
