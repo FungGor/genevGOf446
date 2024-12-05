@@ -733,6 +733,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   int16_t throttlePercent = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
   	   int16_t IQ_value      = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
   	   setIQ(IQ_value);
+  	   set_ThrottlePercent(throttlePercent);
   	   /*$F0$01$14$06*/
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&IQReceived,1);
      }
