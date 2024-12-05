@@ -19,6 +19,7 @@ extern "C"{
 typedef struct
 {
 	int16_t IQ_applied;
+	int16_t throttlePercent;
 	bool throttleTriggered;
 	bool brakeTriggered;
 	int16_t allowable_rpm;
@@ -31,6 +32,10 @@ void brake_and_throttle_init();
 void setIQ(int16_t IQ);
 
 int16_t getIQ();
+
+void set_ThrottlePercent(int16_t percentage);
+
+int16_t getThrottlePercent();
 
 void throttleSignalInput();
 

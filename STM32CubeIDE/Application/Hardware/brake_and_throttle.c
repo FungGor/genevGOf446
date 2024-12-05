@@ -14,6 +14,7 @@ int16_t torque = 0;
 void brake_and_throttle_init()
 {
 	ptr_brakeAndThrottle->IQ_applied = 0;
+	ptr_brakeAndThrottle->throttlePercent = 0;
 	ptr_brakeAndThrottle->throttleTriggered = false;
 	ptr_brakeAndThrottle->brakeTriggered   = false;
 	ptr_brakeAndThrottle->allowable_rpm = 0;
@@ -29,6 +30,16 @@ void setIQ(int16_t IQ)
 int16_t getIQ()
 {
 	return ptr_brakeAndThrottle->IQ_applied;
+}
+
+void set_ThrottlePercent(int16_t percentage)
+{
+	ptr_brakeAndThrottle->throttlePercent = percentage;
+}
+
+int16_t getThrottlePercent()
+{
+	return ptr_brakeAndThrottle->throttlePercent;
 }
 
 void throttleSignalInput()
