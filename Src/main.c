@@ -1,22 +1,3 @@
-/* USER CODE BEGIN Header */
-/**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * Copyright (c) 2024 STMicroelectronics.
-  * All rights reserved.
-  *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
-  *
-  ******************************************************************************
-  */
-/* USER CODE END Header */
-/* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "cmsis_os.h"
 #include "UDHAL_SYSCLK.h"
@@ -28,6 +9,7 @@ ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim2;
+
 osThreadId mediumFrequencyHandle;
 osThreadId safetyHandle;
 
@@ -37,6 +19,7 @@ static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 void startMediumFrequencyTask(void const * argument);
 extern void StartSafetyTask(void const * argument);
+
 static void MX_NVIC_Init(void);
 
 int main(void)
@@ -50,6 +33,8 @@ int main(void)
   MX_TIM2_Init();
   UART_Init();
   MX_MotorControl_Init();
+
+  /* Initialize interrupts */
   MX_NVIC_Init();
 
   GoInit();
@@ -60,14 +45,11 @@ int main(void)
   /* definition and creation of safety */
   osThreadDef(safety, StartSafetyTask, osPriorityAboveNormal, 0, 128);
   safetyHandle = osThreadCreate(osThread(safety), NULL);
-
   osKernelStart();
-
   while (1)
   {
   }
 }
-
 /**
   * @brief NVIC Configuration.
   * @retval None

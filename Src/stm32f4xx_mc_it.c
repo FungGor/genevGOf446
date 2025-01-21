@@ -29,6 +29,7 @@
 #include "motorcontrol.h"
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx.h"
+#include "SleepAndWake.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -62,6 +63,7 @@ void SPD_TIM_M1_IRQHandler(void);
 void USART_IRQHandler(void);
 void HardFault_Handler(void);
 void SysTick_Handler(void);
+void EXTI9_5_IRQHandler(void);
 
 /**
   * @brief  This function handles ADC1/ADC2 interrupt request.
@@ -278,6 +280,16 @@ void HardFault_Handler(void)
  /* USER CODE BEGIN HardFault_IRQn 1 */
 
  /* USER CODE END HardFault_IRQn 1 */
+
+}
+
+void EXTI9_5_IRQHandler(void)
+{
+	if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_7) != RESET)
+	{
+		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_7);
+		wakeUp();
+	}
 
 }
 

@@ -21,3 +21,4 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Middlewares/
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Middlewares/Third_Party/FreeRTOS/Source/queue.c:2648:7:vQueueAddToRegistry	9
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Middlewares/Third_Party/FreeRTOS/Source/queue.c:2677:14:pcQueueGetName	9
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Middlewares/Third_Party/FreeRTOS/Source/queue.c:2705:7:vQueueUnregisterQueue	9
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Middlewares/Third_Party/FreeRTOS/Source/queue.c:2737:7:vQueueWaitForMessageRestricted	12

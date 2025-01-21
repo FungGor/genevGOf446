@@ -1,5 +1,7 @@
 "./Application/BootAndShutDown/SleepAndWake.o"
 "./Application/Hardware/brake_and_throttle.o"
+"./Application/Hardware/lightSensor.o"
+"./Application/Hardware/motor_param.o"
 "./Application/Hardware/tail_light.o"
 "./Application/MainTask/PROTOCOL_HANDLER.o"
 "./Application/MainTask/drive_tasks.o"
@@ -82,3 +84,4 @@
 "./UDHAL/UDHAL_SYSCLK.o"
 "./UDHAL/UDHAL_TIMEOUT.o"
 "./UDHAL/UDHAL_UART.o"
+"./UDHAL/UHAL_Init.o"

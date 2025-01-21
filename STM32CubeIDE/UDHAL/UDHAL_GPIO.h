@@ -29,6 +29,8 @@ extern void fault_warning_off();
 
 extern void tail_light_flash();
 
+extern void tail_light_turnon();
+
 extern void tail_light_turnoff();
 
 #ifdef __cplusplus

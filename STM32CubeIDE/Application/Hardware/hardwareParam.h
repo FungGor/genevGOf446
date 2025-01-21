@@ -13,6 +13,9 @@ extern "C"{
 
 #undef MOTOR_CONTROL
 #define DEBUG 1
+#define VDD_SUPPLY            3.3
+#define ADC_RANGE             65536
+#define CURRENT_SENSOR_GAIN   0.04
 
 #ifdef __cplusplus
 }

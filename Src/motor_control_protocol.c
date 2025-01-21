@@ -25,7 +25,9 @@
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"
 #include "tail_light.h"
+#include "lightSensor.h"
 #include "ERROR_REPORT.h"
+#include "PROTOCOL_HANDLER.h"
 
 /**
  * @addtogroup MCSDK
@@ -163,6 +165,7 @@ __weak void MCP_SentFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buffer, 
 * @param  buffer frame data buffer.
 * @param  Size size of data frame.
 */
+uint8_t uart = 0;
 __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buffer, uint8_t Size)
 {
   bool RequireAck = true;
@@ -588,31 +591,26 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
 
     case DEFINE_ESCOOTER_BEHAVIOR:
     {
-    	EScooter_Behavior_t behaviorID = (EScooter_Behavior_t)buffer[0];
+    	EScooter_Behavior_t behaviorID = (EScooter_Behavior_t) buffer[0];
     	switch(behaviorID)
     	{
-    	   /*It's better to send boot done message to notify the RTOS*/
     	   case BOOT_ACK:
     	   {
     		   /*$2E$01$00$2F*/
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t bootDone = 0x01;
-    		   /*$F0$01$01$F2*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&bootDone,1);
     	   }
     	   break;
 
-    	   /*Constantly reports if there's any errors in the driver*/
     	   case ERROR_REPORT:
     	   {
     		   /*$2E$01$01$30*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   uint8_t FAULTS = GET_ERROR_REPORT();
-    		   /*$F0$01$??$??*/
-    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR, &FAULTS,1);
-
+    		   uint8_t errorReport = GET_MOTOR_ERROR_REPORT();
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR, &errorReport, 1);
     	   }
     	   break;
 
@@ -622,7 +620,6 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t twistedThorttle = 0x03;
-    		   /*$F0$01$03$F4*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&twistedThorttle,1);
     	   }
     	   break;
@@ -634,9 +631,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   bNoError = true;
     		   uint8_t pressBrake = 0x04;
     		   updateBrakeStatus(true);
-    		   /*$F0$01$04$F5*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&pressBrake,1);
-
     	   }
     	   break;
 
@@ -647,7 +642,6 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   bNoError = true;
     		   uint8_t releaseBrake = 0x05;
     		   updateBrakeStatus(false);
-    		   /*$F0$01$05$F6*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&releaseBrake,1);
     	   }
     	   break;
@@ -658,7 +652,6 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t toggle = 0x06;
-    		   /*$F0$01$06$F7*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&toggle,1);
     	   }
     	   break;
@@ -669,7 +662,6 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t lightOff = 0x07;
-    		   /*$F0$01$07$F8*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
     	   }
     	   break;
@@ -679,17 +671,40 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$07$36*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   /*Trigger Power Off*/
     		   changePowerMode();
     	   }
     	   break;
 
-    	   case GET_SERIAL_NUM:
+    	   case TAIL_LIGHT_ON_LIGHT_SENSOR:
     	   {
     		   RequireAck = false;
     		   bNoError = true;
-    		   /*Send Serial Number + Show Firmware Version*/
+    		   uint8_t lightOn = 0x09;
+    		   updateLightSensorStatus(0x01);
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOn,1);
     	   }
+    	   break;
+
+    	   case TAIL_LIGHT_OFF_LIGHT_SENSOR:
+    	   {
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t lightOff = 0x0A;
+    		   updateLightSensorStatus(0x00);
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
+    	   }
+    	   break;
+
+    	   case TIMEOUT_CHECKING:
+    	   {
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t timeout = 0x0B;
+    		   uart++;
+    		   updateConnectionStatus(true,uart);
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&timeout,1);
+    	   }
+    	   break;
 
     	   default:
     	   {
@@ -720,7 +735,6 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   int16_t  allowable_rpm    = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
   	   uint16_t ramp             = buffer[8] + (buffer[9] << 8);
   	   changeSpeedMode(speed_mode_IQmax,allowable_rpm,ramp);
-  	   /*$F0$01$13$05*/
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&changeDone,1);
      }
      break;
@@ -730,11 +744,12 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   bNoError = true;
   	   RequireAck = false;
   	   uint8_t IQReceived = 0x14;
-  	   int16_t throttlePercent = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
-  	   int16_t IQ_value      = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
+  	   uint16_t throttlePercentage = buffer[0] + (buffer[1] << 8) + (buffer[2] << 16) + (buffer[3] << 24);
+  	   int16_t IQ_value            = buffer[4] + (buffer[5] << 8) + (buffer[6] << 16) + (buffer[7] << 24);
+  	   /*Iq Value to the motor controller*/
   	   setIQ(IQ_value);
-  	   set_ThrottlePercent(throttlePercent);
-  	   /*$F0$01$14$06*/
+  	   /*Percentage of throttle twisted*/
+  	   set_ThrottlePercent(throttlePercentage);
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&IQReceived,1);
      }
      break;

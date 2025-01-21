@@ -11,6 +11,7 @@
   */
 #include "stm32f4xx_hal.h"
 #include "main.h"
+#include "UDHAL_GPIO.h"
 
 GPIO_InitTypeDef GPIO_InitStruct = {0};
 void GPIO_Init(void)
@@ -96,6 +97,11 @@ void tail_light_flash()
 	HAL_Delay(200);
 	HAL_GPIO_WritePin(GPIOB,TAIL_LIGHT_Pin,GPIO_PIN_RESET);
 	HAL_Delay(200);
+}
+
+void tail_light_turnon()
+{
+	HAL_GPIO_WritePin(GPIOB,TAIL_LIGHT_Pin,GPIO_PIN_SET);
 }
 
 void tail_light_turnoff()

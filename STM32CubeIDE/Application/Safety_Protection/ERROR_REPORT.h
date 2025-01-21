@@ -14,6 +14,7 @@ extern "C"{
 
 #include<stdint.h>
 
+#define SOFTWARE_OK              0x00
 #define ERROR_CODE_PACKET        0x4A
 #define ERROR_MSG_HANDLE_LENGTH  0x01
 #define SYSTEM_NORMAL            0x00
@@ -29,9 +30,12 @@ extern "C"{
 #define MOTOR_TEMP_ERROR_CODE     0x3C
 
 void ERROR_REPORT_INIT();
+void SOFTWARE_ERROR_REPORT_INIT();
 void CHECK_MOTOR_STATUS();
-void SEND_ERROR_REPORT(uint16_t error_code);
-uint8_t GET_ERROR_REPORT();
+void SEND_SOFTWARE_ERROR_REPORT(uint8_t fault);
+void SEND_MOTOR_ERROR_REPORT(uint16_t error_code);
+uint8_t GET_MOTOR_ERROR_REPORT();
+uint8_t GET_SOFTWARE_ERROR_REPORT();
 
 #ifdef __cplusplus
 }

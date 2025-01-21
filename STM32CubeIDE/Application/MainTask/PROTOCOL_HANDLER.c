@@ -9,7 +9,9 @@
 
 static STM32MCP_protocolHandle_t *STM32MCP_protocolHandle;
 uint8_t packetLoss = 0x00;
-
+uint8_t expiration = 0x00;
+uint8_t payLoad = 0x00;
+bool inConnection = false;
 /*********************************************************************
  * @fn      STM32MCP_registerTimer
  *
@@ -64,10 +66,23 @@ void timeOutStop()
  */
 void timeOutHandler()
 {
-	packetLoss++;
-	if(packetLoss > MAXIMUM_NUMBER_OF_LOST_PACKETS)
+	expiration++;
+	if( (expiration%3) == 0)
 	{
-		SEND_ERROR_REPORT(TIMEOUT_EXPIRATION);
+		payLoad = 0x00;
+	}
+	if(payLoad == 0x00)
+	{
+		packetLoss ++;
+		if(packetLoss > MAXIMUM_NUMBER_OF_LOST_PACKETS)
+		{
+			SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
+			updateConnectionStatus(false,payLoad);
+		}
+	}
+	else if(payLoad > 0)
+	{
+		packetLoss = 0;
 	}
 }
 
@@ -85,4 +100,28 @@ void timeOutReset()
 {
     packetLoss = 0x00;
     timeOutStop();
+}
+
+void updateConnectionStatus(bool received, uint8_t packageCount)
+{
+	inConnection = received;
+	payLoad = packageCount;
+}
+
+bool getConnectionStatus()
+{
+	return inConnection;
+}
+
+uint8_t connectSkin = 0xFF;
+void checkConnectionStatus()
+{
+	if (getConnectionStatus() == true)
+	{
+		connectSkin = 0x00;
+	}
+	else if(getConnectionStatus() == false)
+	{
+		connectSkin = 0x01;
+	}
 }

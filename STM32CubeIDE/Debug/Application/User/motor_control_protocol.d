@@ -81,7 +81,9 @@ Application/User/motor_control_protocol.o: \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/brake_and_throttle.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/hardwareParam.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/tail_light.h \
- C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/lightSensor.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MainTask/PROTOCOL_HANDLER.h
 ../../Inc/user_interface.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 ../../Inc/mc_stm_types.h:
@@ -164,4 +166,6 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/brake_and_throttle.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/hardwareParam.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/tail_light.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/lightSensor.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MainTask/PROTOCOL_HANDLER.h:

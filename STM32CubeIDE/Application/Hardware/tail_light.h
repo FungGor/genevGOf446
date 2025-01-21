@@ -18,7 +18,17 @@ void tail_light_toggle();
 
 void tail_light_off();
 
-void lightStateChange();
+void led_indicator_on();
+
+void led_indicator_off();
+
+void error_indicator_on();
+
+void error_indicator_off();
+
+void brakeStateChange();
+
+void lightSensorStateChange();
 
 
 #ifdef __cplusplus

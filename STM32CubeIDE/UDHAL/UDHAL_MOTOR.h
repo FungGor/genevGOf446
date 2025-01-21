@@ -19,7 +19,13 @@ extern void accelerateSpeedMotor(int16_t targetSpeed, uint16_t ramp);
 
 extern void motorStop();
 
+extern void ackErrorDebug();
+
 int16_t getSpeed();
+
+float getCurrent();
+
+int16_t getVoltage();
 
 extern void motorAnalysis();
 

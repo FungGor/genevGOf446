@@ -20,6 +20,8 @@ bool getPowerMode();
 
 void go_errorReportRegister(uint8_t *report);
 
+void software_errorReportRegister(uint8_t *fault);
+
 /* Initializes GENEV-GO core according to user defined parameters. */
 void GoInit();
 

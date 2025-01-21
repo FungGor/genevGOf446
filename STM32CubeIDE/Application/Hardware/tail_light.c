@@ -5,6 +5,7 @@
  *      Author: TerenceLeung
  */
 #include "tail_light.h"
+#include "lightSensor.h"
 #include "brake_and_throttle.h"
 
 #include "../../UDHAL/UDHAL_GPIO.h"
@@ -27,7 +28,27 @@ void tail_light_off()
 	tail_light_turnoff();
 }
 
-void lightStateChange()
+void led_indicator_on()
+{
+	dashboard_indicator_on();
+}
+
+void led_indicator_off()
+{
+	dashboard_indicator_off();
+}
+
+void error_indicator_on()
+{
+	fault_warning_on();
+}
+
+void error_indicator_off()
+{
+	fault_warning_off();
+}
+
+void brakeStateChange()
 {
 	if(getBrakeStatus() == true)
 	{
@@ -37,4 +58,16 @@ void lightStateChange()
 	{
 		tail_light_off();
 	}
+}
+
+void lightSensorStateChange()
+{
+   if(getLightSensorStatus() == 0x01)
+   {
+	   tail_light_turnon();
+   }
+   else if(getLightSensorStatus() == 0x00)
+   {
+	   tail_light_turnoff();
+   }
 }

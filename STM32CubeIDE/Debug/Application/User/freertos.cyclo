@@ -1,1 +1,2 @@
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/freertos.c:62:6:vApplicationGetIdleTaskMemory	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/freertos.c:65:6:vApplicationGetIdleTaskMemory	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/freertos.c:78:6:vApplicationGetTimerTaskMemory	1

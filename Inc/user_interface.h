@@ -191,15 +191,17 @@ typedef enum
 
 typedef enum
 {
-	BOOT_ACK,           /*0x00*/
-	ERROR_REPORT,       /*0x01*/
-	THORTTLE_TRIGGER,   /*0x02*/
-	BRAKE_PRESS,        /*0x03*/
-	BRAKE_RELEASE,      /*0x04*/
-	TAIL_LIGHT_TOGGLE,  /*0x05*/
-	TAIL_LIGHT_OFF,     /*0x06*/
-	SHUT_DOWN,          /*0x07*/
-	GET_SERIAL_NUM      /*0x08*/
+	BOOT_ACK,                     /*0x00*/
+	ERROR_REPORT,                 /*0x01*/
+	THORTTLE_TRIGGER,             /*0x02*/
+	BRAKE_PRESS,                  /*0x03*/
+	BRAKE_RELEASE,                /*0x04*/
+	TAIL_LIGHT_TOGGLE,            /*0x05*/
+	TAIL_LIGHT_OFF,               /*0x06*/
+	SHUT_DOWN,                    /*0x07*/
+	TAIL_LIGHT_ON_LIGHT_SENSOR,   /*0x08*/
+	TAIL_LIGHT_OFF_LIGHT_SENSOR,  /*0x09*/
+	TIMEOUT_CHECKING              /*0X0A*/
 }EScooter_Behavior_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/
@@ -252,9 +254,10 @@ typedef enum
 #define MC_PROTOCOL_CODE_GET_FW_VERSION   0x0C
 #define MC_PROTOCOL_CODE_SET_TORQUE_RAMP  0x0D
 #define MC_PROTOCOL_CODE_SET_POSITION_CMD 0x12
-#define DEFINE_ESCOOTER_BEHAVIOR          0x0E
+#define DEFINE_ESCOOTER_BEHAVIOR          0x1B
 #define TOGGLE_SPEED_MODE                 0x13
 #define APPLY_THROTTLE_IQ                 0x14
+#define MOTOR_ANALYSIS                    0x30
 
 #define MC_PROTOCOL_CMD_START_MOTOR       0x01
 #define MC_PROTOCOL_CMD_STOP_MOTOR        0x02

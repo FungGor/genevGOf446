@@ -11,7 +11,11 @@
 extern "C"{
 #endif
 
-#define MAXIMUM_NUMBER_OF_LOST_PACKETS     0x05
+#include "stdint.h"
+#include "stdbool.h"
+
+#define MAXIMUM_NUMBER_OF_LOST_PACKETS     0x0A
+/*In case the dashboard is accidentally disconnected, system stops running*/
 #define TIMEOUT_EXPIRATION                 0x0A
 /*********************************************************************
  * @Structure STM32MCP_timerManager_t
@@ -35,7 +39,9 @@ extern void timeOutStart();
 extern void timeOutStop();
 extern void timeOutHandler();
 extern void timeOutReset();
-
+extern void updateConnectionStatus(bool received, uint8_t packageCount);
+extern bool getConnectionStatus();
+extern void checkConnectionStatus();
 #ifdef __cplusplus
 }
 #endif
