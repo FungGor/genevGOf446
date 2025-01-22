@@ -30,6 +30,9 @@ void motor_current();
 
 void motor_voltage();
 
+bool isStop();
+
+int16_t getRPM();
 
 #ifdef __cplusplus
 }

@@ -68,6 +68,6 @@ void lightSensorStateChange()
    }
    else if(getLightSensorStatus() == 0x00)
    {
-	   tail_light_turnoff();
+	   tail_light_off();
    }
 }

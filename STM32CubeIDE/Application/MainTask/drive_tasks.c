@@ -80,49 +80,64 @@ uint8_t needPowerOff = 0x00;
 void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
-	led_indicator_on();
 	updateConnectionStatus(false,0);
 	timeOutStart();
 	for(;;)
 	{
-		/*Sends Motor Fault Report to the Dash-board*/
-		CHECK_MOTOR_STATUS();
-		/*Is the throttle twisted ?*/
-		refreshThrottleStatus();
-		/*Is the brake pressed ?
-		 *If Yes -> Give an alarm signal !
-		 *If No -> Turn off the tail light ! */
-		brakeStateChange();
-		/*Is the environment dark?
-		 *  If Yes -> turn on the tail light !
-		 *  If No  -> turn off the tail light !*/
-		lightSensorStateChange();
-		/*Get Iq values to control the motor*/
-		get_ThrottleInformation();
-        /*Connection lost?*/
-		checkConnectionStatus();
-
-		motor_speed();
-
-		motor_current();
-
-		if( ((*software_error_report == 0x00) || (*ptr_error_report == 0x00)) )
+		if(getPowerMode() == true)
 		{
-			throttleSignalInput();
-		}
-		else if( (*software_error_report != 0x00) || (*ptr_error_report != 0x00))
-		{
-			setIQ(0);
-			set_ThrottlePercent(0);
-			throttleSignalInput();
-			driveStop();
-			/*Turn Off the Motor Controller after stopping the motor*/
-			error_indicator_on();
-		}
+			led_indicator_on();
+			/*Sends Motor Fault Report to the Dash-board*/
+			CHECK_MOTOR_STATUS();
+			/*Is the throttle twisted ?*/
+			refreshThrottleStatus();
+			/*Is the brake pressed ?
+			 *If Yes -> Give an alarm signal !
+			 *If No -> Turn off the tail light ! */
+			brakeStateChange();
+			/*Is the environment dark?
+			 *  If Yes -> turn on the tail light !
+			 *  If No  -> turn off the tail light !*/
+			lightSensorStateChange();
+			/*Get Iq values to control the motor*/
+			get_ThrottleInformation();
+	        /*Connection lost?*/
+			checkConnectionStatus();
 
-		if(getPowerMode() == false)
+			motor_speed();
+
+			motor_current();
+
+			if( ((*software_error_report == 0x00) || (*ptr_error_report == 0x00)) )
+			{
+				throttleSignalInput();
+			}
+			else if( (*software_error_report != 0x00) || (*ptr_error_report != 0x00))
+			{
+				setIQ(0);
+				set_ThrottlePercent(0);
+				throttleSignalInput();
+				driveStop();
+				/*Turn Off the Motor Controller after stopping the motor*/
+				error_indicator_on();
+			}
+
+			/**************************Safety Routine (2025-01-22 15:51)**********************
+			 * Conditions to completely stop the car
+			 * 1. Motor RPM is less than 10 RPM
+			 * 2. User Has Pressed the brake
+			 * *******************************************************************************/
+			//if ((getRPM() < 10) && (getBrakeStatus() == true))
+			//{
+			//	driveStop();
+			//}
+		}
+		else if(getPowerMode() == false)
 		{
 			needPowerOff = 0x01;
+			led_indicator_off();
+			error_indicator_off();
+			tail_light_off();
 			/*Jump to shut-down process*/
 			break;
 		}

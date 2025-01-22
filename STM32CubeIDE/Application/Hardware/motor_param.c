@@ -26,3 +26,17 @@ void motor_current()
 {
 	ptrMotor.CURRENT = getCurrent();
 }
+
+bool isStop()
+{
+	if(ptrMotor.SPEED == 0)
+	{
+		return true;
+	}
+	return false;
+}
+
+int16_t getRPM()
+{
+	return ptrMotor.SPEED;
+}
