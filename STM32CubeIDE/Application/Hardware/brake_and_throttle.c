@@ -91,3 +91,8 @@ void get_ThrottleInformation()
     Iq_applied = getIQ();
     Iq_Percentage = getThrottlePercent();
 }
+
+void driveStop()
+{
+	motorStop();
+}

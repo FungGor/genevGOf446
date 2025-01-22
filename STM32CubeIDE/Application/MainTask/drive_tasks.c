@@ -71,13 +71,13 @@ void GoInit()
 void createDrivingTasks(void)
 {
 	/*Starts Driving Task*/
-	osThreadDef(drive, ES_RunDrivingTasks,osPriorityBelowNormal,0,128);
+	osThreadDef(drive, GeneralTasks,osPriorityBelowNormal,0,128);
 	driveHandle = osThreadCreate(osThread(drive), NULL);
 }
 
 /*MAIN TASKS*/
 uint8_t needPowerOff = 0x00;
-void ES_RunDrivingTasks(void const * argument)
+void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
 	led_indicator_on();
@@ -106,7 +106,7 @@ void ES_RunDrivingTasks(void const * argument)
 
 		motor_current();
 
-		if( (*software_error_report == 0x00) || (*ptr_error_report == 0x00))
+		if( ((*software_error_report == 0x00) || (*ptr_error_report == 0x00)) )
 		{
 			throttleSignalInput();
 		}
@@ -115,36 +115,10 @@ void ES_RunDrivingTasks(void const * argument)
 			setIQ(0);
 			set_ThrottlePercent(0);
 			throttleSignalInput();
+			driveStop();
 			/*Turn Off the Motor Controller after stopping the motor*/
 			error_indicator_on();
 		}
-
-
-#ifndef DEBUG
-		if(GET_ERROR_REPORT() == 0x2A)
-		{
-			ackErrorDebug();
-		}
-		throttleSignalInput();
-#endif
-
-#ifdef MOTOR_CONTROL
-		if(*ptr_error_report == 0x00)
-		{
-			if(getThrottleStatus() == true)
-			{
-				//throttleSignalInput();
-			}
-			else if( (getThrottleStatus() == false) || (getSpeed() <= 10) )
-			{
-				//ES_SafetyTask();
-			}
-		}else if(*ptr_error_report != 0x00)
-		{
-			//ES_SafetyTask();
-			break; /*Please restart again*/
-		}
-#endif
 
 		if(getPowerMode() == false)
 		{

@@ -28,7 +28,7 @@ void GoInit();
 void createDrivingTasks(void);
 
 /* Runs all the Tasks of GENEV-GO cockpit */
-void ES_RunDrivingTasks(void const * argument);
+void GeneralTasks(void const * argument);
 
 /* Executes safety checks (e.g. bus voltage and temperature) for all drive instances */
 void ES_SafetyTask();

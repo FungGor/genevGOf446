@@ -51,6 +51,7 @@ void changeSpeedMode(int16_t speed_mode_IQmax, int16_t allowable_rpm, uint16_t r
 
 void get_ThrottleInformation();
 
+void driveStop();
 #ifdef __cplusplus
 }
 #endif
