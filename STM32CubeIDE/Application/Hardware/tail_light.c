@@ -7,6 +7,7 @@
 #include "tail_light.h"
 #include "lightSensor.h"
 #include "brake_and_throttle.h"
+#include "SleepAndWake.h"
 
 #include "../../UDHAL/UDHAL_GPIO.h"
 

@@ -24,6 +24,11 @@ void changePowerMode()
 	}
 }
 
+bool getPowerStatus()
+{
+	return POWER_ON;
+}
+
 void gotoSLEEP()
 {
 	ShutDownTask();

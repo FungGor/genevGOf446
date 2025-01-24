@@ -32,8 +32,6 @@ void GeneralTasks(void const * argument);
 
 /* Executes safety checks (e.g. bus voltage and temperature) for all drive instances */
 void ES_SafetyTask();
-
-
 #ifdef __cplusplus
 }
 #endif

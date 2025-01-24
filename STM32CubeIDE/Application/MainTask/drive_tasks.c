@@ -19,6 +19,9 @@
 osThreadId driveHandle;
 osPriority priority;
 
+osThreadId shutDownHandle;
+
+
 static bool *ptr_drive_POWER_ON;
 static uint8_t *ptr_error_report;       /*MOTOR CONTROLLER HARDWARE ERROR*/
 static uint8_t *software_error_report;  /*SOFTWARE ERROR*/
@@ -76,7 +79,7 @@ void createDrivingTasks(void)
 }
 
 /*MAIN TASKS*/
-uint8_t needPowerOff = 0x00;
+uint8_t fuck = 0x00;
 void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
@@ -121,25 +124,19 @@ void GeneralTasks(void const * argument)
 				/*Turn Off the Motor Controller after stopping the motor*/
 				error_indicator_on();
 			}
-
-			/**************************Safety Routine (2025-01-22 15:51)**********************
-			 * Conditions to completely stop the car
-			 * 1. Motor RPM is less than 10 RPM
-			 * 2. User Has Pressed the brake
-			 * *******************************************************************************/
-			//if ((getRPM() < 10) && (getBrakeStatus() == true))
-			//{
-			//	driveStop();
-			//}
 		}
 		else if(getPowerMode() == false)
 		{
-			needPowerOff = 0x01;
+			setIQ(0);
+			set_ThrottlePercent(0);
+			throttleSignalInput();
+			driveStop();
 			led_indicator_off();
 			error_indicator_off();
 			tail_light_off();
-			/*Jump to shut-down process*/
+			timeOutStop();
 			break;
+			/*Try to create a new RTOS Task which handles LOW POWER MODE*/
 		}
 	}
 	/*Shut Down Process Begins*/
@@ -151,3 +148,4 @@ void ES_SafetyTask()
 	accelerateIQMotor(0,0);
 	motorStop();
 }
+

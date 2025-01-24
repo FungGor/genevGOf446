@@ -4,4 +4,4 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4x
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4xx_mc_it.c:145:6:TIM2_IRQHandler	3
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4xx_mc_it.c:188:6:USART1_IRQHandler	6
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4xx_mc_it.c:238:6:HardFault_Handler	7
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4xx_mc_it.c:286:6:EXTI9_5_IRQHandler	2
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/stm32f4xx_mc_it.c:287:6:EXTI9_5_IRQHandler	2

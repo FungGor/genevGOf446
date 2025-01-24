@@ -11,10 +11,14 @@
 extern "C"{
 #endif
 
+#include "stdbool.h"
+
 extern void powerModeInit();
-extern void changePowerMode();
+extern void changePowerMode();;
+extern bool getPowerStatus();
 extern void gotoSLEEP();
 extern void wakeUp();
+
 
 #ifdef __cplusplus
 }

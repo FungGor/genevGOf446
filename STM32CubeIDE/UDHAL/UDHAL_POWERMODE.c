@@ -47,9 +47,9 @@ void ShutDownTask()
     if(UART_DeInit() == 0x01)
     {
     	WakeUpPinInit();
-    	dashboard_indicator_off();
-    	fault_warning_off();
-    	tail_light_turnoff();
+    	//dashboard_indicator_off();
+    	//fault_warning_off();
+    	//tail_light_turnoff();
     	/*Suspend Retransmission Timer*/
 
 
@@ -59,7 +59,7 @@ void ShutDownTask()
     	/*Suspend System Ticks*/
     	HAL_SuspendTick();
         /*Starts Power Off*/
-    	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON,PWR_SLEEPENTRY_WFI);
+    	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON,PWR_STOPENTRY_WFI);
     }
     else if(UART_DeInit() == 0xFF)
     {
