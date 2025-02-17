@@ -25,6 +25,8 @@ int16_t getSpeed();
 
 float getCurrent();
 
+float getRMSCurrent();
+
 int16_t getVoltage();
 
 extern void motorAnalysis();

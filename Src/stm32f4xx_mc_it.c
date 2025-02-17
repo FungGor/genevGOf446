@@ -290,7 +290,6 @@ void EXTI9_5_IRQHandler(void)
 	{
 		__HAL_GPIO_EXTI_CLEAR_IT(GPIO_PIN_7);
 		wakeUp();
-
 	}
 
 }

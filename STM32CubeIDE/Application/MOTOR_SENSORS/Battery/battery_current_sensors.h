@@ -1,0 +1,47 @@
+/*
+ * battery_current_sensors.h
+ *
+ *  Created on: Jan 27, 2025
+ *      Author: TerenceLeung
+ */
+
+#ifndef APPLICATION_MOTOR_SENSORS_BATTERY_BATTERY_CURRENT_SENSORS_H_
+#define APPLICATION_MOTOR_SENSORS_BATTERY_BATTERY_CURRENT_SENSORS_H_
+#ifdef _cplusplus
+extern "C"
+{
+#endif
+#include "regular_conversion_manager.h"
+#include "bus_current_sensor.h"
+
+typedef struct
+{
+	BusCurrentSensor_Handle_t _Super;
+
+	RegConv_t batteryCurrentRegConv;
+	uint16_t avBatteryCurrent;
+	uint16_t LowPassFilterBW; /*!<Numberof Samples (?).*/
+	uint16_t *currentBuffer;  /*!< Buffer used to compute average value.*/
+	uint8_t elem;             /*!< Number of stored elements in the average buffer.*/
+	uint8_t index;            /*!< Index of last stored element in the average buffer.*/
+	uint8_t convHandle;       /*!< handle to the regular conversion */
+}BatteryCurrent_Handle_t;
+
+/* Initialize Battery Current Sensor parameters */
+void BATTERYCURRENT_Init(BatteryCurrent_Handle_t *pHandle);
+
+/* Clear static average battery current value */
+void BATTERYCURRENT_Clear(BatteryCurrent_Handle_t *pHandle);
+
+/* Battery Current sensing computation s16A with ADC value*/
+uint16_t BATTERYCURRENT_CalcAvCurrent(BatteryCurrent_Handle_t *pHandle);
+
+/* Get averaged Battery Current expressed in milli-Ampere */
+int16_t BATTERYCURRENT_CalcAvCurrent_a(BatteryCurrent_Handle_t *pHandle);
+
+/* Get the Battery Current fault status */
+uint16_t BATTERYCURRENT_CheckBatteryStatus(BatteryCurrent_Handle_t *pHandle);
+#ifdef _cplusplus
+}
+#endif
+#endif /* APPLICATION_MOTOR_SENSORS_BATTERY_BATTERY_CURRENT_SENSORS_H_ */

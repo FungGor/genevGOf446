@@ -46,6 +46,7 @@ int main(void)
   osThreadDef(safety, StartSafetyTask, osPriorityAboveNormal, 0, 128);
   safetyHandle = osThreadCreate(osThread(safety), NULL);
   osKernelStart();
+
   while (1)
   {
   }
@@ -129,8 +130,37 @@ static void MX_ADC1_Init(void)
 
   /** Configure for the selected ADC regular channel its corresponding rank in the sequencer and its sample time.
   */
+
+  /*Bus Voltage Sensor PA3 ADC1_IN3*/
   sConfig.Channel = ADC_CHANNEL_3;
   sConfig.Rank = 1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /*Motor Driver NTC Sensor PB0 ADC1_IN8*/
+  sConfig.Channel = ADC_CHANNEL_8;
+  sConfig.Rank = 2;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /*Motor Temperature Sensor PC2 ADC1_IN12*/
+  sConfig.Channel = ADC_CHANNEL_12;
+  sConfig.Rank = 3;
+  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /*Current Sensor (Battery) PC0 ADC1_IN10*/
+  sConfig.Channel = ADC_CHANNEL_10;
+  sConfig.Rank = 4;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {

@@ -27,6 +27,12 @@ void motor_current()
 	ptrMotor.CURRENT = getCurrent();
 }
 
+void motor_rms_current()
+{
+	ptrMotor.RMS_CURRENT = getRMSCurrent();
+
+}
+
 bool isStop()
 {
 	if(ptrMotor.SPEED == 0)

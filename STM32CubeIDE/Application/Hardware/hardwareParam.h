@@ -16,6 +16,8 @@ extern "C"{
 #define VDD_SUPPLY            3.3
 #define ADC_RANGE             65536
 #define CURRENT_SENSOR_GAIN   0.04
+#define RMS_FACTOR            1.41421356237
+#define CURRENT_SAMPLES       240
 
 #ifdef __cplusplus
 }

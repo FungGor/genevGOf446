@@ -652,6 +652,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t toggle = 0x06;
+    		   /*Toggles the Light*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&toggle,1);
     	   }
     	   break;
@@ -662,6 +663,8 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t lightOff = 0x07;
+    		   /*Off the tail light*/
+    		   set_tail_light_status(0x00);
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
     	   }
     	   break;
@@ -675,34 +678,47 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   }
     	   break;
 
-    	   case TAIL_LIGHT_ON_LIGHT_SENSOR:
+    	   case TAIL_LIGHT_ON:
     	   {
+    		   /*$2E$01$08$37*/
     		   RequireAck = false;
     		   bNoError = true;
     		   uint8_t lightOn = 0x09;
-    		   updateLightSensorStatus(0x01);
+    		   /*On the tail light*/
+    		   set_tail_light_status(0x01);
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOn,1);
-    	   }
-    	   break;
-
-    	   case TAIL_LIGHT_OFF_LIGHT_SENSOR:
-    	   {
-    		   RequireAck = false;
-    		   bNoError = true;
-    		   uint8_t lightOff = 0x0A;
-    		   updateLightSensorStatus(0x00);
-    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&lightOff,1);
     	   }
     	   break;
 
     	   case TIMEOUT_CHECKING:
     	   {
+    		   /*$2E$01$09$38*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   uint8_t timeout = 0x0B;
+    		   uint8_t timeout = 0x0A;
     		   uart++;
     		   updateConnectionStatus(true,uart);
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&timeout,1);
+    	   }
+    	   break;
+
+    	   case MOTOR_DRIVER_TEMP:
+    	   {
+    		   /*$2E$01$0A$39*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t motor_driver_temp = 0x0B;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&motor_driver_temp,1);
+    	   }
+    	   break;
+
+    	   case MOTOR_TEMP:
+    	   {
+    		   /*$2E$01$0B$3A*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint8_t motor_temp = 0x0C;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&motor_temp,1);
     	   }
     	   break;
 

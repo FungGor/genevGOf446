@@ -14,6 +14,15 @@ extern "C"{
 #include <stdbool.h>
 #include "stdint.h"
 
+// GeneralTasks_TIME = 20 milliseconds
+#define GeneralTask_TIME      20
+
+#define N1_TIME               100
+#define N2_TIME               200
+#define N3_TIME               300
+
+void go_tailLightStatusRegister(uint8_t *ptrStatus);
+
 void go_powerOnRegister(bool *ptrpowerOn);
 
 bool getPowerMode();

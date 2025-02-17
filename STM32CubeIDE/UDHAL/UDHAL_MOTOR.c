@@ -11,6 +11,10 @@
 #include "mc_type.h"
 #include "hardwareParam.h"
 
+static uint8_t CURRENT_SAMPLES_INDEX = 0;
+float RMS_CURRENT_SAMPLES[CURRENT_SAMPLES];
+float RMS_CURRENT_SUM = 0;
+
 void accelerateIQMotor(int16_t torque, uint16_t ramp)
 {
 	MC_ProgramTorqueRampMotor1(torque,ramp);
@@ -44,6 +48,29 @@ float getCurrent()
 {
 	float MOTOR_CURRENT = (MC_GetPhaseCurrentAmplitudeMotor1() * VDD_SUPPLY)/(ADC_RANGE*CURRENT_SENSOR_GAIN);
 	return MOTOR_CURRENT;
+}
+
+float getRMSCurrent()
+{
+	float RMS_DC_SAMPLE = (getCurrent()/RMS_FACTOR);
+	RMS_CURRENT_SAMPLES[CURRENT_SAMPLES_INDEX] = RMS_DC_SAMPLE;
+
+	uint8_t jj = 0;
+	float rmsDCsum = 0;
+
+	for(jj = 0; jj<CURRENT_SAMPLES; jj++)
+	{
+		rmsDCsum += RMS_CURRENT_SAMPLES[jj];
+	}
+
+	float rmsDCAvg = rmsDCsum/CURRENT_SAMPLES;
+
+	CURRENT_SAMPLES_INDEX++;
+	if(CURRENT_SAMPLES_INDEX >= CURRENT_SAMPLES)
+	{
+		CURRENT_SAMPLES_INDEX = 0;
+	}
+	return rmsDCAvg;
 }
 
 int16_t getVoltage()

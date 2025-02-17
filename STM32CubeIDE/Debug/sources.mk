@@ -24,6 +24,9 @@ C_DEPS :=
 SUBDIRS := \
 Application/BootAndShutDown \
 Application/Hardware \
+Application/MOTOR_SENSORS/Battery \
+Application/MOTOR_SENSORS/motor_driver_ntc \
+Application/MOTOR_SENSORS/motor_ntc \
 Application/MainTask \
 Application/Safety_Protection \
 Application/Startup \

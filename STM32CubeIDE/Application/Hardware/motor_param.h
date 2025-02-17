@@ -20,6 +20,7 @@ typedef struct
 	int16_t  SPEED;
 	float CURRENT;
 	int16_t VOLTAGE;
+	float RMS_CURRENT;
 }MOTOR;
 
 void motor_param_init();
@@ -27,6 +28,8 @@ void motor_param_init();
 void motor_speed();
 
 void motor_current();
+
+void motor_rms_current();
 
 void motor_voltage();
 

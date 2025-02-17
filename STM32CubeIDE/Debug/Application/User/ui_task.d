@@ -87,6 +87,8 @@ Application/User/ui_task.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pwm_curr_fdbk.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/r_divider_bus_voltage_sensor.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/virtual_bus_voltage_sensor.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/ics_dd_pwmncurrfdbk.h \
@@ -185,6 +187,8 @@ Application/User/ui_task.o: \
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pwm_curr_fdbk.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/r_divider_bus_voltage_sensor.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/virtual_bus_voltage_sensor.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/F4xx/Inc/ics_f4xx_pwm_curr_fdbk.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/ics_dd_pwmncurrfdbk.h:

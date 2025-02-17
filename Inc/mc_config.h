@@ -29,6 +29,8 @@
 #include "pwm_curr_fdbk.h"
 #include "r_divider_bus_voltage_sensor.h"
 #include "virtual_bus_voltage_sensor.h"
+#include "NTCG163JF103FT.h"
+#include "CMFAX103F3950FB.h"
 #include "pqd_motor_power_measurement.h"
  #include "user_interface.h"
 
