@@ -5,6 +5,7 @@
  *      Author: TerenceLeung
  */
 #include "battery_current_sensors.h"
+#include "current_sensor_parameter.h"
 /** @addtogroup MCSDK
   * @{
   */
@@ -31,16 +32,28 @@ __weak void BATTERYCURRENT_Init(BatteryCurrent_Handle_t *pHandle)
 {
 	/* Need to be register with RegularConvManager */
 	pHandle->convHandle = RCM_RegisterRegConv(&pHandle->batteryCurrentRegConv);
+	BATTERYCURRENT_Clear(pHandle);
 }
 
 /**
- * @brief Initializes internal average battery current computed value s16A ADC Values
+ * @brief Initializes internal average battery current computed value s16A ADC Values (Parameter Initialization)
  *
  *  @p pHandle : Pointer on Handle structure of BatteryCurrentSensor component
  */
 __weak void BATTERYCURRENT_Clear(BatteryCurrent_Handle_t *pHandle)
 {
-	pHandle->avBatteryCurrent = 0u;
+	pHandle->avBatteryCurrent_s16A = 0u;
+	pHandle->rawCurrent = 0u;
+	pHandle->sum_current_s16A = 0u;
+	pHandle->old_sample_current_s16A = 0u;
+	pHandle->currentBuffer[pHandle->LowPassFilterBW] = (uint16_t){0};
+	pHandle->index = 0u;
+	pHandle->elem = 0u;
+
+	pHandle->_Super.AvBusCurrent_mA = 0u;
+	pHandle->_Super.LatestConv = 0u;
+	pHandle->_Super.FaultState = 0;
+
 }
 
 /**
@@ -50,7 +63,7 @@ __weak void BATTERYCURRENT_Clear(BatteryCurrent_Handle_t *pHandle)
   *
   *  @r Fault status : Error reported in case of an over current detection (if necessary)
   */
-__weak uint16_t BATTERYCURRENT_CalcAvCurrent(BatteryCurrent_Handle_t *pHandle)
+__weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHandle)
 {
 	uint32_t wTemp; /*Final result of raw ADC samples*/
 	uint16_t hAux; /*Raw ADC Values of Current Sensor ZXCT1084E5TA*/
@@ -70,7 +83,7 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrent(BatteryCurrent_Handle_t *pHandle)
     	}
     	/*Final Result*/
     	wTemp /= pHandle->LowPassFilterBW;
-    	pHandle->_Super.AvBusCurrent_d = ( uint16_t ) wTemp;
+    	pHandle->_Super.AvBusCurrent_s16A = ( uint16_t ) wTemp;
     	pHandle->_Super.LatestConv = hAux;
 
     	if(pHandle->index < pHandle->LowPassFilterBW - 1)
@@ -83,4 +96,48 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrent(BatteryCurrent_Handle_t *pHandle)
     	}
     }
     return hAux;
+}
+
+/**
+  * @brief Performs the battery current Moving Average computation after an ADC conversion
+  *
+  *  @p pHandle : Pointer on Handle structure of BatteryCurrentSensor component
+  *
+  *  @r Fault status : Error reported in case of an over current detection (if necessary)
+  */
+__weak uint16_t BATTERYCURRENT_CalcCurrentMovAvg(BatteryCurrent_Handle_t *pHandle)
+{
+	pHandle->old_sample_current_s16A  = pHandle->currentBuffer[pHandle->elem];
+	pHandle->currentBuffer[pHandle->elem] = RCM_ExecRegularConv(pHandle->convHandle);
+	/*Stores the latest ADC Conversion Values*/
+	pHandle->_Super.LatestConv = pHandle->currentBuffer[pHandle->elem];
+	pHandle->sum_current_s16A = pHandle->sum_current_s16A - pHandle->old_sample_current_s16A + pHandle->currentBuffer[pHandle->elem];
+	if(pHandle->index < pHandle->LowPassFilterBW)
+	{
+		pHandle->index++;
+	}
+    // Initially, the array is filled by ZEROS that are not measurements.  We don't take non-measurements into account.
+	// Once the array is filled with actual measurements, kk remains constant and == ARRAYSIZE.
+	pHandle->avBatteryCurrent_s16A = pHandle->sum_current_s16A / pHandle->index;
+	pHandle->elem++;
+	if(pHandle->elem >= pHandle->LowPassFilterBW)
+	{
+		pHandle->elem = 0;
+		pHandle->_Super.AvBusCurrent_s16A = pHandle->avBatteryCurrent_s16A;
+		return pHandle->avBatteryCurrent_s16A;
+	}
+	return (pHandle->avBatteryCurrent_s16A);
+}
+
+/**
+  * @brief  It returns ERROR OR NO_ERROR depending on
+  *         bus current and protection threshold values
+  * @param  pHandle related RDivider_Handle_t
+  * @retval uint16_t Fault code error
+  */
+__weak uint16_t BATTERYCURRENT_CheckBatteryStatus(BatteryCurrent_Handle_t *pHandle)
+{
+	uint16_t status = 0x01;
+	return status;
+
 }

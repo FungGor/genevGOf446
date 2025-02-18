@@ -7,7 +7,7 @@
 #include "bus_current_sensor.h"
 
 /**
-  * @brief  It return latest Cbus conversion result expressed in u16Volt
+  * @brief  It return latest Cbus conversion result (raw Conversion) expressed in u16Amp
   * @param  pHandle related Handle of BusCurrentSensor_Handle_t
   * @retval uint16_t Latest Cbus conversion result in digit
   */
@@ -30,23 +30,25 @@ __attribute__( ( section ( ".ccmram" ) ) )
   */
 __weak uint16_t CBS_GetAvgBusCurrent_d(BusCurrentSensor_Handle_t *pHandle)
 {
-	return (pHandle->AvBusCurrent_d);
+	return (pHandle->AvBusCurrent_s16A);
 }
 
 /**
-  * @brief  It return latest averaged Cbus measurement expressed in Volts
+  * @brief  It return latest averaged Cbus measurement expressed in Amps
   * @param  pHandle related Handle of BusCurrentSensor_Handle_t
   * @retval uint16_t Latest averaged Cbus measurement in Volts
   */
-__weak uint16_t CBS_GetAvgBusCurrent_V(BusCurrentSensor_Handle_t *pHandle)
+__weak uint16_t CBS_GetAvgBusCurrent_A(BusCurrentSensor_Handle_t *pHandle)
 {
 	uint32_t temp;
 
-	temp = (uint32_t)(pHandle->AvBusCurrent_d);
+	temp = (uint32_t)(pHandle->AvBusCurrent_s16A);
 	temp *= pHandle->ConversionFactor;
 	temp /= 65536u;
 
-	return ((uint16_t)temp);
+	pHandle->AvBusCurrent_mA = (uint16_t)temp;
+
+	return (pHandle->AvBusCurrent_mA);
 }
 
 /**

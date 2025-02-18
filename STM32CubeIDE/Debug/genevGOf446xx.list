@@ -1745,7 +1745,7 @@ void GeneralTasks(void const * argument)
 			{
 				throttleSignalInput();
  8001018:	f7ff feb6 	bl	8000d88 <throttleSignalInput>
-			//tail_light_off();
+			error_indicator_off();
 			timeOutStop();
 			break;
 			/*Try to create a new RTOS Task which handles LOW POWER MODE*/
