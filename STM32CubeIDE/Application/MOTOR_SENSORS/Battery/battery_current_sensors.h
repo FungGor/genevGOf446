@@ -47,6 +47,10 @@ int16_t BATTERYCURRENT_CalcAvCurrent_a(BatteryCurrent_Handle_t *pHandle);
 
 /* Get the Battery Current fault status */
 uint16_t BATTERYCURRENT_CheckBatteryStatus(BatteryCurrent_Handle_t *pHandle);
+
+void BATTERYCURRENT_SetRawCurrent(uint16_t current);
+
+uint16_t BATTERYCURRENT_getRawCurrent();
 #ifdef _cplusplus
 }
 #endif

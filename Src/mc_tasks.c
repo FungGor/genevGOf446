@@ -73,6 +73,7 @@ PID_Handle_t *pPIDSpeed[NBR_OF_MOTORS];
 PID_Handle_t *pPIDIq[NBR_OF_MOTORS];
 PID_Handle_t *pPIDId[NBR_OF_MOTORS];
 RDivider_Handle_t *pBusSensorM1;
+BatteryCurrent_Handle_t *pCurrentSensorM1;
 
 NTC_Handle_t *pTemperatureSensor[NBR_OF_MOTORS];
 PWMC_Handle_t * pwmcHandle[NBR_OF_MOTORS];
@@ -178,6 +179,12 @@ __weak void MCboot( MCI_Handle_t* pMCIList[NBR_OF_MOTORS],MCT_Handle_t* pMCTList
   /********************************************************/
   pBusSensorM1 = &RealBusVoltageSensorParamsM1;
   RVBS_Init(pBusSensorM1);
+
+  /*****************************************************************/
+  /*   Bus current sensor component initialization   (2025-02-19)  */
+  /****************************************************************/
+  pCurrentSensorM1 = &RealBatteryCurrentSensorParamsM1;
+  BATTERYCURRENT_Init(pCurrentSensorM1);
 
   /*************************************************/
   /*   Power measurement component initialization  */
@@ -697,12 +704,13 @@ __weak void TSK_SafetyTask(void)
   *         \link Motors_reference_number here \endlink
   * @retval None
   */
+uint16_t battery = 0;
 __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
 {
   /* USER CODE BEGIN TSK_SafetyTask_PWMOFF 0 */
 
   /* USER CODE END TSK_SafetyTask_PWMOFF 0 */
-
+  battery = BATTERYCURRENT_CalcAvCurrentOrigin(pCurrentSensorM1);
   uint16_t CodeReturn = MC_NO_ERROR;
   uint16_t errMask[NBR_OF_MOTORS] = {VBUS_TEMP_ERR_MASK};
 
@@ -841,6 +849,10 @@ LL_GPIO_LockPin(M1_PWM_WL_GPIO_Port, M1_PWM_WL_Pin);
 LL_GPIO_LockPin(M1_PWM_UL_GPIO_Port, M1_PWM_UL_Pin);
 LL_GPIO_LockPin(M1_BUS_VOLTAGE_GPIO_Port, M1_BUS_VOLTAGE_Pin);
 LL_GPIO_LockPin(M1_CURR_AMPL_U_GPIO_Port, M1_CURR_AMPL_U_Pin);
+//Lock Pin For Battery Current Sensing ADC
+LL_GPIO_LockPin(BATTERY_CURRENT_GPIO_Port,BATTERY_CURRENT_Pin);
+//Lock Pin For Motor Temperature Sensing
+LL_GPIO_LockPin(MOTOR_TEMP_GPIO_Port,MOTOR_TEMP_Pin);
 }
 
 /* USER CODE BEGIN mc_task 0 */

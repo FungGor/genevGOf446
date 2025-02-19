@@ -31,6 +31,7 @@
 #include "virtual_bus_voltage_sensor.h"
 #include "NTCG163JF103FT.h"
 #include "CMFAX103F3950FB.h"
+#include "battery_current_sensors.h"
 #include "pqd_motor_power_measurement.h"
  #include "user_interface.h"
 
@@ -56,6 +57,8 @@ extern PQD_MotorPowMeas_Handle_t PQD_MotorPowMeasM1;
 extern PQD_MotorPowMeas_Handle_t *pPQD_MotorPowMeasM1;
 extern HALL_Handle_t HALL_M1;
 extern RDivider_Handle_t RealBusVoltageSensorParamsM1;
+//Battery Current Sensing
+extern BatteryCurrent_Handle_t RealBatteryCurrentSensorParamsM1;
 extern CircleLimitation_Handle_t CircleLimitationM1;
 extern RampExtMngr_Handle_t RampExtMngrHFParamsM1;
 extern UI_Handle_t UI_Params;

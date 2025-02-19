@@ -19,6 +19,7 @@
 #include "main.h"
 #include "mc_type.h"
 #include "parameters_conversion.h"
+#include "current_sensor_parameter.h"
 #include "mc_parameters.h"
 #include "mc_config.h"
 
@@ -231,6 +232,29 @@ RDivider_Handle_t RealBusVoltageSensorParamsM1 =
   .OverVoltageThreshold  = OVERVOLTAGE_THRESHOLD_d,
   .UnderVoltageThreshold =  UNDERVOLTAGE_THRESHOLD_d,
   .aBuffer = RealBusVoltageSensorFilterBufferM1,
+};
+
+/* Bus current sense amplifier filter buffer */
+uint16_t RealBusCurrentSensorFilterBuffer[M1_CBUS_SW_FILTER_BW_FACTOR];
+
+/**
+  * Bus current sensor parameters Motor 1
+  */
+BatteryCurrent_Handle_t RealBatteryCurrentSensorParamsM1 =
+{
+  ._Super         =
+  {
+	  .conversionParam = (uint16_t)(ADC_REFERENCE_VOLTAGE / AMPLIFY_GAIN),
+  },
+
+  .batteryCurrentRegConv =
+  {
+	  .regADC = ADC1,
+	  .channel = MC_ADC_CHANNEL_10,
+      .samplingTime = CURRENT_SAMPLING,
+  },
+  .LowPassFilterBW = M1_CBUS_SW_FILTER_BW_FACTOR,
+  .currentBuffer = RealBusCurrentSensorFilterBuffer,
 };
 
 UI_Handle_t UI_Params =

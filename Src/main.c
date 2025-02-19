@@ -140,27 +140,9 @@ static void MX_ADC1_Init(void)
     Error_Handler();
   }
 
-  /*Motor Driver NTC Sensor PB0 ADC1_IN8*/
-  sConfig.Channel = ADC_CHANNEL_8;
-  sConfig.Rank = 2;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /*Motor Temperature Sensor PC2 ADC1_IN12*/
-  sConfig.Channel = ADC_CHANNEL_12;
-  sConfig.Rank = 3;
-  sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
   /*Current Sensor (Battery) PC0 ADC1_IN10*/
   sConfig.Channel = ADC_CHANNEL_10;
-  sConfig.Rank = 4;
+  sConfig.Rank = 2;
   sConfig.SamplingTime = ADC_SAMPLETIME_3CYCLES;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {

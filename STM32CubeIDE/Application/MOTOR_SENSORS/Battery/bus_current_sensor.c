@@ -43,7 +43,7 @@ __weak uint16_t CBS_GetAvgBusCurrent_A(BusCurrentSensor_Handle_t *pHandle)
 	uint32_t temp;
 
 	temp = (uint32_t)(pHandle->AvBusCurrent_s16A);
-	temp *= pHandle->ConversionFactor;
+	temp *= pHandle->conversionParam;
 	temp /= 65536u;
 
 	pHandle->AvBusCurrent_mA = (uint16_t)temp;

@@ -7,6 +7,7 @@
 #include "drive_tasks.h"
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"
+#include "battery_current_sensors.h"
 #include "tail_light.h"
 #include "PROTOCOL_HANDLER.h"
 #include "ERROR_REPORT.h"
@@ -187,6 +188,7 @@ void GeneralTasks(void const * argument)
 		    if((taskSleepCount % N3_ticks) == 0)
 		    {
 		        /*Connection lost?*/
+		    	//DC = BATTERYCURRENT_getRawCurrent();
 				checkConnectionStatus();
 		    }
 

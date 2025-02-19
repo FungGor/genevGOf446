@@ -27,7 +27,7 @@ extern "C" {
   */
 typedef struct
 {
-	uint16_t ConversionFactor;    /*!<Convert Bus Current from s16A to milli-Amps*/
+	uint16_t conversionParam;    /*!<Convert Bus Current from s16A to milli-Amps*/
 	uint16_t LatestConv;          /*!< It contains latest VCurrent converted value
                                    expressed in u16Current format */
 	uint16_t AvBusCurrent_mA;     /*!<Battery current in Milli-Ampere which is obtained by conversion factors*/

@@ -95,7 +95,7 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHan
     		pHandle->index = 0;
     	}
     }
-    return hAux;
+    return pHandle->_Super.AvBusCurrent_s16A ; /*Should return pHandle->_Super.AvBusCurrent_s16A */
 }
 
 /**
@@ -105,6 +105,7 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHan
   *
   *  @r Fault status : Error reported in case of an over current detection (if necessary)
   */
+uint16_t currentDrawn = 0;
 __weak uint16_t BATTERYCURRENT_CalcCurrentMovAvg(BatteryCurrent_Handle_t *pHandle)
 {
 	pHandle->old_sample_current_s16A  = pHandle->currentBuffer[pHandle->elem];
@@ -124,6 +125,7 @@ __weak uint16_t BATTERYCURRENT_CalcCurrentMovAvg(BatteryCurrent_Handle_t *pHandl
 	{
 		pHandle->elem = 0;
 		pHandle->_Super.AvBusCurrent_s16A = pHandle->avBatteryCurrent_s16A;
+		BATTERYCURRENT_SetRawCurrent(pHandle->avBatteryCurrent_s16A);
 		return pHandle->avBatteryCurrent_s16A;
 	}
 	return (pHandle->avBatteryCurrent_s16A);
@@ -140,4 +142,14 @@ __weak uint16_t BATTERYCURRENT_CheckBatteryStatus(BatteryCurrent_Handle_t *pHand
 	uint16_t status = 0x01;
 	return status;
 
+}
+
+__weak void BATTERYCURRENT_SetRawCurrent(uint16_t current)
+{
+	currentDrawn = current;
+}
+
+__weak uint16_t BATTERYCURRENT_getRawCurrent()
+{
+	return currentDrawn;
 }
