@@ -2622,7 +2622,7 @@ void Error_Handler(void)
  8001488:	4b50      	ldr	r3, [pc, #320]	@ (80015cc <main+0x2b4>)
  800148a:	603b      	str	r3, [r7, #0]
   htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV2;
- 800148c:	f241 5cf9 	movw	ip, #5625	@ 0x15f9
+ 800148c:	f640 7c49 	movw	ip, #3913	@ 0xf49
  8001490:	f44f 7380 	mov.w	r3, #256	@ 0x100
   if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
  8001494:	4638      	mov	r0, r7
@@ -2719,7 +2719,7 @@ void Error_Handler(void)
  8001522:	e7fe      	b.n	8001522 <main+0x20a>
   sConfigOC.Pulse = (((PWM_PERIOD_CYCLES) / 2) - (HTMIN));
  8001524:	2270      	movs	r2, #112	@ 0x70
- 8001526:	f241 53f8 	movw	r3, #5624	@ 0x15f8
+ 8001526:	f640 7348 	movw	r3, #3912	@ 0xf48
  800152a:	e9cd 2307 	strd	r2, r3, [sp, #28]
   if (HAL_TIM_PWM_ConfigChannel(&htim1, &sConfigOC, TIM_CHANNEL_4) != HAL_OK)
  800152e:	4826      	ldr	r0, [pc, #152]	@ (80015c8 <main+0x2b0>)
