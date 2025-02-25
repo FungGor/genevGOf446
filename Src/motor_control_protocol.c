@@ -28,7 +28,7 @@
 #include "lightSensor.h"
 #include "ERROR_REPORT.h"
 #include "PROTOCOL_HANDLER.h"
-
+#include "motor_param.h"
 /**
  * @addtogroup MCSDK
  * @{

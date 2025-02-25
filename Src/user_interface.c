@@ -24,7 +24,7 @@
 #include "mc_math.h"
 #include "mc_config.h"
 #include "user_interface.h"
-
+#include "motor_param.h"
 /** @addtogroup MCSDK
   * @{
   */
@@ -296,6 +296,7 @@ __weak int32_t UI_GetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, bool * 
     case MC_PROTOCOL_REG_BUS_VOLTAGE:
     {
       bRetVal = (int32_t)VBS_GetAvBusVoltage_V(pMCT->pBusVoltageSensor);
+      //setMotorVoltage(bRetVal);
     }
     break;
 
@@ -429,6 +430,7 @@ __weak int32_t UI_GetReg(UI_Handle_t *pHandle, MC_Protocol_REG_t bRegID, bool * 
     case MC_PROTOCOL_REG_MOTOR_POWER:
     {
       bRetVal = MPM_GetAvrgElMotorPowerW(pMCT->pMPM);
+      //setMOTORPower(bRetVal);
     }
     break;
 

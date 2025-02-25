@@ -30,7 +30,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "mc_type.h"
 #include "pwm_curr_fdbk.h"
-
+#include "motor_param.h"
 /** @addtogroup MCSDK
   * @{
   */

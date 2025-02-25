@@ -29,8 +29,6 @@ float getRMSCurrent();
 
 int16_t getVoltage();
 
-extern void motorAnalysis();
-
 
 #ifdef __cplusplus
 }

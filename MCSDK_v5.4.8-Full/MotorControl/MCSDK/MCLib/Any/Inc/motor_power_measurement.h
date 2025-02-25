@@ -29,7 +29,7 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "mc_type.h"
-
+#include "motor_param.h"
 /** @addtogroup MCSDK
   * @{
   */

@@ -88,6 +88,8 @@ __weak int16_t MPM_CalcElMotorPower( MotorPowMeas_Handle_t * pHandle, int16_t Cu
   }
   wAux /= ( int32_t )MPM_BUFFER_LENGHT;
   pHandle->hAvrgElMotorPowerW = ( int16_t )( wAux );
+  /*User Interface with motor_param*/
+  setMOTORPower(wAux);
   /* Return the last measured motor power */
   return CurrentMotorPower;
 }

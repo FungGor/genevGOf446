@@ -97,7 +97,6 @@ void createDrivingTasks(void)
 }
 
 /*MAIN TASKS*/
-uint8_t fuck = 0x00;
 void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
@@ -138,7 +137,7 @@ void GeneralTasks(void const * argument)
 	       **************************************************************/
 		   if((taskSleepCount % N1_ticks) == 0)
 		   {
-
+			   calcDC();
 		   }
 	       /***************************************************************
 	        * N2_TIME = 200 ms
@@ -190,14 +189,25 @@ void GeneralTasks(void const * argument)
 		        /*Connection lost?*/
 		    	//DC = BATTERYCURRENT_getRawCurrent();
 				checkConnectionStatus();
+				//showDC();
+		    }
+
+		    if(GET_SOFTWARE_ERROR_REPORT() != 0x00)
+		    {
+				setIQ(0);
+				set_ThrottlePercent(0);
+				throttleSignalInput();
+				driveStop();
+		    	error_indicator_on();
 		    }
 
 
-			if( ((*software_error_report == 0x00) || (*ptr_error_report == 0x00)) )
+			if(*ptr_error_report == 0x00)
 			{
 				throttleSignalInput();
 			}
-			else if( (*software_error_report != 0x00) || (*ptr_error_report != 0x00))
+
+			else if(*ptr_error_report != 0x00)
 			{
 				setIQ(0);
 				set_ThrottlePercent(0);
