@@ -199,10 +199,11 @@ typedef enum
 	TAIL_LIGHT_TOGGLE,            /*0x05*/
 	TAIL_LIGHT_OFF,               /*0x06*/
 	SHUT_DOWN,                    /*0x07*/
-	TAIL_LIGHT_ON,                 /*0x08*/
+	TAIL_LIGHT_ON,                /*0x08*/
 	TIMEOUT_CHECKING,             /*0x09*/
 	MOTOR_DRIVER_TEMP,            /*0x0A*/
-	MOTOR_TEMP                    /*0x0B*/
+	MOTOR_TEMP,                   /*0x0B*/
+	CURRENT_CHECKING              /*0x0C*/
 }EScooter_Behavior_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/

@@ -7,6 +7,7 @@
 
 #include "motor_param.h"
 #include "UDHAL_MOTOR.h"
+#include "math.h"
 
 MOTOR ptrMotor;
 
@@ -76,18 +77,18 @@ void getIqIdMotor()
 {
 	qd_t torqueCurrent;
 	torqueCurrent = MC_GetIqdMotor1();
-	ptrMotor.Iq = torqueCurrent.q;
-	ptrMotor.Id = torqueCurrent.d;
-	//Total Torque = sqrt(Iq*Iq + Id*Id)
+	ptrMotor.Iq = (int32_t)torqueCurrent.q;
+	ptrMotor.Id = (int32_t)torqueCurrent.d;
 }
 
 void calcDC()
 {
 	ptrMotor.milliAmpere = ptrMotor.POWERmW / ptrMotor.VBUS;
+	ptrMotor.milliAmpere = (uint16_t) ptrMotor.milliAmpere;
 	/*Apply Moving average filtering (Optional)*/
 }
 
-int32_t getDC()
+uint16_t getDC()
 {
 	return ptrMotor.milliAmpere;
 }

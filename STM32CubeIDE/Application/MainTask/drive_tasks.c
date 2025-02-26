@@ -137,6 +137,7 @@ void GeneralTasks(void const * argument)
 	       **************************************************************/
 		   if((taskSleepCount % N1_ticks) == 0)
 		   {
+			   getIqIdMotor();
 			   calcDC();
 		   }
 	       /***************************************************************

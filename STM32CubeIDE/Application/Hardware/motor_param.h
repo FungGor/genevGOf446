@@ -24,9 +24,9 @@ typedef struct
 	uint32_t VBUS;
 	float RMS_CURRENT;
 	int32_t POWERmW;
-	int16_t Iq;
-	int16_t Id;
-	int32_t milliAmpere;
+	int32_t Iq;
+	int32_t Id;
+	uint16_t milliAmpere;
 }MOTOR;
 
 #define SAMPLE LENGTH          128u
@@ -55,7 +55,7 @@ void getIqIdMotor();
 
 void calcDC();
 
-int32_t getDC();
+uint16_t getDC();
 
 #ifdef __cplusplus
 }

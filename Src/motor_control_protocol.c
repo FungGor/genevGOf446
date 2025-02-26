@@ -722,6 +722,16 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   }
     	   break;
 
+    	   case CURRENT_CHECKING:
+    	   {
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   uint16_t current = getDC();
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)(&current),2);
+
+    	   }
+    	   break;
+
     	   default:
     	   {
     		   uint8_t invalidCMD = 0xFF;

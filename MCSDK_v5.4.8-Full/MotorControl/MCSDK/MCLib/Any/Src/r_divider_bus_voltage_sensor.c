@@ -164,6 +164,7 @@ __weak uint16_t RVBS_CalcAvVbusFilt( RDivider_Handle_t * pHandle )
   * @param  pHandle related RDivider_Handle_t
   * @retval uint16_t Fault code error
   */
+uint16_t rawVoltage = 0;
 __weak uint16_t RVBS_CalcAvVbus( RDivider_Handle_t * pHandle )
 {
   uint32_t wtemp;
@@ -171,6 +172,7 @@ __weak uint16_t RVBS_CalcAvVbus( RDivider_Handle_t * pHandle )
   uint8_t i;
 
   hAux = RCM_ExecRegularConv(pHandle->convHandle);
+  rawVoltage = hAux;
 
   if ( hAux != 0xFFFF )
   {

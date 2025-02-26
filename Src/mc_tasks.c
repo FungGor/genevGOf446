@@ -710,7 +710,7 @@ __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
   /* USER CODE BEGIN TSK_SafetyTask_PWMOFF 0 */
 
   /* USER CODE END TSK_SafetyTask_PWMOFF 0 */
-  battery = BATTERYCURRENT_CalcCurrentMovAvg(pCurrentSensorM1);
+  battery = BATTERYCURRENT_CalcAvCurrentOrigin(pCurrentSensorM1);
   uint16_t CodeReturn = MC_NO_ERROR;
   uint16_t errMask[NBR_OF_MOTORS] = {VBUS_TEMP_ERR_MASK};
 

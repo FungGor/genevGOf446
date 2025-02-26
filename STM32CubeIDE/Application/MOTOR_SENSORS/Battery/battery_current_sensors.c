@@ -63,6 +63,7 @@ __weak void BATTERYCURRENT_Clear(BatteryCurrent_Handle_t *pHandle)
   *
   *  @r Fault status : Error reported in case of an over current detection (if necessary)
   */
+uint16_t dllmcfh = 0;
 __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHandle)
 {
 	uint32_t wTemp; /*Final result of raw ADC samples*/
@@ -71,6 +72,7 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHan
 
 	/*Performs ADC Conversion to get the raw data*/
     hAux = RCM_ExecRegularConv(pHandle->convHandle);
+    dllmcfh = hAux;
     if( hAux != 0xFFFFu)
     {
     	/*Put all raw ADC values (Samples) of ZXCT1084E5TA into currentBuffer samples */
@@ -82,7 +84,7 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHan
     		wTemp += pHandle->currentBuffer[i];
     	}
     	/*Final Result*/
-    	wTemp /= pHandle->LowPassFilterBW;
+    	wTemp = wTemp / pHandle->LowPassFilterBW;
     	pHandle->_Super.AvBusCurrent_s16A = ( uint16_t ) wTemp;
     	pHandle->_Super.LatestConv = hAux;
 
@@ -95,7 +97,8 @@ __weak uint16_t BATTERYCURRENT_CalcAvCurrentOrigin(BatteryCurrent_Handle_t *pHan
     		pHandle->index = 0;
     	}
     }
-    return pHandle->_Super.AvBusCurrent_s16A ; /*Should return pHandle->_Super.AvBusCurrent_s16A */
+    //BATTERYCURRENT_SetRawCurrent(pHandle->_Super.AvBusCurrent_s16A);
+    return (pHandle->_Super.AvBusCurrent_s16A) ; /*Should return pHandle->_Super.AvBusCurrent_s16A */
 }
 
 /**
