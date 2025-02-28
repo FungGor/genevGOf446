@@ -55,7 +55,7 @@ void getIqIdMotor();
 
 void calcDC();
 
-uint16_t getDC();
+int32_t getDC();
 
 #ifdef __cplusplus
 }

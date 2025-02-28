@@ -88,7 +88,7 @@ void calcDC()
 	/*Apply Moving average filtering (Optional)*/
 }
 
-uint16_t getDC()
+int32_t getDC()
 {
-	return ptrMotor.milliAmpere;
+	return (int32_t)ptrMotor.milliAmpere;
 }

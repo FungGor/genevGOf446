@@ -97,6 +97,7 @@ void createDrivingTasks(void)
 }
 
 /*MAIN TASKS*/
+int32_t DC_CURRENT = 0;
 void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
@@ -139,6 +140,7 @@ void GeneralTasks(void const * argument)
 		   {
 			   getIqIdMotor();
 			   calcDC();
+			   DC_CURRENT = getDC(); //Just for debugging the data type
 		   }
 	       /***************************************************************
 	        * N2_TIME = 200 ms
