@@ -48,7 +48,9 @@
  */
 __weak void MOTORTEMP_Init(MotorTemp_Handle_t *pHandle)
 {
-
+	/* Need to be register with RegularConvManager */
+	pHandle->convHandle = RCM_RegisterRegConv(&pHandle->motorTemp);
+	MOTORTEMP_Clear(pHandle);
 }
 
 
@@ -59,7 +61,57 @@ __weak void MOTORTEMP_Init(MotorTemp_Handle_t *pHandle)
  */
 __weak void MOTORTEMP_Clear(MotorTemp_Handle_t *pHandle)
 {
+	pHandle->avgMotorTemp = 0u;
+	pHandle->avgNTCResistance = 0u;
+	pHandle->temperatureBuffer[pHandle->lowPassFilterBandwidth] = (uint16_t){0};
 
+	pHandle->_Super.AvTemp = 0u;
+	pHandle->_Super.AvTemp_s16R = 0u;
+	pHandle->_Super.AvResistance_R = 0u;
+	pHandle->_Super.AvResistance_s16R = 0u;
+	pHandle->_Super.LatestConv = 0u;
+	pHandle->_Super.FaultState = 0u;
+}
+
+/**
+  * @brief Performs the Motor NTC average computation after an ADC conversion
+  *
+  *  @p pHandle : Pointer on Handle structure of MotorTemp_Handle_t component
+  *
+  *  @r Fault status : Error reported in case of an over temperature detection (if necessary)
+  */
+__weak uint16_t MOTORTEMP_CalcAvTemperatureOrigin(MotorTemp_Handle_t *pHandle)
+{
+	uint32_t wTemp; /*Final result of raw ADC samples*/
+	uint16_t hAux; /*Raw ADC Values of NTC CMFAX103F3950FB*/
+	uint8_t i;
+	/*Performs ADC Conversion to get the raw data*/
+    hAux = RCM_ExecRegularConv(pHandle->convHandle);
+    if( hAux != 0xFFFFu)
+    {
+    	/*Put all raw ADC values (Samples) of NTC CMFAX103F3950FB into currentBuffer samples */
+    	pHandle->temperatureBuffer[pHandle->index] = hAux;
+    	wTemp = 0;
+    	for(i = 0; i < pHandle->lowPassFilterBandwidth; i++)
+    	{
+    		/*Sum the samples of raw ADC data*/
+    		wTemp += pHandle->temperatureBuffer[i];
+    	}
+    	/*Final Result*/
+    	wTemp = wTemp / pHandle->lowPassFilterBandwidth;
+    	pHandle->_Super.AvTemp_s16R = ( uint16_t ) wTemp;
+    	pHandle->_Super.LatestConv = hAux;
+
+    	if(pHandle->index < pHandle->lowPassFilterBandwidth - 1)
+    	{
+    		pHandle->index ++;
+    	}
+    	else
+    	{
+    		pHandle->index = 0;
+    	}
+    }
+    return (pHandle->_Super.AvTemp_s16R) ;
 }
 
 /**
