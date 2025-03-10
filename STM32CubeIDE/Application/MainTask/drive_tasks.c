@@ -207,10 +207,16 @@ void GeneralTasks(void const * argument)
 
 			if(*ptr_error_report == 0x00)
 			{
+				/*E-SCOOTER is fully stopped if no any IQ is received*/
+				/*Throttle error happens in the following situations:
+				 * 1) PWM Common mode noise in 50% duty cycle might couples with throttle signal although the motor is "STOPPED" (Partial Stop)
+				 * 2) Voltage Transient which might randomly interfere the throttle signal affecting signal level stability.
+				 * */
 				if(getIQ() < 10)
 				{
 					driveStop();
 				}
+				/*E-SCOOTER starts rolling if IQ is greater than or equal to 10*/
 				else if(getIQ() >= 10)
 				{
 					throttleSignalInput();
