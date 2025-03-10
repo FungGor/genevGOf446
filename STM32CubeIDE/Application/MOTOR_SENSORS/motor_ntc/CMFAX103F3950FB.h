@@ -24,6 +24,7 @@ extern "C"
 #include <math.h>
 #include "regular_conversion_manager.h"
 #include "motor_ntc.h"
+#include "motor_ntc_param.h"
 
 /*********************************************************************************************
  *  Constants
@@ -52,29 +53,34 @@ typedef struct
 {
 	MotorNTCSensor_Handle_t  _Super;
 	RegConv_t motorTemp;
+	uint16_t avgNTCVoltage;             /**< It contains latest available average NTC Output Voltage.
+                                             This parameter is expressed in s16V */
 	uint16_t avgMotorTemp;              /**< It contains latest available average Motor Temperature.
                                              This parameter is expressed in u16Celsius */
-	uint16_t avgNTCResistance;          /**< It contains latest available average NTC Resistance.
+	uint32_t avgNTCResistance;          /**< It contains latest available average NTC Resistance.
                                              This parameter is expressed in u16Celsius */
 	uint16_t lowPassFilterBandwidth;
 	uint16_t overTemperatureThreshold;  /**< Represents the over voltage protection intervention threshold.
                                            This parameter is expressed in u16Celsius through formula:
                                            hOverTempThreshold =
                                            (V0[V]+dV/dT[V/°C]*(OverTempThreshold[°C] - T0[°C]))* 65536 / MCU supply voltage */
-    int32_t  conversionFactor;
 
-    uint16_t *temperatureBuffer;        /*!< Buffer used to compute average value.*/
+	float  alpha;                       /*!< alpha = (RESISTANCE_OUTPUT + RESISTANCE_INPUT)/RESISTANCE_OUTPUT */
+
+    float Resistance_Equivalent;        /*!< Req = (RESISTANCE_OUTPUT + RESISTANCE_INPUT) || RESISTANCE_MOTOR */
+
+    uint16_t *temperatureVoltageBuffer; /*!< Buffer used to compute average value.*/
     uint16_t elem;                      /*!< Number of stored elements in the average buffer.*/
     uint8_t index;                      /*!< Index of last stored element in the average buffer.*/
 
-    int16_t  sensitivity;              /**< NTC sensitivity
+    int16_t  sensitivity;               /**< NTC sensitivity
                                             This parameter is equal to MCU supply voltage [V] / dV/dT [V/°C] */
-    uint32_t V0;                       /**< V0 voltage constant value used to convert the temperature into Volts.
+    uint32_t V0;                        /**< V0 voltage constant value used to convert the temperature into Volts.
                                             This parameter is equal V0*65536/MCU supply
                                             Used in through formula: V[V]=V0+dV/dT[V/°C]*(T-T0)[°C] */
-    uint16_t T0;                       /**< T0 temperature constant value used to convert the temperature into Volts
+    uint16_t T0;                        /**< T0 temperature constant value used to convert the temperature into Volts
                                             Used in through formula: V[V]=V0+dV/dT[V/°C]*(T-T0)[°C] */
-	uint8_t  convHandle;               /**!< handle to the regular conversion */
+	uint8_t  convHandle;                /**!< handle to the regular conversion */
 }MotorTemp_Handle_t;
 
 /* Initialize Motor NTC Sensor parameters */
@@ -83,9 +89,10 @@ void MOTORTEMP_Init(MotorTemp_Handle_t *pHandle);
 /* Clear static average Motor NTC value */
 void MOTORTEMP_Clear(MotorTemp_Handle_t *pHandle);
 
-/* Motor NTC Sensor Temperature computation s16A with ADC value (Origin Moving Average Algorithm)*/
-uint16_t MOTORTEMP_CalcAvTemperatureOrigin(MotorTemp_Handle_t *pHandle);
+/* Motor NTC Sensor output voltage computation s16A with ADC value (Origin Moving Average Algorithm)*/
+uint16_t MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle);
 
+/* Motor NTC Sensor output resistance computation based on s16A ADC value from MOTORTEMP_CalcAvOutputVoltageOrigin */
 uint32_t MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle);
 
 extern int motorTempOffset50C(uint32_t R_value);

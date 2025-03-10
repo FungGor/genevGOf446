@@ -6,6 +6,7 @@
 "./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o"
 "./Application/MOTOR_SENSORS/Battery/bus_current_sensor.o"
 "./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o"
+"./Application/MOTOR_SENSORS/motor_driver_ntc/driver_temp.o"
 "./Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.o"
 "./Application/MOTOR_SENSORS/motor_ntc/motor_ntc.o"
 "./Application/MainTask/PROTOCOL_HANDLER.o"

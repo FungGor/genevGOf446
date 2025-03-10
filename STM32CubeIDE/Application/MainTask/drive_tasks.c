@@ -207,7 +207,14 @@ void GeneralTasks(void const * argument)
 
 			if(*ptr_error_report == 0x00)
 			{
-				throttleSignalInput();
+				if(getIQ() < 10)
+				{
+					driveStop();
+				}
+				else if(getIQ() >= 10)
+				{
+					throttleSignalInput();
+				}
 			}
 
 			else if(*ptr_error_report != 0x00)

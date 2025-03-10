@@ -8,22 +8,11 @@
 
 
 /**
-  * @brief  It return latest converted MOTOR NTC resistance measurement expressed in u16
+  * @brief  It return latest converted MOTOR NTC resistance measurement expressed in u32
   * @param  pHandle related Handle of MotorNTCSensor_Handle_t
-  * @retval uint16_t Latest averaged MOTOR NTC resistance measurement in digit
+  * @retval uint32_t Latest averaged MOTOR NTC resistance measurement in Resistance
   */
-__weak uint16_t MOTOR_GetAvgNTCResistance_d(MotorNTCSensor_Handle_t *pHandle)
-{
-	return (pHandle->AvResistance_s16R);
-}
-
-
-/**
-  * @brief  It return latest converted MOTOR NTC resistance measurement expressed in u16
-  * @param  pHandle related Handle of MotorNTCSensor_Handle_t
-  * @retval uint16_t Latest averaged MOTOR NTC resistance measurement in Resistance
-  */
-__weak uint16_t MOTOR_GetAvgNTCResistance_R(MotorNTCSensor_Handle_t *pHandle)
+__weak uint32_t MOTOR_GetAvgNTCResistance_R(MotorNTCSensor_Handle_t *pHandle)
 {
 	return (pHandle->AvResistance_R);
 }

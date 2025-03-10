@@ -63,8 +63,13 @@ Application/User/mc_tasks.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/virtual_bus_voltage_sensor.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/driver_temp.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc_param.h \
+ ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
+ ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
+ ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/battery_current_sensors.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/bus_current_sensor.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h \
@@ -98,10 +103,8 @@ Application/User/mc_tasks.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h \
- ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
- ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
- ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h \
- ../../Inc/mc_api.h ../../Inc/mc_math.h ../../Inc/motorcontrol.h \
+ ../../Inc/parameters_conversion.h ../../Inc/mc_api.h ../../Inc/mc_math.h \
+ ../../Inc/motorcontrol.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h \
  ../../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../../Inc/FreeRTOSConfig.h \
@@ -122,7 +125,7 @@ Application/User/mc_tasks.o: \
  ../../Inc/mc_interface.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/digital_output.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pwm_common.h \
- ../../Inc/mc_tasks.h ../../Inc/parameters_conversion.h
+ ../../Inc/mc_tasks.h
 ../../Inc/main.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
 ../../Inc/stm32f4xx_hal_conf.h:
@@ -190,8 +193,16 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/virtual_bus_voltage_sensor.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_driver_ntc/driver_temp.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc_param.h:
+../../Inc/parameters_conversion.h:
+../../Inc/mc_math.h:
+../../Inc/parameters_conversion_f4xx.h:
+../../Inc/pmsm_motor_parameters.h:
+../../Inc/power_stage_parameters.h:
+../../Inc/drive_parameters.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/battery_current_sensors.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/bus_current_sensor.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h:
@@ -226,11 +237,6 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/ramp_ext_mngr.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h:
 ../../Inc/parameters_conversion.h:
-../../Inc/mc_math.h:
-../../Inc/parameters_conversion_f4xx.h:
-../../Inc/pmsm_motor_parameters.h:
-../../Inc/power_stage_parameters.h:
-../../Inc/drive_parameters.h:
 ../../Inc/mc_api.h:
 ../../Inc/mc_math.h:
 ../../Inc/motorcontrol.h:
@@ -255,4 +261,3 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/digital_output.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pwm_common.h:
 ../../Inc/mc_tasks.h:
-../../Inc/parameters_conversion.h:
