@@ -74,7 +74,7 @@ PID_Handle_t *pPIDIq[NBR_OF_MOTORS];
 PID_Handle_t *pPIDId[NBR_OF_MOTORS];
 RDivider_Handle_t *pBusSensorM1;
 BatteryCurrent_Handle_t *pCurrentSensorM1;
-
+MotorTemp_Handle_t *pMotorTemperatureSensorM1; /*2025-03-13*/
 NTC_Handle_t *pTemperatureSensor[NBR_OF_MOTORS];
 PWMC_Handle_t * pwmcHandle[NBR_OF_MOTORS];
 DOUT_handle_t *pR_Brake[NBR_OF_MOTORS];
@@ -185,6 +185,12 @@ __weak void MCboot( MCI_Handle_t* pMCIList[NBR_OF_MOTORS],MCT_Handle_t* pMCTList
   /****************************************************************/
   pCurrentSensorM1 = &RealBatteryCurrentSensorParamsM1;
   BATTERYCURRENT_Init(pCurrentSensorM1);
+
+  /*****************************************************************/
+  /*   Motor Temperature sensor component initialization   (2025-03-13)  */
+  /****************************************************************/
+  pMotorTemperatureSensorM1 = &RealMotorTemperatureSensorParamsM1;
+  MOTORTEMP_Init(pMotorTemperatureSensorM1);
 
   /*************************************************/
   /*   Power measurement component initialization  */
@@ -705,12 +711,14 @@ __weak void TSK_SafetyTask(void)
   * @retval None
   */
 uint16_t battery = 0;
+uint16_t tempVoltage = 0;
 __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
 {
   /* USER CODE BEGIN TSK_SafetyTask_PWMOFF 0 */
 
   /* USER CODE END TSK_SafetyTask_PWMOFF 0 */
   battery = BATTERYCURRENT_CalcAvCurrentOrigin(pCurrentSensorM1);
+  tempVoltage = MOTORTEMP_CalcAvOutputVoltageOrigin(pMotorTemperatureSensorM1);
   uint16_t CodeReturn = MC_NO_ERROR;
   uint16_t errMask[NBR_OF_MOTORS] = {VBUS_TEMP_ERR_MASK};
 

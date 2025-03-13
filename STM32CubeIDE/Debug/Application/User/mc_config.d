@@ -105,6 +105,7 @@ Application/User/mc_config.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/circle_limitation.h \
  ../../Inc/parameters_conversion.h ../../Inc/mc_api.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/current_sensor_parameter.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc_param.h \
  ../../Inc/mc_parameters.h ../../Inc/mc_config.h
 ../../Inc/main.h:
 ../../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:
@@ -219,5 +220,6 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 ../../Inc/parameters_conversion.h:
 ../../Inc/mc_api.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/Battery/current_sensor_parameter.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MOTOR_SENSORS/motor_ntc/motor_ntc_param.h:
 ../../Inc/mc_parameters.h:
 ../../Inc/mc_config.h:

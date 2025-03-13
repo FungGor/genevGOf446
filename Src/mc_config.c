@@ -20,6 +20,7 @@
 #include "mc_type.h"
 #include "parameters_conversion.h"
 #include "current_sensor_parameter.h"
+#include "motor_ntc_param.h"
 #include "mc_parameters.h"
 #include "mc_config.h"
 
@@ -255,6 +256,29 @@ BatteryCurrent_Handle_t RealBatteryCurrentSensorParamsM1 =
   },
   .LowPassFilterBW = M1_CBUS_SW_FILTER_BW_FACTOR,
   .currentBuffer = RealBusCurrentSensorFilterBuffer,
+};
+
+/* Motor Temperature Sensor filter buffer */
+uint16_t RealMotorTemperatureSensorFilterBuffer[MOTOR_TEMP_BANDWIDTH_FACTOR];
+
+/**
+  * Motor Temperature sensor parameters Motor 1 2025-03-13
+  */
+MotorTemp_Handle_t RealMotorTemperatureSensorParamsM1 =
+{
+		._Super         =
+		{
+				.conversionParam = (uint16_t)( ((RESISTANCE_OUTPUT+RESISTANCE_INPUT)/(RESISTANCE_OUTPUT)) ), /*2025-03-13 Temporary setting*/
+		},
+
+		.motorTemp =
+		{
+				.regADC = ADC1,
+				.channel = MC_ADC_CHANNEL_12,
+				.samplingTime = MOTOR_TEMP_SAMPLING,
+		},
+		.lowPassFilterBandwidth = MOTOR_TEMP_BANDWIDTH_FACTOR,
+		.temperatureVoltageBuffer = RealMotorTemperatureSensorFilterBuffer,
 };
 
 UI_Handle_t UI_Params =
