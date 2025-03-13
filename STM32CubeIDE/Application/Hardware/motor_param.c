@@ -20,6 +20,7 @@ void motor_param_init()
 	ptrMotor.Iq = 0;
 	ptrMotor.Id = 0;
 	ptrMotor.milliAmpere = 0;
+	ptrMotor.motorTemperature = 0;
 }
 
 void motor_speed()
@@ -48,6 +49,15 @@ uint32_t getDCVoltage()
 	return ptrMotor.VBUS;
 }
 
+void setMotorTemperature(int32_t temperature)
+{
+	ptrMotor.motorTemperature = temperature;
+}
+
+int32_t getMotorTemperature()
+{
+	return ptrMotor.motorTemperature;
+}
 
 bool isStop()
 {

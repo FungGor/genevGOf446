@@ -27,6 +27,7 @@ typedef struct
 	int32_t Iq;
 	int32_t Id;
 	uint16_t milliAmpere;
+	int32_t motorTemperature;
 }MOTOR;
 
 #define SAMPLE LENGTH          128u
@@ -42,6 +43,10 @@ void motor_rms_current();
 void setDCVoltage(uint32_t voltage);
 
 uint32_t getDCVoltage();
+
+void setMotorTemperature(int32_t temperature);
+
+int32_t getMotorTemperature();
 
 bool isStop();
 

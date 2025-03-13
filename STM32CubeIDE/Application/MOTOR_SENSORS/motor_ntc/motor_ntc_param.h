@@ -22,7 +22,6 @@ extern "C" {
 #define RESISTANCE_MOTOR                      (float)10000   //R2
 #define ALPHA                                 (float)((RESISTANCE_INPUT+RESISTANCE_OUTPUT)/RESISTANCE_OUTPUT)
 #define EQUIVALENT_RESISTANCE                 (float)(1/((1/(RESISTANCE_INPUT+RESISTANCE_OUTPUT)) + (1/RESISTANCE_MOTOR)))
-#define RESISTANCE_DIVIDER                    20000
 #define MOTOR_TEMP_BANDWIDTH_FACTOR           200
 #define CONVERSION_RANGE                      65536
 #define MOTOR_TEMP_SAMPLING                   LL_ADC_SAMPLING_CYCLE(3)

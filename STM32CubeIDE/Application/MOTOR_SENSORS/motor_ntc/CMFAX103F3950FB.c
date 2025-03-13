@@ -81,7 +81,7 @@ __weak void MOTORTEMP_Clear(MotorTemp_Handle_t *pHandle)
   *
   *  @r Fault status : Error reported in case of an over temperature detection (if necessary)
   */
-__weak uint16_t MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle)
+__weak void MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle)
 {
 	uint32_t wTemp; /*Final result of raw ADC samples*/
 	uint16_t hAux; /*Raw ADC Values of NTC CMFAX103F3950FB*/
@@ -113,7 +113,6 @@ __weak uint16_t MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle)
     		pHandle->index = 0;
     	}
     }
-    return (pHandle->avgNTCVoltage);
 }
 
 
@@ -127,7 +126,7 @@ __weak uint16_t MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle)
   *  Get s16A Values from ADC --> Based on the conversion factor, get the output voltage
   *  --> Based on the output voltage, back calculate the resistance with conversion factor
   */
-uint32_t MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
+void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
 {
 	float outputVoltage = 0;
 	float resistanceTemp = 0;
@@ -138,7 +137,6 @@ uint32_t MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
     resistanceTemp = resistanceTemp - pHandle->Resistance_Equivalent;
     NTC_R = (uint32_t) resistanceTemp;
     pHandle->avgNTCResistance = NTC_R;
-    return (pHandle->avgNTCResistance);
 }
 
 /**
@@ -151,35 +149,35 @@ uint32_t MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
   *  Get s16A Values from ADC --> Based on the conversion factor, get the output voltage
   *  --> Based on the output voltage, back calculate the resistance with conversion factor
   */
-extern int motorTempOffset50C(uint32_t R_value) {
+void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle) {
     float temp_value;
     uint8_t region;
-    if (R_value <= 341){
+    if (pHandle->avgNTCResistance <= 341){
         region = 1;
         temp_value = 126;
     }
-    else if ((R_value <= 1249) && (R_value > 341)) {
+    else if ((pHandle->avgNTCResistance <= 1249) && (pHandle->avgNTCResistance > 341)) {
         region = 2;
-        temp_value = 925.83 * pow(R_value,(-0.342));
+        temp_value = 925.83 * pow(pHandle->avgNTCResistance,(-0.342));
     }
-    else if ((R_value <= 5313) && (R_value > 1249)) {
+    else if ((pHandle->avgNTCResistance <= 5313) && (pHandle->avgNTCResistance > 1249)) {
         region = 3;
-        temp_value = -27.63 * log(R_value) + 276.32;
+        temp_value = -27.63 * log(pHandle->avgNTCResistance) + 276.32;
     }
-    else if ((R_value <= 34548) && (R_value > 5313)) {
+    else if ((pHandle->avgNTCResistance <= 34548) && (pHandle->avgNTCResistance > 5313)) {
         region = 4;
-        temp_value = -21.97 * log(R_value) + 227.71;
+        temp_value = -21.97 * log(pHandle->avgNTCResistance) + 227.71;
     }
-    else if ((R_value <= 345275) && (R_value > 34548)) {
+    else if ((pHandle->avgNTCResistance <= 345275) && (pHandle->avgNTCResistance > 34548)) {
         region = 5;
-        temp_value = -17.01 * log(R_value) + 175.95;
+        temp_value = -17.01 * log(pHandle->avgNTCResistance) + 175.95;
     }
     else { // R_value > 345275
         region = 6;
         temp_value = -41;
     }
-    return (int) round(temp_value);
-
+    pHandle->avgMotorTemp = (int32_t) round(temp_value);
+    setMotorTemperature(pHandle->avgMotorTemp);
 }
 
 
