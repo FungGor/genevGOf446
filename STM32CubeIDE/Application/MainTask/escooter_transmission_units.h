@@ -4,7 +4,7 @@
  *  Created on: Sep 2, 2024
  *      Author: TerenceLeung
  *
- *      GitHub Password: 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
+ *      GitHub Password: xxxxxx
  */
 
 #ifndef APPLICATION_MAINTASK_ESCOOTER_TRANSMISSION_UNITS_H_
