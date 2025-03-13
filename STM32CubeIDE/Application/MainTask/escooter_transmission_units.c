@@ -4,6 +4,9 @@
  *  Created on: Sep 2, 2024
  *      Author: TerenceLeung
  */
+
+/***********************************************ESCOOTER TRANSMISSION UNITS (ETU)*********************************************/
+
 #include <escooter_transmission_units.h>
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"

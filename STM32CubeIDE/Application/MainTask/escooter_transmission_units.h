@@ -16,6 +16,9 @@ extern "C"{
 #include <stdbool.h>
 #include "stdint.h"
 
+
+/***********************ESCOOTER TRANSMISSION UNITS (ETU)*************************/
+
 // GeneralTasks_TIME = 20 milliseconds
 #define GeneralTask_TIME      20
 

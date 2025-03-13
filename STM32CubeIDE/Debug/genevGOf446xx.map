@@ -15080,7 +15080,7 @@ LOAD C:/ST/STM32CubeIDE_1.12.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x000320e7      0x1d9 ./UDHAL/UDHAL_TIMEOUT.o
  .debug_macro   0x000322c0      0x60a ./UDHAL/UDHAL_UART.o
 
-.debug_line     0x00000000    0x5300a
+.debug_line     0x00000000    0x5300b
  .debug_line    0x00000000      0x5a4 ./Application/BootAndShutDown/SleepAndWake.o
  .debug_line    0x000005a4      0x671 ./Application/Hardware/brake_and_throttle.o
  .debug_line    0x00000c15      0x461 ./Application/Hardware/lightSensor.o
@@ -15089,70 +15089,70 @@ LOAD C:/ST/STM32CubeIDE_1.12.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_line    0x00002401      0xbf5 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
  .debug_line    0x00002ff6      0xd68 ./Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.o
  .debug_line    0x00003d5e      0x63e ./Application/MainTask/PROTOCOL_HANDLER.o
- .debug_line    0x0000439c     0x120e ./Application/MainTask/escooter_transmission_units.o
- .debug_line    0x000055aa     0x1343 ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_line    0x000068ed       0x7a ./Application/Startup/startup_stm32f446retx.o
- .debug_line    0x00006967     0x12d8 ./Application/User/freertos.o
- .debug_line    0x00007c3f     0x1cb6 ./Application/User/main.o
- .debug_line    0x000098f5     0x148d ./Application/User/mc_api.o
- .debug_line    0x0000ad82     0x118c ./Application/User/mc_config.o
- .debug_line    0x0000bf0e      0xf20 ./Application/User/mc_interface.o
- .debug_line    0x0000ce2e      0xec7 ./Application/User/mc_math.o
- .debug_line    0x0000dcf5     0x115f ./Application/User/mc_parameters.o
- .debug_line    0x0000ee54     0x1cdc ./Application/User/mc_tasks.o
- .debug_line    0x00010b30     0x18ab ./Application/User/motor_control_protocol.o
- .debug_line    0x000123db     0x11d9 ./Application/User/motorcontrol.o
- .debug_line    0x000135b4     0x174a ./Application/User/regular_conversion_manager.o
- .debug_line    0x00014cfe     0x1510 ./Application/User/stm32f4xx_hal_msp.o
- .debug_line    0x0001620e      0x8c3 ./Application/User/stm32f4xx_hal_timebase_tim.o
- .debug_line    0x00016ad1     0x1185 ./Application/User/stm32f4xx_it.o
- .debug_line    0x00017c56     0x1624 ./Application/User/stm32f4xx_mc_it.o
- .debug_line    0x0001927a     0x12f2 ./Application/User/ui_task.o
- .debug_line    0x0001a56c     0x1877 ./Application/User/user_interface.o
- .debug_line    0x0001bde3      0x866 ./Drivers/CMSIS/system_stm32f4xx.o
- .debug_line    0x0001c649      0xb8b ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
- .debug_line    0x0001d1d4     0x1839 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
- .debug_line    0x0001ea0d     0x1390 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
- .debug_line    0x0001fd9d      0xe0d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
- .debug_line    0x00020baa      0xe26 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
- .debug_line    0x000219d0      0xa5a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
- .debug_line    0x0002242a      0xb60 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
- .debug_line    0x00022f8a     0x1176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
- .debug_line    0x00024100     0x19b7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
- .debug_line    0x00025ab7     0x64bf ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
- .debug_line    0x0002bf76     0x1f52 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
- .debug_line    0x0002dec8     0x4c5d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
- .debug_line    0x00032b25     0x1d63 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_line    0x00034888      0xccf ./Middlewares/FreeRTOS/heap_4.o
- .debug_line    0x00035557      0x89d ./Middlewares/FreeRTOS/list.o
- .debug_line    0x00035df4      0xd5c ./Middlewares/FreeRTOS/port.o
- .debug_line    0x00036b50     0x3139 ./Middlewares/FreeRTOS/queue.o
- .debug_line    0x00039c89     0x3770 ./Middlewares/FreeRTOS/tasks.o
- .debug_line    0x0003d3f9     0x1575 ./Middlewares/FreeRTOS/timers.o
- .debug_line    0x0003e96e      0xa85 ./Middlewares/MotorControl/bus_voltage_sensor.o
- .debug_line    0x0003f3f3      0x992 ./Middlewares/MotorControl/circle_limitation.o
- .debug_line    0x0003fd85      0xdf1 ./Middlewares/MotorControl/frame_communication_protocol.o
- .debug_line    0x00040b76     0x16e9 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
- .debug_line    0x0004225f     0x16d4 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
- .debug_line    0x00043933      0xaf5 ./Middlewares/MotorControl/motor_power_measurement.o
- .debug_line    0x00044428      0xad8 ./Middlewares/MotorControl/ntc_temperature_sensor.o
- .debug_line    0x00044f00      0xd2f ./Middlewares/MotorControl/pid_regulator.o
- .debug_line    0x00045c2f      0xac3 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
- .debug_line    0x000466f2      0xb15 ./Middlewares/MotorControl/pwm_common.o
- .debug_line    0x00047207      0xead ./Middlewares/MotorControl/pwm_curr_fdbk.o
- .debug_line    0x000480b4      0xd49 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
- .debug_line    0x00048dfd      0xb96 ./Middlewares/MotorControl/ramp_ext_mngr.o
- .debug_line    0x00049993     0x1075 ./Middlewares/MotorControl/revup_ctrl.o
- .debug_line    0x0004aa08      0xadf ./Middlewares/MotorControl/speed_pos_fdbk.o
- .debug_line    0x0004b4e7      0xde1 ./Middlewares/MotorControl/speed_torq_ctrl.o
- .debug_line    0x0004c2c8      0xb8d ./Middlewares/MotorControl/state_machine.o
- .debug_line    0x0004ce55      0xea4 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
- .debug_line    0x0004dcf9     0x12d0 ./UDHAL/UDHAL_GPIO.o
- .debug_line    0x0004efc9      0xb01 ./UDHAL/UDHAL_MOTOR.o
- .debug_line    0x0004faca      0x94e ./UDHAL/UDHAL_POWERMODE.o
- .debug_line    0x00050418     0x121f ./UDHAL/UDHAL_SYSCLK.o
- .debug_line    0x00051637      0x7da ./UDHAL/UDHAL_TIMEOUT.o
- .debug_line    0x00051e11     0x11f9 ./UDHAL/UDHAL_UART.o
+ .debug_line    0x0000439c     0x120f ./Application/MainTask/escooter_transmission_units.o
+ .debug_line    0x000055ab     0x1343 ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_line    0x000068ee       0x7a ./Application/Startup/startup_stm32f446retx.o
+ .debug_line    0x00006968     0x12d8 ./Application/User/freertos.o
+ .debug_line    0x00007c40     0x1cb6 ./Application/User/main.o
+ .debug_line    0x000098f6     0x148d ./Application/User/mc_api.o
+ .debug_line    0x0000ad83     0x118c ./Application/User/mc_config.o
+ .debug_line    0x0000bf0f      0xf20 ./Application/User/mc_interface.o
+ .debug_line    0x0000ce2f      0xec7 ./Application/User/mc_math.o
+ .debug_line    0x0000dcf6     0x115f ./Application/User/mc_parameters.o
+ .debug_line    0x0000ee55     0x1cdc ./Application/User/mc_tasks.o
+ .debug_line    0x00010b31     0x18ab ./Application/User/motor_control_protocol.o
+ .debug_line    0x000123dc     0x11d9 ./Application/User/motorcontrol.o
+ .debug_line    0x000135b5     0x174a ./Application/User/regular_conversion_manager.o
+ .debug_line    0x00014cff     0x1510 ./Application/User/stm32f4xx_hal_msp.o
+ .debug_line    0x0001620f      0x8c3 ./Application/User/stm32f4xx_hal_timebase_tim.o
+ .debug_line    0x00016ad2     0x1185 ./Application/User/stm32f4xx_it.o
+ .debug_line    0x00017c57     0x1624 ./Application/User/stm32f4xx_mc_it.o
+ .debug_line    0x0001927b     0x12f2 ./Application/User/ui_task.o
+ .debug_line    0x0001a56d     0x1877 ./Application/User/user_interface.o
+ .debug_line    0x0001bde4      0x866 ./Drivers/CMSIS/system_stm32f4xx.o
+ .debug_line    0x0001c64a      0xb8b ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
+ .debug_line    0x0001d1d5     0x1839 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
+ .debug_line    0x0001ea0e     0x1390 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
+ .debug_line    0x0001fd9e      0xe0d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
+ .debug_line    0x00020bab      0xe26 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
+ .debug_line    0x000219d1      0xa5a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
+ .debug_line    0x0002242b      0xb60 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
+ .debug_line    0x00022f8b     0x1176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
+ .debug_line    0x00024101     0x19b7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
+ .debug_line    0x00025ab8     0x64bf ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
+ .debug_line    0x0002bf77     0x1f52 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
+ .debug_line    0x0002dec9     0x4c5d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
+ .debug_line    0x00032b26     0x1d63 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_line    0x00034889      0xccf ./Middlewares/FreeRTOS/heap_4.o
+ .debug_line    0x00035558      0x89d ./Middlewares/FreeRTOS/list.o
+ .debug_line    0x00035df5      0xd5c ./Middlewares/FreeRTOS/port.o
+ .debug_line    0x00036b51     0x3139 ./Middlewares/FreeRTOS/queue.o
+ .debug_line    0x00039c8a     0x3770 ./Middlewares/FreeRTOS/tasks.o
+ .debug_line    0x0003d3fa     0x1575 ./Middlewares/FreeRTOS/timers.o
+ .debug_line    0x0003e96f      0xa85 ./Middlewares/MotorControl/bus_voltage_sensor.o
+ .debug_line    0x0003f3f4      0x992 ./Middlewares/MotorControl/circle_limitation.o
+ .debug_line    0x0003fd86      0xdf1 ./Middlewares/MotorControl/frame_communication_protocol.o
+ .debug_line    0x00040b77     0x16e9 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_line    0x00042260     0x16d4 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_line    0x00043934      0xaf5 ./Middlewares/MotorControl/motor_power_measurement.o
+ .debug_line    0x00044429      0xad8 ./Middlewares/MotorControl/ntc_temperature_sensor.o
+ .debug_line    0x00044f01      0xd2f ./Middlewares/MotorControl/pid_regulator.o
+ .debug_line    0x00045c30      0xac3 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
+ .debug_line    0x000466f3      0xb15 ./Middlewares/MotorControl/pwm_common.o
+ .debug_line    0x00047208      0xead ./Middlewares/MotorControl/pwm_curr_fdbk.o
+ .debug_line    0x000480b5      0xd49 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
+ .debug_line    0x00048dfe      0xb96 ./Middlewares/MotorControl/ramp_ext_mngr.o
+ .debug_line    0x00049994     0x1075 ./Middlewares/MotorControl/revup_ctrl.o
+ .debug_line    0x0004aa09      0xadf ./Middlewares/MotorControl/speed_pos_fdbk.o
+ .debug_line    0x0004b4e8      0xde1 ./Middlewares/MotorControl/speed_torq_ctrl.o
+ .debug_line    0x0004c2c9      0xb8d ./Middlewares/MotorControl/state_machine.o
+ .debug_line    0x0004ce56      0xea4 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_line    0x0004dcfa     0x12d0 ./UDHAL/UDHAL_GPIO.o
+ .debug_line    0x0004efca      0xb01 ./UDHAL/UDHAL_MOTOR.o
+ .debug_line    0x0004facb      0x94e ./UDHAL/UDHAL_POWERMODE.o
+ .debug_line    0x00050419     0x121f ./UDHAL/UDHAL_SYSCLK.o
+ .debug_line    0x00051638      0x7da ./UDHAL/UDHAL_TIMEOUT.o
+ .debug_line    0x00051e12     0x11f9 ./UDHAL/UDHAL_UART.o
 
 .debug_str      0x00000000    0xfcd0b
  .debug_str     0x00000000     0x3dcf ./Application/BootAndShutDown/SleepAndWake.o
