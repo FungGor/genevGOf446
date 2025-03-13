@@ -717,8 +717,8 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$0B$3A*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   uint8_t motor_temp = 0x0C;
-    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&motor_temp,1);
+    		   int32_t motor_temp = getMotorTemperature(); /*int32_t format*/
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)&motor_temp,4); //32-bit variable for motor temperature
     	   }
     	   break;
 
@@ -727,7 +727,7 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$0C$3B*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   int32_t current = getDC();
+    		   int32_t current = getDC(); /*int32_t format*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)(&current),4); //32-bit variable for current
     	   }
     	   break;
