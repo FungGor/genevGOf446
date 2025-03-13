@@ -141,6 +141,7 @@ void GeneralTasks(void const * argument)
 	       **************************************************************/
 		   if((taskSleepCount % N1_ticks) == 0)
 		   {
+			   /*Read Motor Parameters*/
 			   getIqIdMotor();
 			   calcDC();
 			   DC_CURRENT = getDC(); //Just for debugging the data type
