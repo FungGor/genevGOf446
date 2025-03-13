@@ -712,13 +712,17 @@ __weak void TSK_SafetyTask(void)
   */
 uint16_t battery = 0;
 uint16_t tempVoltage = 0;
+uint32_t resistance = 0;
 __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
 {
   /* USER CODE BEGIN TSK_SafetyTask_PWMOFF 0 */
 
   /* USER CODE END TSK_SafetyTask_PWMOFF 0 */
   battery = BATTERYCURRENT_CalcAvCurrentOrigin(pCurrentSensorM1);
+  /*Continuously Monitor Motor's internal temperature (Output Voltage of NTC Sensor) 2025-03-13*/
   tempVoltage = MOTORTEMP_CalcAvOutputVoltageOrigin(pMotorTemperatureSensorM1);
+  /*Continuously Monitor Motor's internal temperature (Raw NTC Resistance inside the motor) 2025-03-13*/
+  resistance = MOTORTEMP_CalcAvR_Value(pMotorTemperatureSensorM1);
   uint16_t CodeReturn = MC_NO_ERROR;
   uint16_t errMask[NBR_OF_MOTORS] = {VBUS_TEMP_ERR_MASK};
 

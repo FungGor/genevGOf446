@@ -1,9 +1,9 @@
+#include <escooter_transmission_units.h>
 #include "main.h"
 #include "cmsis_os.h"
 #include "UDHAL_SYSCLK.h"
 #include "UDHAL_GPIO.h"
 #include "UDHAL_UART.h"
-#include "drive_tasks.h"
 
 ADC_HandleTypeDef hadc1;
 ADC_HandleTypeDef hadc2;

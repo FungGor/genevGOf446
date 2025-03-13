@@ -17,9 +17,11 @@ extern "C" {
 
 #define SUPPLY_VOLTAGE                        5       //Motor NTC Supply Voltage
 #define ADC_VOLTAGE_RANGE                     3.30    //Vdd
-#define RESISTANCE_OUTPUT                     5100    //R4
-#define RESISTANCE_INPUT                      1500    //R3
-#define RESISTANCE_MOTOR                      10000   //R2
+#define RESISTANCE_OUTPUT                     (float)5100    //R4
+#define RESISTANCE_INPUT                      (float)1500    //R3
+#define RESISTANCE_MOTOR                      (float)10000   //R2
+#define ALPHA                                 (float)((RESISTANCE_INPUT+RESISTANCE_OUTPUT)/RESISTANCE_OUTPUT)
+#define EQUIVALENT_RESISTANCE                 (float)(1/((1/(RESISTANCE_INPUT+RESISTANCE_OUTPUT)) + (1/RESISTANCE_MOTOR)))
 #define RESISTANCE_DIVIDER                    20000
 #define MOTOR_TEMP_BANDWIDTH_FACTOR           200
 #define CONVERSION_RANGE                      65536

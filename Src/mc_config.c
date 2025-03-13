@@ -277,6 +277,8 @@ MotorTemp_Handle_t RealMotorTemperatureSensorParamsM1 =
 				.channel = MC_ADC_CHANNEL_12,
 				.samplingTime = MOTOR_TEMP_SAMPLING,
 		},
+		.alpha = ALPHA,
+		.Resistance_Equivalent = EQUIVALENT_RESISTANCE,
 		.lowPassFilterBandwidth = MOTOR_TEMP_BANDWIDTH_FACTOR,
 		.temperatureVoltageBuffer = RealMotorTemperatureSensorFilterBuffer,
 };

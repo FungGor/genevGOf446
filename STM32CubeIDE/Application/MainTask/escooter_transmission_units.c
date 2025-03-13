@@ -4,7 +4,7 @@
  *  Created on: Sep 2, 2024
  *      Author: TerenceLeung
  */
-#include "drive_tasks.h"
+#include <escooter_transmission_units.h>
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"
 #include "battery_current_sensors.h"
@@ -96,7 +96,7 @@ void createDrivingTasks(void)
 	driveHandle = osThreadCreate(osThread(drive), NULL);
 }
 
-/*MAIN TASKS*/
+/*This is the main task for E-Scooter Transmission Unit  (ETU)*/
 int32_t DC_CURRENT = 0;
 void GeneralTasks(void const * argument)
 {

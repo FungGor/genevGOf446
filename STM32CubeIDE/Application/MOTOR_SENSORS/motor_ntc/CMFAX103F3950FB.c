@@ -66,7 +66,6 @@ __weak void MOTORTEMP_Clear(MotorTemp_Handle_t *pHandle)
 	pHandle->avgNTCResistance = 0u;
 	pHandle->temperatureVoltageBuffer[pHandle->lowPassFilterBandwidth] = (uint16_t){0};
 
-
 	pHandle->_Super.AvOutputVoltage = 0u;
 	pHandle->_Super.AvTemp = 0u;
 	pHandle->_Super.AvTemp_s16R = 0u;
@@ -134,10 +133,10 @@ uint32_t MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
 	float resistanceTemp = 0;
 	uint32_t NTC_R = 0;
     outputVoltage = ((float)(pHandle->avgNTCVoltage)/CONVERSION_RANGE)*ADC_VOLTAGE_RANGE;
-    resistanceTemp = (SUPPLY_VOLTAGE-(outputVoltage*pHandle->alpha));
-    resistanceTemp = (resistanceTemp*pHandle->Resistance_Equivalent);
-    resistanceTemp = (resistanceTemp/(outputVoltage*pHandle->alpha));
-    NTC_R = (uint32_t)resistanceTemp;
+    resistanceTemp = (5*pHandle->Resistance_Equivalent);
+    resistanceTemp = resistanceTemp / (outputVoltage*pHandle->alpha);
+    resistanceTemp = resistanceTemp - pHandle->Resistance_Equivalent;
+    NTC_R = (uint32_t) resistanceTemp;
     pHandle->avgNTCResistance = NTC_R;
     return (pHandle->avgNTCResistance);
 }

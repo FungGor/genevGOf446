@@ -10,7 +10,7 @@
 "./Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.o"
 "./Application/MOTOR_SENSORS/motor_ntc/motor_ntc.o"
 "./Application/MainTask/PROTOCOL_HANDLER.o"
-"./Application/MainTask/drive_tasks.o"
+"./Application/MainTask/escooter_transmission_units.o"
 "./Application/Safety_Protection/ERROR_REPORT.o"
 "./Application/Startup/startup_stm32f446retx.o"
 "./Application/User/freertos.o"

@@ -5,8 +5,8 @@
  *      Author: TerenceLeung
  */
 
+#include <escooter_transmission_units.h>
 #include "SleepAndWake.h"
-#include "drive_tasks.h"
 #include "UDHAL_POWERMODE.h"
 
 static bool POWER_ON = true;
