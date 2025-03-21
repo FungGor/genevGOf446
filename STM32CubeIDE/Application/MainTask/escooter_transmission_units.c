@@ -7,7 +7,7 @@
 
 /***********************************************ESCOOTER TRANSMISSION UNITS (ETU)*********************************************/
 
-#include <escooter_transmission_units.h>
+#include "escooter_transmission_units.h"
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"
 #include "battery_current_sensors.h"
@@ -72,6 +72,23 @@ void software_errorReportRegister(uint8_t *fault)
 	software_error_report = fault;
 }
 
+void ETU_SafetyCheck()
+{
+	if(underVoltage() == true)
+	{
+       /*Send Warning Report*/
+	}
+	else if(MotorOverTemperature() == true)
+	{
+		/*Send Warning Report*/
+
+	}
+	else if(DriverOverTemperature() == true)
+	{
+        /*Send Warning Report*/
+	}
+}
+
 void GoInit()
 {
 	/*Peripheral Initialization*/
@@ -99,7 +116,9 @@ void createDrivingTasks(void)
 	driveHandle = osThreadCreate(osThread(drive), NULL);
 }
 
-/*This is the main task for E-Scooter Transmission Unit  (ETU)*/
+/*This is the main task for E-Scooter Transmission Unit  (ETU)
+ *Why it drains a lots in the battery for the E-Scooter!
+ * */
 int32_t DC_CURRENT = 0;
 void GeneralTasks(void const * argument)
 {
@@ -206,6 +225,7 @@ void GeneralTasks(void const * argument)
 				throttleSignalInput();
 				driveStop(); /*Neutral Gear*/
 		    	error_indicator_on();
+		    	//break; //Auto-Shutdown triggered when connection is lost
 		    }
 
 
@@ -242,10 +262,3 @@ void GeneralTasks(void const * argument)
 	/*Shut Down Process Begins*/
 	gotoSLEEP();
 }
-
-void ES_SafetyTask()
-{
-	accelerateIQMotor(0,0);
-	motorStop();
-}
-

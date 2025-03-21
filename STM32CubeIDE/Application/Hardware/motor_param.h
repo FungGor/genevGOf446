@@ -28,39 +28,53 @@ typedef struct
 	int32_t Id;
 	uint16_t milliAmpere;
 	int32_t motorTemperature;
+	int32_t driverTemperature;
 }MOTOR;
 
-#define SAMPLE LENGTH          128u
+#define SAMPLE LENGTH               128u
+#define MOTOR_OVERTEMP_THRESHOLD      90
+#define DRIVER_OVERTEMP_THRESHOLD     70
+#define LOW_BATTERY_THRESHOLD         36
 
-void motor_param_init();
+extern void motor_param_init();
 
-void motor_speed();
+extern void motor_speed();
 
-void motor_current();
+extern void motor_current();
 
-void motor_rms_current();
+extern void motor_rms_current();
 
-void setDCVoltage(uint32_t voltage);
+extern void setDCVoltage(uint32_t voltage);
 
-uint32_t getDCVoltage();
+extern uint32_t getDCVoltage();
 
-void setMotorTemperature(int32_t temperature);
+extern bool underVoltage();
 
-int32_t getMotorTemperature();
+extern void setMotorTemperature(int32_t temperature);
 
-bool isStop();
+extern int32_t getMotorTemperature();
 
-int16_t getRPM();
+extern bool MotorOverTemperature();
 
-void setMOTORPower(int32_t powerSet);
+extern void setDriverTemperature(int32_t temperature);
 
-int32_t getMOTORPower();
+extern int32_t getDriverTemperature();
 
-void getIqIdMotor();
+extern bool DriverOverTemperature();
 
-void calcDC();
+extern bool isStop();
 
-int32_t getDC();
+extern int16_t getRPM();
+
+extern void setMOTORPower(int32_t powerSet);
+
+extern int32_t getMOTORPower();
+
+extern void getIqIdMotor();
+
+extern void calcDC();
+
+extern int32_t getDC();
 
 #ifdef __cplusplus
 }

@@ -88,6 +88,7 @@ extern void MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle);
 /* Motor NTC Sensor output resistance computation based on s16A ADC value from MOTORTEMP_CalcAvOutputVoltageOrigin */
 extern void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle);
 
+/* Motor NTC Sensor output temperature computation based on s16A ADC value from MOTORTEMP_CalcAvTemp_Value */
 extern void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle);
 
 #ifdef _cplusplus

@@ -21,6 +21,7 @@ void motor_param_init()
 	ptrMotor.Id = 0;
 	ptrMotor.milliAmpere = 0;
 	ptrMotor.motorTemperature = 0;
+	ptrMotor.driverTemperature = 0;
 }
 
 void motor_speed()
@@ -49,6 +50,15 @@ uint32_t getDCVoltage()
 	return ptrMotor.VBUS;
 }
 
+bool underVoltage()
+{
+   if (ptrMotor.VBUS < LOW_BATTERY_THRESHOLD)
+   {
+	   return true;
+   }
+   return false;
+}
+
 void setMotorTemperature(int32_t temperature)
 {
 	ptrMotor.motorTemperature = temperature;
@@ -57,6 +67,34 @@ void setMotorTemperature(int32_t temperature)
 int32_t getMotorTemperature()
 {
 	return ptrMotor.motorTemperature;
+}
+
+bool MotorOverTemperature()
+{
+	if (ptrMotor.motorTemperature > MOTOR_OVERTEMP_THRESHOLD)
+	{
+		return true;
+	}
+	return false;
+}
+
+void setDriverTemperature(int32_t temperature)
+{
+	ptrMotor.driverTemperature = temperature;
+}
+
+int32_t getDriverTemperature()
+{
+	return ptrMotor.driverTemperature;
+}
+
+bool DriverOverTemperature()
+{
+	if(ptrMotor.driverTemperature > DRIVER_OVERTEMP_THRESHOLD)
+	{
+		return true;
+	}
+	return false;
 }
 
 bool isStop()

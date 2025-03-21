@@ -283,6 +283,24 @@ MotorTemp_Handle_t RealMotorTemperatureSensorParamsM1 =
 		.temperatureVoltageBuffer = RealMotorTemperatureSensorFilterBuffer,
 };
 
+/* Motor Driver Temperature Sensor filter buffer */
+uint16_t RealMotorDriverTemperatureSensorFilterBuffer[MOTOR_DRIVER_TEMP_BANDWIDTH_FACTOR];
+
+/**
+  * Motor Driver Temperature sensor parameters Motor 1 2025-03-17
+  */
+DriverTemp_Handle_t RealMotorDriverTemperatureSensorParamsM1 =
+{
+		.driverTemp =
+		{
+				.regADC = ADC1,
+				.channel = MC_ADC_CHANNEL_8,
+				.samplingTime = MOTOR_DRIVER_TEMP_SAMPLING,
+		},
+		.lowPassFilterBandwidth = MOTOR_DRIVER_TEMP_BANDWIDTH_FACTOR,
+		.driverNTCVoltageBuffer = RealMotorDriverTemperatureSensorFilterBuffer,
+};
+
 UI_Handle_t UI_Params =
 {
   .bDriveNum = 0,

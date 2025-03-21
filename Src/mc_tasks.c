@@ -75,6 +75,7 @@ PID_Handle_t *pPIDId[NBR_OF_MOTORS];
 RDivider_Handle_t *pBusSensorM1;
 BatteryCurrent_Handle_t *pCurrentSensorM1;
 MotorTemp_Handle_t *pMotorTemperatureSensorM1; /*2025-03-13*/
+DriverTemp_Handle_t *pMotorDriverTemperatureSensorM1; /*2025-03-21*/
 NTC_Handle_t *pTemperatureSensor[NBR_OF_MOTORS];
 PWMC_Handle_t * pwmcHandle[NBR_OF_MOTORS];
 DOUT_handle_t *pR_Brake[NBR_OF_MOTORS];
@@ -191,6 +192,12 @@ __weak void MCboot( MCI_Handle_t* pMCIList[NBR_OF_MOTORS],MCT_Handle_t* pMCTList
   /****************************************************************/
   pMotorTemperatureSensorM1 = &RealMotorTemperatureSensorParamsM1;
   MOTORTEMP_Init(pMotorTemperatureSensorM1);
+
+  /*****************************************************************/
+  /*   Motor Driver Temperature sensor component initialization   (2025-03-21)  */
+  /****************************************************************/
+  pMotorDriverTemperatureSensorM1 = &RealMotorDriverTemperatureSensorParamsM1;
+  MOTORDRIVERTEMP_Init(pMotorDriverTemperatureSensorM1);
 
   /*************************************************/
   /*   Power measurement component initialization  */
@@ -723,6 +730,13 @@ __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
   MOTORTEMP_CalcAvR_Value(pMotorTemperatureSensorM1);
   /*Continuously Monitor Motor's internal temperature (Raw NTC Temperature inside the motor) 2025-03-13*/
   MOTORTEMP_CalcAvTemp_Value(pMotorTemperatureSensorM1);
+
+  /*Continuously Monitor Motor Driver's internal temperature (Output Voltage of NTC Sensor) 2025-03-21*/
+  MOTORDRIVERTEMP_CalcAvOutputVoltageOrigin(pMotorDriverTemperatureSensorM1);
+  /*Continuously Monitor Motor Driver's internal temperature (Raw NTC Resistance of the ETU) 2025-03-21*/
+  MOTORDRIVERTEMP_CalcAvR_Value(pMotorDriverTemperatureSensorM1);
+  /*Continuously Monitor Motor Driver's internal temperature (Raw NTC Temperature of the ETU) 2025-03-21*/
+  heatSinkTempOffset50C(pMotorDriverTemperatureSensorM1);
 
   uint16_t CodeReturn = MC_NO_ERROR;
   uint16_t errMask[NBR_OF_MOTORS] = {VBUS_TEMP_ERR_MASK};

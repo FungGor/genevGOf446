@@ -61,6 +61,8 @@ extern RDivider_Handle_t RealBusVoltageSensorParamsM1;
 extern BatteryCurrent_Handle_t RealBatteryCurrentSensorParamsM1;
 //Motor Temperature Sensing
 extern MotorTemp_Handle_t RealMotorTemperatureSensorParamsM1;
+//Motor Driver Temperature Sensing
+extern DriverTemp_Handle_t RealMotorDriverTemperatureSensorParamsM1;
 extern CircleLimitation_Handle_t CircleLimitationM1;
 extern RampExtMngr_Handle_t RampExtMngrHFParamsM1;
 extern UI_Handle_t UI_Params;

@@ -36,6 +36,9 @@ void go_errorReportRegister(uint8_t *report);
 
 void software_errorReportRegister(uint8_t *fault);
 
+/* Executes safety checks (e.g. bus voltage and temperature) for all drive instances */
+void ETU_SafetyCheck();
+
 /* Initializes GENEV-GO core according to user defined parameters. */
 void GoInit();
 
@@ -43,9 +46,6 @@ void createDrivingTasks(void);
 
 /* Runs all the Tasks of GENEV-GO cockpit */
 void GeneralTasks(void const * argument);
-
-/* Executes safety checks (e.g. bus voltage and temperature) for all drive instances */
-void ES_SafetyTask();
 #ifdef __cplusplus
 }
 #endif

@@ -702,16 +702,18 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     	   }
     	   break;
 
+    	   /*Get Motor Driver Temperature*/
     	   case MOTOR_DRIVER_TEMP:
     	   {
     		   /*$2E$01$0A$39*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   uint8_t motor_driver_temp = 0x0B;
-    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&motor_driver_temp,1);
+    		   int32_t motorDriverTemp = getDriverTemperature(); /*int32_t format*/
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)&motorDriverTemp,4);
     	   }
     	   break;
 
+    	   /*Get Motor Temperature*/
     	   case MOTOR_TEMP:
     	   {
     		   /*$2E$01$0B$3A*/
