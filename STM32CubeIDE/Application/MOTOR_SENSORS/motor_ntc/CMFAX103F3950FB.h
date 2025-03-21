@@ -91,6 +91,9 @@ extern void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle);
 /* Motor NTC Sensor output temperature computation based on s16A ADC value from MOTORTEMP_CalcAvTemp_Value */
 extern void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle);
 
+/*Checks if the hub motor is Over-Temperature*/
+extern bool MOTORTEMP_OVERTEMPERATURE(MotorTemp_Handle_t *pHandle);
+
 #ifdef _cplusplus
 }
 #endif

@@ -280,6 +280,7 @@ MotorTemp_Handle_t RealMotorTemperatureSensorParamsM1 =
 		.alpha = ALPHA,
 		.Resistance_Equivalent = EQUIVALENT_RESISTANCE,
 		.lowPassFilterBandwidth = MOTOR_TEMP_BANDWIDTH_FACTOR,
+		.overTemperatureThreshold = MOTOR_TEMP_OVERTEMPERATURE,
 		.temperatureVoltageBuffer = RealMotorTemperatureSensorFilterBuffer,
 };
 
@@ -298,6 +299,7 @@ DriverTemp_Handle_t RealMotorDriverTemperatureSensorParamsM1 =
 				.samplingTime = MOTOR_DRIVER_TEMP_SAMPLING,
 		},
 		.lowPassFilterBandwidth = MOTOR_DRIVER_TEMP_BANDWIDTH_FACTOR,
+		.overTemperatureThreshold = MOTOR_DRIVER_OVERTEMP,
 		.driverNTCVoltageBuffer = RealMotorDriverTemperatureSensorFilterBuffer,
 };
 

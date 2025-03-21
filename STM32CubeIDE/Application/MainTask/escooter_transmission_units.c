@@ -225,7 +225,7 @@ void GeneralTasks(void const * argument)
 				throttleSignalInput();
 				driveStop(); /*Neutral Gear*/
 		    	error_indicator_on();
-		    	//break; //Auto-Shutdown triggered when connection is lost
+		    	break; //Auto-Shutdown triggered when connection is lost
 		    }
 
 

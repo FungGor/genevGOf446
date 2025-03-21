@@ -29,6 +29,8 @@ typedef struct
 	uint16_t milliAmpere;
 	int32_t motorTemperature;
 	int32_t driverTemperature;
+	bool isMotorOverTemperature;
+	bool isDriverOverTemperature;
 }MOTOR;
 
 #define SAMPLE LENGTH               128u
@@ -54,11 +56,15 @@ extern void setMotorTemperature(int32_t temperature);
 
 extern int32_t getMotorTemperature();
 
+extern void updateMotorTemperatureStatus(bool status);
+
 extern bool MotorOverTemperature();
 
 extern void setDriverTemperature(int32_t temperature);
 
 extern int32_t getDriverTemperature();
+
+extern void updateDriverTemperatureStatus(bool status);
 
 extern bool DriverOverTemperature();
 

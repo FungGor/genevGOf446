@@ -22,6 +22,8 @@ void motor_param_init()
 	ptrMotor.milliAmpere = 0;
 	ptrMotor.motorTemperature = 0;
 	ptrMotor.driverTemperature = 0;
+	ptrMotor.isMotorOverTemperature = false;
+	ptrMotor.isDriverOverTemperature = false;
 }
 
 void motor_speed()
@@ -69,6 +71,11 @@ int32_t getMotorTemperature()
 	return ptrMotor.motorTemperature;
 }
 
+void updateMotorTemperatureStatus(bool status)
+{
+	ptrMotor.isMotorOverTemperature = status;
+}
+
 bool MotorOverTemperature()
 {
 	if (ptrMotor.motorTemperature > MOTOR_OVERTEMP_THRESHOLD)
@@ -86,6 +93,12 @@ void setDriverTemperature(int32_t temperature)
 int32_t getDriverTemperature()
 {
 	return ptrMotor.driverTemperature;
+}
+
+void updateDriverTemperatureStatus(bool status)
+{
+	ptrMotor.isDriverOverTemperature = status;
+
 }
 
 bool DriverOverTemperature()

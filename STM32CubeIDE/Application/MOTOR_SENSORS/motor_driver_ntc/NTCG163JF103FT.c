@@ -148,3 +148,13 @@ __weak void heatSinkTempOffset50C(DriverTemp_Handle_t *pHandle)
     pHandle->avgDriverTemp = (round(temp_offSet50C));
     setDriverTemperature(pHandle->avgDriverTemp);
 }
+
+__weak bool MOTORDRIVERTEMP_OVERTEMPERATURE(DriverTemp_Handle_t *pHandle)
+{
+	if(pHandle->avgDriverTemp > pHandle->overTemperatureThreshold)
+	{
+		updateDriverTemperatureStatus(true);
+		return true;
+	}
+	return false;
+}

@@ -126,7 +126,7 @@ __weak void MOTORTEMP_CalcAvOutputVoltageOrigin(MotorTemp_Handle_t *pHandle)
   *  Get s16A Values from ADC --> Based on the conversion factor, get the output voltage
   *  --> Based on the output voltage, back calculate the resistance with conversion factor
   */
-void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
+__weak void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
 {
 	float outputVoltage = 0;
 	float resistanceTemp = 0;
@@ -149,7 +149,7 @@ void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
   *  Get s16A Values from ADC --> Based on the conversion factor, get the output voltage
   *  --> Based on the output voltage, back calculate the resistance with conversion factor
   */
-void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle) {
+__weak void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle) {
     float temp_value;
     uint8_t region;
     if (pHandle->avgNTCResistance <= 341){
@@ -180,4 +180,12 @@ void MOTORTEMP_CalcAvTemp_Value(MotorTemp_Handle_t *pHandle) {
     setMotorTemperature(pHandle->avgMotorTemp);
 }
 
-
+__weak bool MOTORTEMP_OVERTEMPERATURE(MotorTemp_Handle_t *pHandle)
+{
+	if(pHandle->avgMotorTemp > pHandle->overTemperatureThreshold)
+	{
+		updateMotorTemperatureStatus(true);
+		return true;
+	}
+	return false;
+}

@@ -41,6 +41,7 @@ extern "C"
 #define MOTOR_DRIVER_TEMP_BANDWIDTH_FACTOR      200
 #define MAXIMUM_ADC_RANGE                       65536
 #define NTC_VDD                                 3.3
+#define MOTOR_DRIVER_OVERTEMP                   100
 #define MOTOR_DRIVER_TEMP_SAMPLING              LL_ADC_SAMPLING_CYCLE(3)
 
 /*********************************************************************
@@ -73,7 +74,7 @@ typedef struct
 	uint32_t avgDriverNTCResistance;          /**< It contains latest available average NTC Resistance.
 	                                             This parameter is expressed in u16Celsius */
 	uint16_t lowPassFilterBandwidth;
-	uint16_t overTemperatureThreshold;        /**< Represents the over voltage protection intervention threshold.
+	int32_t overTemperatureThreshold;        /**< Represents the over voltage protection intervention threshold.
                                                  This parameter is expressed in u16Celsius through formula:
                                                  hOverTempThreshold =
                                                  (V0[V]+dV/dT[V/°C]*(OverTempThreshold[°C] - T0[°C]))* 65536 / MCU supply voltage */
@@ -98,6 +99,8 @@ extern void MOTORDRIVERTEMP_CalcAvR_Value(DriverTemp_Handle_t *pHandle);
 /* Motor NTC Sensor output temperature computation based on s16A ADC value from MOTORTEMP_CalcAvTemp_Value */
 extern void heatSinkTempOffset50C(DriverTemp_Handle_t *pHandle);
 
+/*Checks if the motor driver is Over-Temperature*/
+extern bool MOTORDRIVERTEMP_OVERTEMPERATURE(DriverTemp_Handle_t *pHandle);
 
 #ifdef _cplusplus
 }

@@ -24,6 +24,7 @@ extern "C" {
 #define EQUIVALENT_RESISTANCE                 (float)(1/((1/(RESISTANCE_INPUT+RESISTANCE_OUTPUT)) + (1/RESISTANCE_MOTOR)))
 #define MOTOR_TEMP_BANDWIDTH_FACTOR           200
 #define CONVERSION_RANGE                      65536
+#define MOTOR_TEMP_OVERTEMPERATURE            160
 #define MOTOR_TEMP_SAMPLING                   LL_ADC_SAMPLING_CYCLE(3)
 
 
