@@ -18,6 +18,7 @@
 #include "UDHAL_MOTOR.h"
 #include "motor_param.h"
 #include "hardwareParam.h"
+#include "mc_tasks.h"
 #include "cmsis_os.h"
 
 osThreadId driveHandle;
@@ -76,17 +77,30 @@ void ETU_SafetyCheck()
 {
 	if(underVoltage() == true)
 	{
-       /*Send Warning Report*/
+        /*Send Warning Report*/
 	}
 	else if(MotorOverTemperature() == true)
 	{
 		/*Send Warning Report*/
+		SEND_MOTOR_ERROR_REPORT(MOTOR_TEMP_ERROR_CODE);
 
 	}
 	else if(DriverOverTemperature() == true)
 	{
         /*Send Warning Report*/
+		SEND_MOTOR_ERROR_REPORT(MOTOR_TEMP_ERROR_CODE);
 	}
+}
+
+/* Safety Power Cutting 2025-03-25 */
+void ETU_PowerShutDown()
+{
+	Motor_ShutDown();
+}
+
+void ETU_RegenerateBrake()
+{
+
 }
 
 void GoInit()
@@ -220,12 +234,13 @@ void GeneralTasks(void const * argument)
 
 		    if(GET_SOFTWARE_ERROR_REPORT() != 0x00)
 		    {
-				setIQ(0);
-				set_ThrottlePercent(0);
-				throttleSignalInput();
-				driveStop(); /*Neutral Gear*/
+				//setIQ(0);
+				//set_ThrottlePercent(0);
+				//throttleSignalInput();
+				//driveStop(); /*Neutral Gear*/
+				ETU_PowerShutDown();
 		    	error_indicator_on();
-		    	break; //Auto-Shutdown triggered when connection is lost
+		    	//break; //Auto-Shutdown triggered when connection is lost
 		    }
 
 
@@ -246,10 +261,11 @@ void GeneralTasks(void const * argument)
 		}
 		else if(getPowerMode() == false)
 		{
-			setIQ(0);
-			set_ThrottlePercent(0);
-			throttleSignalInput();
-			driveStop(); /*Ensure it is in Neutral Gear*/
+			//setIQ(0);
+			//set_ThrottlePercent(0);
+			//throttleSignalInput();
+			//driveStop(); /*Ensure it is in Neutral Gear*/
+			ETU_PowerShutDown();
 			ledIndicatorStatus = led_indicator_off();
 			set_tail_light_off();
 			error_indicator_off();

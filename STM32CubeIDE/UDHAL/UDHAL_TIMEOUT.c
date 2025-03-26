@@ -31,8 +31,8 @@ void UDHAL_TIMEOUT_init()
 
 static void UDHAL_TIMEOUT_Start()
 {
+	/*UDHAL_TIMEOUT_OVClockFxn is triggered in every 500 ms, 0.5s */
 	osTimerStart(protocolTimeoutHandle,RECEIVE_TIMEOUT_PERIOD);
-
 }
 
 static void UDHAL_TIMEOUT_Stop()

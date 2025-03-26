@@ -60,6 +60,12 @@ void TSK_HardwareFaultTask(void);
 
  /* Locks GPIO pins used for Motor Control to prevent accidental reconfiguration */
 void mc_lock_pins (void);
+
+/*Shut Down Motor 2025-03-25*/
+void Motor_ShutDown(void);
+
+/*Regenerative Brake Mechanism Starts 2025-03-26*/
+void Motor_RegenerativeBraking(void);
 /**
   * @}
   */

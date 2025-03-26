@@ -18,3 +18,5 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks.c:835:6:startMediumFrequencyTask	1
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks.c:849:6:StartSafetyTask	1
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks.c:865:13:mc_lock_pins	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks.c:886:13:Motor_ShutDown	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/mc_tasks.c:895:6:Motor_RegenerativeBraking	1

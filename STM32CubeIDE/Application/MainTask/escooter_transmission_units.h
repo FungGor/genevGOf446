@@ -39,6 +39,13 @@ void software_errorReportRegister(uint8_t *fault);
 /* Executes safety checks (e.g. bus voltage and temperature) for all drive instances */
 void ETU_SafetyCheck();
 
+/* Safety Power Cutting 2025-03-25 */
+void ETU_PowerShutDown();
+
+/* Regeneration Braking 2025-03-26  How does regeneration brake work? https://www.youtube.com/watch?v=pJj6uGcMco4 */
+void ETU_RegenerateBrake();
+
+
 /* Initializes GENEV-GO core according to user defined parameters. */
 void GoInit();
 

@@ -882,6 +882,22 @@ LL_GPIO_LockPin(BATTERY_CURRENT_GPIO_Port,BATTERY_CURRENT_Pin);
 LL_GPIO_LockPin(MOTOR_TEMP_GPIO_Port,MOTOR_TEMP_Pin);
 }
 
+/*2025-03-25 Cut off PWM Output to avoid any accidental motor locks*/
+__weak void Motor_ShutDown(void)
+{
+	/*Shut Down*/
+	PWMC_SwitchOffPWM(pwmcHandle[M1]);
+	FOC_Clear(M1);
+	MPM_Clear((MotorPowMeas_Handle_t*)pMPM[M1]);
+}
+
+/*Regenerative Brake Mechanism Starts 2025-03-26*/
+void Motor_RegenerativeBraking(void)
+{
+	/*Shut Down*/
+	PWMC_SwitchOffPWM(pwmcHandle[M1]);
+}
+
 /* USER CODE BEGIN mc_task 0 */
 
 /* USER CODE END mc_task 0 */
