@@ -20,6 +20,7 @@ extern "C"{
 
 extern void etu_state_ptr_register(ETU_StateHandle_t *etuState);
 extern void power_management_register(bool *ptrPower);
+extern void connection_behaviour_register(uint8_t *ptrConnection);
 extern void run_background_tasks();
 
 #ifdef __cplusplus

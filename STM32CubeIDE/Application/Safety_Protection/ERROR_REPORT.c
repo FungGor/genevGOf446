@@ -5,6 +5,7 @@
  *      Author: TerenceLeung
  */
 #include "escooter_transmission_units.h"
+#include "backgroundTask.h"
 #include "ERROR_REPORT.h"
 #include "mc_type.h"
 #include "mc_api.h"
@@ -23,6 +24,11 @@ void ERROR_REPORT_INIT()
 void SOFTWARE_ERROR_REPORT_INIT()
 {
 	software_errorReportRegister(&SOFTWARE_ERROR);
+}
+
+void BACKGROUND_CONNECTION_MONITOR_INIT()
+{
+	connection_behaviour_register(&SOFTWARE_ERROR);
 }
 
 void CHECK_MOTOR_STATUS()

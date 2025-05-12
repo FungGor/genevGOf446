@@ -196,6 +196,11 @@ void setHallState(uint8_t hall)
 	ptrMotor.hallSensorState = hall;
 }
 
+uint8_t getHallStatus()
+{
+	return ptrMotor.hallSensorState;
+}
+
 void RotorAngle()
 {
 	ptrMotor.electricAngle = getRotorPosition();

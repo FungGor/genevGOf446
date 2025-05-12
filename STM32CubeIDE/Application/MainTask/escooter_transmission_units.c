@@ -25,11 +25,10 @@
 #include "mc_tasks.h"
 #include "cmsis_os.h"
 
-osThreadId driveHandle;
-osPriority priority;
+static osThreadId driveHandle;
+static osPriority priority;
 
 ETU_StateHandle_t ETU_State;
-ETU_State_t getState;
 
 static uint8_t N1_ticks = 0;
 static uint8_t N2_ticks = 0;
@@ -88,6 +87,8 @@ void GoInit()
 
 	/*Idle Task*/
 	powerManagementInit();
+    /*UART Connection Status is also monitored in Background Task*/
+	BACKGROUND_CONNECTION_MONITOR_INIT();
 	/*Idle Task*/
 	run_background_tasks();
 
@@ -126,9 +127,10 @@ void GeneralTasks(void const * argument)
 		if(isPowerByBattery == 0x00)
 		{
 			/* Starts Hardware Diagnosis and Checking
-			 *
-			 *
-			 *
+			 * 1. Hall Sensor
+			 * 2. Battery Voltage
+			 * 3. Brake and Throttle Sensor
+			 * 4. Speed Checking
 			 * */
 			if(mainTaskStart == 0x00)
 			{

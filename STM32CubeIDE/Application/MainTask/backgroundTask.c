@@ -6,11 +6,13 @@
  */
 #include <backgroundTask.h>
 #include "SleepAndWake.h"
+#include "ERROR_REPORT.h"
 
 
 bool *ptrPowerStatus;
+uint8_t *connectionFault;
 uint32_t powerOnTime = 0;
-osThreadId idleTaskHandle;
+static osThreadId idleTaskHandle;
 ETU_StateHandle_t *state;
 
 static void idleBackgroundTask(void const *argument);
@@ -23,6 +25,11 @@ void etu_state_ptr_register(ETU_StateHandle_t *etuState)
 void power_management_register(bool *ptrPower)
 {
 	ptrPowerStatus = ptrPower;
+}
+
+void connection_behaviour_register(uint8_t *ptrConnection)
+{
+	connectionFault = ptrConnection;
 }
 
 void run_background_tasks()
@@ -46,6 +53,11 @@ static void idleBackgroundTask(void const *argument)
 
 		}else if(state->eState == ETU_OBD){
 			mode = 0x02;
+		}
+
+		if(*connectionFault != 0)
+		{
+			*ptrPowerStatus = false;
 		}
 
 		if(*ptrPowerStatus == false)

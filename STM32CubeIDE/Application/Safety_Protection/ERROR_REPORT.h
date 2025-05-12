@@ -29,13 +29,14 @@ extern "C"{
 #define HALL_SENSOR_ERROR_CODE    0x3A
 #define MOTOR_TEMP_ERROR_CODE     0x3C
 
-void ERROR_REPORT_INIT();
-void SOFTWARE_ERROR_REPORT_INIT();
-void CHECK_MOTOR_STATUS();
-void SEND_SOFTWARE_ERROR_REPORT(uint8_t fault);
-void SEND_MOTOR_ERROR_REPORT(uint16_t error_code);
-uint8_t GET_MOTOR_ERROR_REPORT();
-uint8_t GET_SOFTWARE_ERROR_REPORT();
+extern void ERROR_REPORT_INIT();
+extern void SOFTWARE_ERROR_REPORT_INIT();
+extern void BACKGROUND_CONNECTION_MONITOR_INIT();
+extern void CHECK_MOTOR_STATUS();
+extern void SEND_SOFTWARE_ERROR_REPORT(uint8_t fault);
+extern void SEND_MOTOR_ERROR_REPORT(uint16_t error_code);
+extern uint8_t GET_MOTOR_ERROR_REPORT();
+extern uint8_t GET_SOFTWARE_ERROR_REPORT();
 
 #ifdef __cplusplus
 }
