@@ -5,7 +5,8 @@
  *      Author: TerenceLeung
  */
 
-#include <escooter_transmission_units.h>
+#include <backgroundTask.h>
+#include "escooter_transmission_units.h"
 #include "SleepAndWake.h"
 #include "UDHAL_POWERMODE.h"
 
@@ -16,17 +17,17 @@ void powerModeInit()
 	go_powerOnRegister(&POWER_ON);
 }
 
+void powerManagementInit()
+{
+	power_management_register(&POWER_ON);
+}
+
 void changePowerMode()
 {
 	if(POWER_ON == true)
 	{
 		POWER_ON = false;
 	}
-}
-
-bool getPowerStatus()
-{
-	return POWER_ON;
 }
 
 void gotoSLEEP()
@@ -37,4 +38,10 @@ void gotoSLEEP()
 void wakeUp()
 {
 	bootStart();
+}
+
+uint8_t getBootSource()
+{
+	uint8_t Boot = GET_RESET_SOURCE();
+	return Boot;
 }

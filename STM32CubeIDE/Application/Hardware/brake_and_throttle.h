@@ -16,6 +16,12 @@ extern "C"{
 #include "stdint.h"
 #include "hardwareParam.h"
 
+
+#define THROTTLE_ADC_CALIBRATE_L     850
+#define THROTTLE_ADC_CALIBRATE_H     2200
+#define BRAKE_ADC_CALIBRATE_L        830
+#define BRAKE_ADC_CALIBRATE_H        2200
+
 typedef struct
 {
 	int16_t IQ_applied;
@@ -25,6 +31,7 @@ typedef struct
 	int16_t allowable_rpm;
 	int16_t speed_mode_IQmax;
 	uint16_t ramp_rate;
+	uint16_t throttle_voltage;
 }brakeAndThrottle_t;
 
 void brake_and_throttle_init();
@@ -42,6 +49,10 @@ void throttleSignalInput();
 void refreshThrottleStatus();
 
 bool getThrottleStatus();
+
+void setThrottle_Voltage(uint16_t percentage);
+
+uint16_t getThrottle_Voltage();
 
 void updateBrakeStatus(bool status);
 

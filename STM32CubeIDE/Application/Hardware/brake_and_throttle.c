@@ -7,6 +7,7 @@
 
 #include "brake_and_throttle.h"
 #include "UDHAL_MOTOR.h"
+#include "ETU_OBD.h"
 
 brakeAndThrottle_t ptr_brakeAndThrottle;
 int16_t torque = 0;
@@ -20,6 +21,8 @@ void brake_and_throttle_init()
 	ptr_brakeAndThrottle.allowable_rpm = 0;
 	ptr_brakeAndThrottle.speed_mode_IQmax = 0;
 	ptr_brakeAndThrottle.ramp_rate  = 0;
+	ptr_brakeAndThrottle.throttle_voltage = 0;
+	ETU__brakeThrottleSensorRegister(&ptr_brakeAndThrottle);
 }
 
 void setIQ(int16_t IQ)
@@ -65,6 +68,17 @@ void refreshThrottleStatus()
 bool getThrottleStatus()
 {
 	return ptr_brakeAndThrottle.throttleTriggered;
+}
+
+void setThrottle_Voltage(uint16_t percentage)
+{
+	float throttleADCAvg = ((percentage/100)*(THROTTLE_ADC_CALIBRATE_H+THROTTLE_ADC_CALIBRATE_L)) + THROTTLE_ADC_CALIBRATE_L;
+	ptr_brakeAndThrottle.throttle_voltage = (uint16_t)throttleADCAvg;
+}
+
+uint16_t getThrottle_Voltage()
+{
+	return ptr_brakeAndThrottle.throttle_voltage;
 }
 
 void updateBrakeStatus(bool status)

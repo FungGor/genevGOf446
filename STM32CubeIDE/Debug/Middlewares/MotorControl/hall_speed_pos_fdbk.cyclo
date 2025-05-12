@@ -1,7 +1,10 @@
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:86:13:HALL_Init	4
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:182:13:HALL_Clear	8
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:238:16:HALL_CalcElAngle	2
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:276:13:HALL_CalcAvrgMecSpeedUnit	6
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:356:15:HALL_TIMx_CC_IRQHandler	35
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:648:15:HALL_TIMx_UP_IRQHandler	12
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:757:13:HALL_SetMecAngle	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:89:13:HALL_Init	4
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:185:13:HALL_Clear	8
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:241:16:HALL_CalcElAngle	2
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:279:13:HALL_CalcAvrgMecSpeedUnit	6
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:359:15:HALL_TIMx_CC_IRQHandler	35
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:653:15:HALL_TIMx_UP_IRQHandler	12
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:764:13:HALL_SetMecAngle	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:768:6:HALL_SetState	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:774:9:HALL_GetState	1
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Src/hall_speed_pos_fdbk.c:779:6:HallSensorFail	2

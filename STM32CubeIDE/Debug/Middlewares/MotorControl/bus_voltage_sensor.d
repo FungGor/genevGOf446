@@ -49,7 +49,10 @@ Middlewares/MotorControl/bus_voltage_sensor.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/state_machine.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/speed_torq_ctrl.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h \
- ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/speed_pos_fdbk.h
+ ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/speed_pos_fdbk.h \
+ ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
+ ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
+ ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/bus_voltage_sensor.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 ../../Inc/mc_stm_types.h:
@@ -101,3 +104,9 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/speed_torq_ctrl.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pid_regulator.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/speed_pos_fdbk.h:
+../../Inc/parameters_conversion.h:
+../../Inc/mc_math.h:
+../../Inc/parameters_conversion_f4xx.h:
+../../Inc/pmsm_motor_parameters.h:
+../../Inc/power_stage_parameters.h:
+../../Inc/drive_parameters.h:

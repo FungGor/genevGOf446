@@ -7,6 +7,7 @@
 
 #include "motor_param.h"
 #include "UDHAL_MOTOR.h"
+#include "ETU_OBD.h"
 #include "math.h"
 
 MOTOR ptrMotor;
@@ -16,6 +17,7 @@ void motor_param_init()
 	ptrMotor.SPEED = 0;
 	ptrMotor.CURRENT = 0;
 	ptrMotor.VBUS = 0;
+	ptrMotor.milliVolts = 0;
 	ptrMotor.POWERmW = 0;
 	ptrMotor.Iq = 0;
 	ptrMotor.Id = 0;
@@ -24,6 +26,9 @@ void motor_param_init()
 	ptrMotor.driverTemperature = 0;
 	ptrMotor.isMotorOverTemperature = false;
 	ptrMotor.isDriverOverTemperature = false;
+	ptrMotor.hallSensorState = 0;
+	ptrMotor.electricAngle = 0;
+	ETU_StatusRegister(&ptrMotor);
 }
 
 void motor_speed()
@@ -52,13 +57,37 @@ uint32_t getDCVoltage()
 	return ptrMotor.VBUS;
 }
 
+void setBatteryVoltage(int32_t milliVoltage)
+{
+	float conversionFactor = ADC_REFERENCE_VOLTAGE/VBUS_PARTITIONING_FACTOR;
+	float milliVolts = milliVoltage*conversionFactor;
+	milliVolts = milliVolts/65536;
+	milliVolts = milliVolts*1000;
+	/*Conversion Factor*/
+	ptrMotor.milliVolts = milliVolts;
+}
+
+int32_t getBatteryVoltage()
+{
+	return ptrMotor.milliVolts;
+}
+
 bool underVoltage()
 {
-   if (ptrMotor.VBUS < LOW_BATTERY_THRESHOLD)
+   if (ptrMotor.milliVolts < LOW_BATTERY_THRESHOLD)
    {
 	   return true;
    }
    return false;
+}
+
+bool overVoltage()
+{
+	if(ptrMotor.milliVolts > OVER_VOLTAGE)
+	{
+		return true;
+	}
+	return false;
 }
 
 void setMotorTemperature(int32_t temperature)
@@ -74,6 +103,15 @@ int32_t getMotorTemperature()
 void updateMotorTemperatureStatus(bool status)
 {
 	ptrMotor.isMotorOverTemperature = status;
+}
+
+bool isMotorTemperatureAbnormal()
+{
+	if(ptrMotor.isMotorOverTemperature == true)
+	{
+		return true;
+	}
+	return false;
 }
 
 bool MotorOverTemperature()
@@ -98,7 +136,6 @@ int32_t getDriverTemperature()
 void updateDriverTemperatureStatus(bool status)
 {
 	ptrMotor.isDriverOverTemperature = status;
-
 }
 
 bool DriverOverTemperature()
@@ -152,4 +189,19 @@ void calcDC()
 int32_t getDC()
 {
 	return (int32_t)ptrMotor.milliAmpere;
+}
+
+void setHallState(uint8_t hall)
+{
+	ptrMotor.hallSensorState = hall;
+}
+
+void RotorAngle()
+{
+	ptrMotor.electricAngle = getRotorPosition();
+}
+
+int16_t getRotorAngle()
+{
+	return ptrMotor.electricAngle;
 }

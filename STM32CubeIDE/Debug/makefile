@@ -22,7 +22,10 @@ RM := rm -rf
 -include Application/MOTOR_SENSORS/motor_driver_ntc/subdir.mk
 -include Application/MOTOR_SENSORS/Battery/subdir.mk
 -include Application/Hardware/subdir.mk
+-include Application/FLASH_MEMORY/subdir.mk
+-include Application/DIAGNOSIS/subdir.mk
 -include Application/BootAndShutDown/subdir.mk
+-include Application/BOOT_CHECK/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)

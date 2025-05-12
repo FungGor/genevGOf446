@@ -65,6 +65,9 @@
 									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\MOTOR_SENSORS\motor_driver_ntc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\MOTOR_SENSORS\motor_ntc&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\MOTOR_SENSORS\Battery&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\FLASH_MEMORY&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\DIAGNOSIS&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;C:\Users\Public\Documents\Motor_Control\GENEV_GO_F446\genevGOf446xx\STM32CubeIDE\Application\BOOT_CHECK&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.827558993" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>

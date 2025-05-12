@@ -22,7 +22,10 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+Application/BOOT_CHECK \
 Application/BootAndShutDown \
+Application/DIAGNOSIS \
+Application/FLASH_MEMORY \
 Application/Hardware \
 Application/MOTOR_SENSORS/Battery \
 Application/MOTOR_SENSORS/motor_driver_ntc \

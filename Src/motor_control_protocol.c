@@ -29,6 +29,8 @@
 #include "ERROR_REPORT.h"
 #include "PROTOCOL_HANDLER.h"
 #include "motor_param.h"
+#include "ETU_OBD.h"
+#include "flash_internal.h"
 /**
  * @addtogroup MCSDK
  * @{
@@ -609,7 +611,10 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$01$30*/
     		   RequireAck = false;
     		   bNoError = true;
+    		   uint8_t report = 0;
+    		   report++;
     		   uint8_t errorReport = GET_MOTOR_ERROR_REPORT();
+    		   updateConnectionStatus(true,report);
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR, &errorReport, 1);
     	   }
     	   break;
@@ -719,8 +724,9 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   /*$2E$01$0B$3A*/
     		   RequireAck = false;
     		   bNoError = true;
-    		   int32_t motor_temp = getMotorTemperature(); /*int32_t format*/
-    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)&motor_temp,4); //32-bit variable for motor temperature
+    		   //int32_t motor_temp = getMotorTemperature(); /*int32_t format*/
+    		   uint8_t fake = 0x0A;
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&fake,1); //32-bit variable for motor temperature
     	   }
     	   break;
 
@@ -731,6 +737,22 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   bNoError = true;
     		   int32_t current = getDC(); /*int32_t format*/
     		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)(&current),4); //32-bit variable for current
+    	   }
+    	   break;
+
+    	   case BATTERY_VOLTAGE:
+    	   {
+    		   /*$2E$01$0D$3C*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   int32_t BatteryVoltage = getBatteryVoltage(); /*int32_t format*/
+    		   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,(uint8_t*)(&BatteryVoltage),4);
+    	   }
+    	   break;
+
+    	   case OBD_MODE:
+    	   {
+
     	   }
     	   break;
 
@@ -781,6 +803,29 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
   	   pHandle -> fFcpSend(pHandle->pFCP, ACK_NOERROR,&IQReceived,1);
      }
      break;
+
+    case ON_BOARD_DIAGNOSTIC_MODE:
+    {
+    	ETU_OBD_t behaviorID = (ETU_OBD_t)buffer[0];
+    	switch(behaviorID)
+    	{
+    	   case OBD_DRIVER_CHECK:
+    		   break;
+
+    	   case OBD_MOTOR_CHECK:
+    		   break;
+
+    	   case OBD_FAULT_CHECK:
+    		   break;
+
+    	   case OBD_THROTTLE_BRAKE_CHECK:
+    		   break;
+
+    	   default:
+    		   break;
+    	}
+    }
+    break;
 
   case MC_PROTOCOL_CODE_NONE:
     {

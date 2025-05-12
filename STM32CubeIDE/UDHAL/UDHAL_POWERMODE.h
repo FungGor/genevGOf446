@@ -13,7 +13,7 @@ extern "C"{
 
 #include "stdint.h"
 
-void GET_RESET_SOURCE();
+uint8_t GET_RESET_SOURCE();
 
 void ShutDownTask();
 

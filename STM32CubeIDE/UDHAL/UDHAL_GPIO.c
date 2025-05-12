@@ -48,10 +48,11 @@ void GPIO_Init(void)
 
 void WakeUpPinInit(void)
 {
-	  /*Use UART1 Rx Pin PB7 as External Interrupt Pin PORTB Pin 7 --> i.e. EXTI9_5*/
+  /*External Interrupt triggers ETU WakeUp*/
+  /*Use UART1 Rx Pin PB7 as External Interrupt Pin PORTB Pin 7 --> i.e. EXTI9_5*/
   GPIO_InitStruct.Pin  = GPIO_PIN_7; /*UART2 Rx Pin PA3*/
-  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING; /*Falling Edge Triggered Interrupt by UART from CC2640 Dash-board*/
-  GPIO_InitStruct.Pull = GPIO_NOPULL; /*Activate Internal Pull Up Resistor!*/
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING; /*Falling Edge Triggered Interrupt by UART from CC2640 Dash-board*/
+  GPIO_InitStruct.Pull = GPIO_PULLUP; /*Activate Internal Pull Up Resistor!*/
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
   /*Activate Falling Edge Triggered Interrupt --> External Line Interrupt 3*/
   HAL_NVIC_SetPriority(EXTI9_5_IRQn,3,0);

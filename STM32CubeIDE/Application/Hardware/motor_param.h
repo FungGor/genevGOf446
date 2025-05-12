@@ -16,12 +16,14 @@ extern "C"{
 #include "stdbool.h"
 #include "mc_type.h"
 #include "mc_api.h"
+#include "parameters_conversion.h"
 
 typedef struct
 {
 	int16_t  SPEED;
 	int32_t CURRENT;
 	uint32_t VBUS;
+	int32_t  milliVolts;
 	float RMS_CURRENT;
 	int32_t POWERmW;
 	int32_t Iq;
@@ -31,12 +33,15 @@ typedef struct
 	int32_t driverTemperature;
 	bool isMotorOverTemperature;
 	bool isDriverOverTemperature;
+	uint8_t hallSensorState;
+	int16_t electricAngle;
 }MOTOR;
 
-#define SAMPLE LENGTH               128u
-#define MOTOR_OVERTEMP_THRESHOLD      90
-#define DRIVER_OVERTEMP_THRESHOLD     70
-#define LOW_BATTERY_THRESHOLD         36
+#define SAMPLE LENGTH                  128u
+#define MOTOR_OVERTEMP_THRESHOLD         90
+#define DRIVER_OVERTEMP_THRESHOLD        70
+#define LOW_BATTERY_THRESHOLD         33000
+#define OVER_VOLTAGE                  60000
 
 extern void motor_param_init();
 
@@ -50,13 +55,21 @@ extern void setDCVoltage(uint32_t voltage);
 
 extern uint32_t getDCVoltage();
 
+extern void setBatteryVoltage(int32_t milliVoltage);
+
+extern int32_t getBatteryVoltage();
+
 extern bool underVoltage();
+
+extern bool overVoltage();
 
 extern void setMotorTemperature(int32_t temperature);
 
 extern int32_t getMotorTemperature();
 
 extern void updateMotorTemperatureStatus(bool status);
+
+extern bool isMotorTemperatureAbnormal();
 
 extern bool MotorOverTemperature();
 
@@ -81,6 +94,14 @@ extern void getIqIdMotor();
 extern void calcDC();
 
 extern int32_t getDC();
+
+extern void setHallState(uint8_t hall);
+
+extern uint8_t getHallStatus();
+
+extern void RotorAngle();
+
+extern int16_t getRotorAngle();
 
 #ifdef __cplusplus
 }

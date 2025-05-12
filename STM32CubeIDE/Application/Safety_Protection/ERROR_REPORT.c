@@ -4,8 +4,8 @@
  *  Created on: 2 Sep 2024
  *      Author: TerenceLeung
  */
-#include <escooter_transmission_units.h>
-#include <ERROR_REPORT.h>
+#include "escooter_transmission_units.h"
+#include "ERROR_REPORT.h"
 #include "mc_type.h"
 #include "mc_api.h"
 #include "main.h"
@@ -24,15 +24,7 @@ void SOFTWARE_ERROR_REPORT_INIT()
 {
 	software_errorReportRegister(&SOFTWARE_ERROR);
 }
-/*********************************************************************
- * @fn      CHECK_MOTOR_STATUS
- *
- * @brief   This function must be called frequently to check any motor faults/failures
- *
- * @param   None
- *
- * @return  None
- */
+
 void CHECK_MOTOR_STATUS()
 {
      uint16_t status = MC_GetOccurredFaultsMotor1();

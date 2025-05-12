@@ -14,9 +14,11 @@ extern "C"{
 #include "stdint.h"
 #include "stdbool.h"
 
-#define MAXIMUM_NUMBER_OF_LOST_PACKETS     0x0F    //15 lost packet triggers connection error 2025-03-26, time-out has been extended
+#define MAXIMUM_NUMBER_OF_LOST_PACKETS     0x0A    //15 lost packet triggers connection error 2025-03-26, time-out has been extended
 /*In case the dashboard is accidentally disconnected, system stops running*/
 #define TIMEOUT_EXPIRATION                 0x0A
+/*Allows reconnection automatically*/
+#define MAX_CHANCE_RECONNECTION            0x06
 /*********************************************************************
  * @Structure STM32MCP_timerManager_t
  *

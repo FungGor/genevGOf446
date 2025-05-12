@@ -12,13 +12,14 @@ extern "C"{
 #endif
 
 #include "stdbool.h"
+#include "stdint.h"
 
 extern void powerModeInit();
-extern void changePowerMode();;
-extern bool getPowerStatus();
+extern void powerManagementInit();
+extern void changePowerMode();
 extern void gotoSLEEP();
 extern void wakeUp();
-
+extern uint8_t getBootSource();
 
 #ifdef __cplusplus
 }

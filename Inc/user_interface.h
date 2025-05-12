@@ -203,8 +203,18 @@ typedef enum
 	TIMEOUT_CHECKING,             /*0x09*/
 	MOTOR_DRIVER_TEMP,            /*0x0A*/
 	MOTOR_TEMP,                   /*0x0B*/
-	CURRENT_CHECKING              /*0x0C*/
+	CURRENT_CHECKING,             /*0x0C*/
+	BATTERY_VOLTAGE,              /*0x0D*/
+	OBD_MODE                      /*0x0E*/
 }EScooter_Behavior_t;
+
+typedef enum
+{
+	OBD_DRIVER_CHECK,          /*0x00*/
+	OBD_MOTOR_CHECK,           /*0x01*/
+	OBD_FAULT_CHECK,           /*0x02*/
+	OBD_THROTTLE_BRAKE_CHECK   /*0x03*/
+}ETU_OBD_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/
 #define UI_SCODE_NONE     0x0u
@@ -259,6 +269,7 @@ typedef enum
 #define DEFINE_ESCOOTER_BEHAVIOR          0x1B
 #define TOGGLE_SPEED_MODE                 0x13
 #define APPLY_THROTTLE_IQ                 0x14
+#define ON_BOARD_DIAGNOSTIC_MODE          0x15
 #define MOTOR_ANALYSIS                    0x30
 
 #define MC_PROTOCOL_CMD_START_MOTOR       0x01

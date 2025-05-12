@@ -29,6 +29,8 @@ float getRMSCurrent();
 
 int16_t getVoltage();
 
+int16_t getRotorPosition();
+
 
 #ifdef __cplusplus
 }

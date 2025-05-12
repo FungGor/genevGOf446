@@ -7,6 +7,9 @@
 
 /***********************************************ESCOOTER TRANSMISSION UNITS (ETU)*********************************************/
 
+#include <backgroundTask.h>
+#include "ETU_OBD.h"
+#include "ETU_StateMachine.h"
 #include "escooter_transmission_units.h"
 #include "SleepAndWake.h"
 #include "brake_and_throttle.h"
@@ -14,6 +17,7 @@
 #include "tail_light.h"
 #include "PROTOCOL_HANDLER.h"
 #include "ERROR_REPORT.h"
+#include "flash_internal.h"
 #include "UDHAL_TIMEOUT.h"
 #include "UDHAL_MOTOR.h"
 #include "motor_param.h"
@@ -24,44 +28,33 @@
 osThreadId driveHandle;
 osPriority priority;
 
-osThreadId shutDownHandle;
+ETU_StateHandle_t ETU_State;
+ETU_State_t getState;
 
-uint8_t N1_ticks = 0;
-uint8_t N2_ticks = 0;
-uint8_t N3_ticks = 0;
+static uint8_t N1_ticks = 0;
+static uint8_t N2_ticks = 0;
+static uint8_t N3_ticks = 0;
 
 
 //tail light variables
-uint8_t tail_light_status_old = 0;      //either: 1 = 0N    or   0 = OFF
-uint8_t tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF;   // toggle = 0x05, ON = 0x08, OFF = 0x06
-uint8_t tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
-uint8_t behaviourID_old = ESCOOTER_TAIL_LIGHT_OFF;
-uint16_t taskSleepCount = 0;
-uint8_t ledIndicatorStatus = 0;
+static uint8_t tail_light_status_old = 0;      //either: 1 = 0N    or   0 = OFF
+static uint8_t tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF;   // toggle = 0x05, ON = 0x08, OFF = 0x06
+static uint8_t tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
+static uint16_t taskSleepCount = 0;
+static uint8_t ledIndicatorStatus = 0;
 
-static bool *ptr_drive_POWER_ON;
+bool *ptr_drive_POWER_ON;
 static uint8_t *ptr_error_report;       /*MOTOR CONTROLLER HARDWARE ERROR*/
 static uint8_t *software_error_report;  /*SOFTWARE ERROR*/
 
-
+uint8_t isPowerByBattery = 0x00;
+uint8_t mainTaskStart = 0x00;
 
 void go_powerOnRegister(bool *ptrpowerOn)
 {
 	ptr_drive_POWER_ON = ptrpowerOn;
 }
 
-bool getPowerMode()
-{
-	if(*ptr_drive_POWER_ON == true)
-	{
-		return true;
-	}
-	else if(*ptr_drive_POWER_ON == false)
-	{
-		return false;
-	}
-	return true;
-}
 
 void go_errorReportRegister(uint8_t *report)
 {
@@ -73,34 +66,10 @@ void software_errorReportRegister(uint8_t *fault)
 	software_error_report = fault;
 }
 
-void ETU_SafetyCheck()
-{
-	if(underVoltage() == true)
-	{
-        /*Send Warning Report*/
-	}
-	else if(MotorOverTemperature() == true)
-	{
-		/*Send Warning Report*/
-		SEND_MOTOR_ERROR_REPORT(MOTOR_TEMP_ERROR_CODE);
-
-	}
-	else if(DriverOverTemperature() == true)
-	{
-        /*Send Warning Report*/
-		SEND_MOTOR_ERROR_REPORT(MOTOR_TEMP_ERROR_CODE);
-	}
-}
-
 /* Safety Power Cutting 2025-03-25 */
 void ETU_PowerShutDown()
 {
 	Motor_ShutDown();
-}
-
-void ETU_RegenerateBrake()
-{
-
 }
 
 void GoInit()
@@ -116,11 +85,21 @@ void GoInit()
 	set_tail_light_off();
 	/*Handles transmission timeout when the connection is lost*/
 	UDHAL_TIMEOUT_init();
+
+	/*Idle Task*/
+	powerManagementInit();
+	/*Idle Task*/
+	run_background_tasks();
+
 	/*It is the main task for controlling the E-Scooter*/
 	createDrivingTasks();
+
+
 	N1_ticks = N1_TIME / GeneralTask_TIME;
 	N2_ticks = N2_TIME / GeneralTask_TIME;
 	N3_ticks = N3_TIME / GeneralTask_TIME;
+	ETU_Init(&ETU_State);
+	etu_state_ptr_register(&ETU_State);
 }
 
 void createDrivingTasks(void)
@@ -133,37 +112,64 @@ void createDrivingTasks(void)
 /*This is the main task for E-Scooter Transmission Unit  (ETU)
  *Why it drains a lots in the battery for the E-Scooter!
  * */
-int32_t DC_CURRENT = 0;
 void GeneralTasks(void const * argument)
 {
 	priority = osThreadGetPriority(NULL);
-	updateConnectionStatus(false,0);
-	timeOutStart();
-	for(;;)
+
+	if(ETU_GetState(&ETU_State) == BOOT_CHECK)
 	{
-		osDelay(GeneralTask_TIME);
-		/****************  Task timing & sleep *******************/
-		/* Task sleep must be positioned at the beginning of the for loop */
-		if(getPowerMode() == true)
+		if(getBootSource() == 0x7B)
 		{
-			if(ledIndicatorStatus == 0)
+			isPowerByBattery = 0x01;
+		}
+
+		if(isPowerByBattery == 0x00)
+		{
+			/* Starts Hardware Diagnosis and Checking
+			 *
+			 *
+			 *
+			 * */
+			if(mainTaskStart == 0x00)
 			{
-				ledIndicatorStatus = led_indicator_on();
+				ETU_NextState(&ETU_State,ETU_START);
 			}
+			else if(mainTaskStart == 0x01)
+			{
+				ETU_NextState(&ETU_State,ETU_OBD);
+			}
+		}
+		else if(isPowerByBattery == 0x01)
+		{
+			ETU_NextState(&ETU_State,ETU_OFF_TRANSITION);
+		}
+	}
 
-			/*Sends Motor Fault Report to the Dash-board*/
-			CHECK_MOTOR_STATUS();
-			/*Is the throttle twisted ?*/
-			refreshThrottleStatus();
-			lightSensorStateChange();
-			/*Get Iq values to control the motor*/
-			get_ThrottleInformation();
+	if(ETU_GetState(&ETU_State) == ETU_START)
+	{
+	   updateConnectionStatus(false,0);
+	   timeOutStart();
+	   for(;;)
+	   {
+		   osDelay(GeneralTask_TIME);
+		   /****************  Task timing & sleep *******************/
+		   /* Task sleep must be positioned at the beginning of the for loop */
+		   if(*ptr_drive_POWER_ON == true)
+		   {
+			  if(ledIndicatorStatus == 0)
+			  {
+				 ledIndicatorStatus = led_indicator_on();
+			  }
 
-			motor_speed();
-
-			//motor_current();
-
-			motor_rms_current();
+			  /*Sends Motor Fault Report to the Dash-board*/
+			  CHECK_MOTOR_STATUS();
+			  /*Is the throttle twisted ?*/
+			  refreshThrottleStatus();
+			  lightSensorStateChange();
+			  /*Get Iq values to control the motor*/
+			  get_ThrottleInformation();
+			  motor_speed();
+			  motor_rms_current();
 
 	       /***************************************************************
 	       * N1_TIME = 100 ms
@@ -172,13 +178,12 @@ void GeneralTasks(void const * argument)
 	       * The following loop is refreshed/executed every N_1 loops
 	       *
 	       **************************************************************/
-		   if((taskSleepCount % N1_ticks) == 0)
-		   {
+		     if((taskSleepCount % N1_ticks) == 0)
+		     {
 			   /*Read Motor Parameters*/
 			   getIqIdMotor();
 			   calcDC();
-			   DC_CURRENT = getDC(); //Just for debugging the data type
-		   }
+		     }
 	       /***************************************************************
 	        * N2_TIME = 200 ms
 	        *
@@ -186,8 +191,8 @@ void GeneralTasks(void const * argument)
 	        * The following loop is refreshed/executed every N_2 loops
 	        *
 	        **************************************************************/
-		    if((taskSleepCount % N2_ticks) == 0)
-		    {
+		     if((taskSleepCount % N2_ticks) == 0)
+		     {
 		    	tail_light_mode = get_tail_light_mode();
 		    	if(tail_light_mode == ESCOOTER_TOGGLE_TAIL_LIGHT)
 		    	{
@@ -216,7 +221,7 @@ void GeneralTasks(void const * argument)
 		    			}
 		    		}
 		    	}
-		    }
+		     }
 	        /***************************************************************
 	         * N3_TIME = 500 ms
 	         *
@@ -224,57 +229,85 @@ void GeneralTasks(void const * argument)
 	         * The following loop is refreshed/executed every N_3 loops
 	         *
 	         **************************************************************/
-		    if((taskSleepCount % N3_ticks) == 0)
-		    {
-		        /*Connection lost?*/
-		    	//DC = BATTERYCURRENT_getRawCurrent();
+		     if((taskSleepCount % N3_ticks) == 0)
+		     {
 				checkConnectionStatus();
-				//showDC();
-		    }
+		     }
 
-		    if(GET_SOFTWARE_ERROR_REPORT() != 0x00)
-		    {
-				//setIQ(0);
-				//set_ThrottlePercent(0);
-				//throttleSignalInput();
-				//driveStop(); /*Neutral Gear*/
+		     if(GET_SOFTWARE_ERROR_REPORT() != 0x00)
+		     {
 				ETU_PowerShutDown();
-		    	error_indicator_on();
-		    	//break; //Auto-Shutdown triggered when connection is lost
-		    }
+				ledIndicatorStatus = led_indicator_off();
+				set_tail_light_off();  //2025-05-03
+				error_indicator_off(); //2025-05-03
+				timeOutStop();         //2025-05-03
+				ETU_NextState(&ETU_State,ETU_OFF);
+		    	/*Please comment break; out if you are still working on software/hardware debugging*/
+		    	break; //Auto-Shutdown triggered when connection is lost
+		     }
 
 
-			if(*ptr_error_report == 0x00)
-			{
-				throttleSignalInput();
-			}
-
-			else if(*ptr_error_report != 0x00)
+			 if(*ptr_error_report == 0x00)
+			 {
+			    throttleSignalInput();
+			 }
+			else if(*ptr_error_report != 0x00)            /*Usually comes from the hardware's fatal errors */
 			{
 				setIQ(0);
 				set_ThrottlePercent(0);
 				throttleSignalInput();
 				driveStop(); /*Neutral Gear*/
+				//ETU_PowerShutDown();
 				/*Turn Off the Motor Controller after stopping the motor*/
 				error_indicator_on();
+				/*Toggle to the next ETU State: ETU_FAULT*/
 			}
-		}
-		else if(getPowerMode() == false)
-		{
-			//setIQ(0);
-			//set_ThrottlePercent(0);
-			//throttleSignalInput();
-			//driveStop(); /*Ensure it is in Neutral Gear*/
+		 }
+		 else if(*ptr_drive_POWER_ON == false)
+		 {
 			ETU_PowerShutDown();
 			ledIndicatorStatus = led_indicator_off();
 			set_tail_light_off();
 			error_indicator_off();
 			timeOutStop();
+			ETU_NextState(&ETU_State,ETU_OFF);
 			break;
 			/*Try to create a new RTOS Task which handles LOW POWER MODE*/
-		}
+		 }
 		taskSleepCount++;
+	  }
 	}
+
+
+	if(ETU_GetState(&ETU_State) == ETU_OFF_TRANSITION )
+	{
+		for(;;)
+		{
+			error_indicator_on();
+			*ptr_drive_POWER_ON = false;
+			if(*ptr_drive_POWER_ON == false)
+			{
+				ETU_PowerShutDown();
+				ledIndicatorStatus = led_indicator_off();
+				set_tail_light_off();
+				error_indicator_off();
+				ETU_NextState(&ETU_State,ETU_OFF);
+				break;
+			}
+		}
+	}
+
+
 	/*Shut Down Process Begins*/
-	gotoSLEEP();
+	if(ETU_GetState(&ETU_State) == ETU_OFF || ETU_GetState(&ETU_State) == ETU_OBD ||
+	   ETU_GetState(&ETU_State) == ETU_FAULT)
+	{
+		/* A function that implements a task must not exit or attempt to return to
+			its caller as there is nothing to return to.  If a task wants to exit it
+			should instead call vTaskDelete( NULL ).
+
+			Artificially force an assert() to be triggered if configASSERT() is
+			defined, then stop here so application writers can catch the error. static void prvTaskExitError() from port.c*/
+		vTaskDelete(NULL); //Kills the task !
+	}
 }

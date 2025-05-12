@@ -78,3 +78,9 @@ int16_t getVoltage()
 	int16_t MOTOR_VOLTAGE = MC_GetPhaseVoltageAmplitudeMotor1();
 	return MOTOR_VOLTAGE;
 }
+
+int16_t getRotorPosition()
+{
+	int16_t ROTOR = MC_GetElAngledppMotor1();
+	return ROTOR;
+}

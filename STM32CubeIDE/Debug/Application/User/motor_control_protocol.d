@@ -59,7 +59,9 @@ Application/User/motor_control_protocol.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/digital_output.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/motor_param.h \
- ../../Inc/mc_api.h \
+ ../../Inc/mc_api.h ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
+ ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
+ ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/bus_voltage_sensor.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/open_loop.h \
@@ -85,7 +87,11 @@ Application/User/motor_control_protocol.o: \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/tail_light.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/lightSensor.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h \
- C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MainTask/PROTOCOL_HANDLER.h
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MainTask/PROTOCOL_HANDLER.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/DIAGNOSIS/ETU_OBD.h \
+ ../../Inc/mc_tasks.h \
+ ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h \
+ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/FLASH_MEMORY/flash_internal.h
 ../../Inc/user_interface.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/mc_type.h:
 ../../Inc/mc_stm_types.h:
@@ -146,6 +152,12 @@ Application/User/motor_control_protocol.o: \
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/motor_param.h:
 ../../Inc/mc_api.h:
+../../Inc/parameters_conversion.h:
+../../Inc/mc_math.h:
+../../Inc/parameters_conversion_f4xx.h:
+../../Inc/pmsm_motor_parameters.h:
+../../Inc/power_stage_parameters.h:
+../../Inc/drive_parameters.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/bus_voltage_sensor.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/open_loop.h:
@@ -173,3 +185,7 @@ C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/lightSensor.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Safety_Protection/ERROR_REPORT.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/MainTask/PROTOCOL_HANDLER.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/DIAGNOSIS/ETU_OBD.h:
+../../Inc/mc_tasks.h:
+../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/hall_speed_pos_fdbk.h:
+C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/FLASH_MEMORY/flash_internal.h:

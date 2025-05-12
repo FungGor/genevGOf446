@@ -64,10 +64,12 @@ void timeOutStop()
  *
  * @return  None
  */
+uint8_t reconnection = 0;
 void timeOutHandler()
 {
+
 	expiration++;
-	if( (expiration%3) == 0)
+	if( (expiration%4) == 0)
 	{
 		payLoad = 0x00;
 	}
@@ -76,13 +78,24 @@ void timeOutHandler()
 		packetLoss ++;
 		if(packetLoss > MAXIMUM_NUMBER_OF_LOST_PACKETS)
 		{
-			SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
-			updateConnectionStatus(false,payLoad);
+			//SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
+			//updateConnectionStatus(false,payLoad);
+			reconnection ++;
 		}
 	}
 	else if(payLoad > 0)
 	{
 		packetLoss = 0;
+		reconnection = 0;
+	}
+
+	/*
+	 * The following codes are modified on 2025-04-11
+	 */
+	if(reconnection == MAX_CHANCE_RECONNECTION)
+	{
+		SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
+		updateConnectionStatus(false,payLoad);
 	}
 }
 

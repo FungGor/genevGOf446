@@ -59,7 +59,9 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/digital_output.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h \
  C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/motor_param.h \
- ../../Inc/mc_api.h \
+ ../../Inc/mc_api.h ../../Inc/parameters_conversion.h ../../Inc/mc_math.h \
+ ../../Inc/parameters_conversion_f4xx.h ../../Inc/pmsm_motor_parameters.h \
+ ../../Inc/power_stage_parameters.h ../../Inc/drive_parameters.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/bus_voltage_sensor.h \
  ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/open_loop.h \
@@ -139,6 +141,12 @@ Middlewares/MotorControl/frame_communication_protocol.o: \
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/motor_power_measurement.h:
 C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/STM32CubeIDE/Application/Hardware/motor_param.h:
 ../../Inc/mc_api.h:
+../../Inc/parameters_conversion.h:
+../../Inc/mc_math.h:
+../../Inc/parameters_conversion_f4xx.h:
+../../Inc/pmsm_motor_parameters.h:
+../../Inc/power_stage_parameters.h:
+../../Inc/drive_parameters.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/pqd_motor_power_measurement.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/bus_voltage_sensor.h:
 ../../MCSDK_v5.4.8-Full/MotorControl/MCSDK/MCLib/Any/Inc/open_loop.h:

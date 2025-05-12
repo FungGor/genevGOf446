@@ -283,7 +283,9 @@ void HardFault_Handler(void)
 
 }
 
-/*External Interrupt triggers motor controller reset*/
+/*External Interrupt triggers motor controller reset
+ *Wakes Up motor controller by External Interrupt
+ * */
 void EXTI9_5_IRQHandler(void)
 {
 	if(__HAL_GPIO_EXTI_GET_IT(GPIO_PIN_7) != RESET)

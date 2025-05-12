@@ -190,8 +190,8 @@ __weak void MCboot( MCI_Handle_t* pMCIList[NBR_OF_MOTORS],MCT_Handle_t* pMCTList
   /*****************************************************************/
   /*   Motor Temperature sensor component initialization   (2025-03-13)  */
   /****************************************************************/
-  pMotorTemperatureSensorM1 = &RealMotorTemperatureSensorParamsM1;
-  MOTORTEMP_Init(pMotorTemperatureSensorM1);
+  //pMotorTemperatureSensorM1 = &RealMotorTemperatureSensorParamsM1;
+  //MOTORTEMP_Init(pMotorTemperatureSensorM1);
 
   /*****************************************************************/
   /*   Motor Driver Temperature sensor component initialization   (2025-03-21)  */
@@ -725,11 +725,11 @@ __weak void TSK_SafetyTask_PWMOFF(uint8_t bMotor)
   /* USER CODE END TSK_SafetyTask_PWMOFF 0 */
   battery = BATTERYCURRENT_CalcAvCurrentOrigin(pCurrentSensorM1);
   /*Continuously Monitor Motor's internal temperature (Output Voltage of NTC Sensor) 2025-03-13*/
-  MOTORTEMP_CalcAvOutputVoltageOrigin(pMotorTemperatureSensorM1);
+  //MOTORTEMP_CalcAvOutputVoltageOrigin(pMotorTemperatureSensorM1);
   /*Continuously Monitor Motor's internal temperature (Raw NTC Resistance inside the motor) 2025-03-13*/
-  MOTORTEMP_CalcAvR_Value(pMotorTemperatureSensorM1);
+  //MOTORTEMP_CalcAvR_Value(pMotorTemperatureSensorM1);
   /*Continuously Monitor Motor's internal temperature (Raw NTC Temperature inside the motor) 2025-03-13*/
-  MOTORTEMP_CalcAvTemp_Value(pMotorTemperatureSensorM1);
+  //MOTORTEMP_CalcAvTemp_Value(pMotorTemperatureSensorM1);
 
   /*Continuously Monitor Motor Driver's internal temperature (Output Voltage of NTC Sensor) 2025-03-21*/
   MOTORDRIVERTEMP_CalcAvOutputVoltageOrigin(pMotorDriverTemperatureSensorM1);
@@ -882,7 +882,7 @@ LL_GPIO_LockPin(BATTERY_CURRENT_GPIO_Port,BATTERY_CURRENT_Pin);
 LL_GPIO_LockPin(MOTOR_TEMP_GPIO_Port,MOTOR_TEMP_Pin);
 }
 
-/*2025-03-25 Cut off PWM Output to avoid any accidental motor locks*/
+/*2025-03-25 Cut off PWM Output to avoid any accidental motor locks which damages motor driver*/
 __weak void Motor_ShutDown(void)
 {
 	/*Shut Down*/

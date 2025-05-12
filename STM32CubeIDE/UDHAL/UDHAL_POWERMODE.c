@@ -13,9 +13,9 @@
 #include "../UDHAL/UDHAL_UART.h"
 #include "../UDHAL/UDHAL_SYSCLK.h"
 
-uint8_t rst_source;
-void GET_RESET_SOURCE()
+uint8_t GET_RESET_SOURCE()
 {
+	uint8_t rst_source = 0xFF;
 	if(__HAL_RCC_GET_FLAG(RCC_FLAG_LPWRRST))
 	{
 		rst_source = 0x7F;
@@ -40,6 +40,7 @@ void GET_RESET_SOURCE()
 	{
 		rst_source = 0x7D;
 	}
+	return rst_source;
 }
 
 void ShutDownTask()
@@ -74,7 +75,7 @@ void bootStart()
 	/* Reset all the system peripherals ! Reset the program counter! You could de-active EXTI First
 	 * Resume RTOS tasks !
 	 * */
-	GET_RESET_SOURCE();
+	//GET_RESET_SOURCE();
 	WakeUpPinDeInit();
 	SystemClock();
 	HAL_ResumeTick();

@@ -22,6 +22,7 @@
 #include "speed_pos_fdbk.h"
 #include "hall_speed_pos_fdbk.h"
 #include "mc_type.h"
+#include "motor_param.h"
 
 /** @addtogroup MCSDK
   * @{
@@ -73,6 +74,8 @@
 
 #define CCER_CC1E_Set               ((uint16_t)0x0001)
 #define CCER_CC1E_Reset             ((uint16_t)0xFFFE)
+
+uint8_t HallSensorState;
 
 static void HALL_Init_Electrical_Angle( HALL_Handle_t * pHandle );
 
@@ -374,12 +377,14 @@ __weak void * HALL_TIMx_CC_IRQHandler( void * pHandleVoid )
       pHandle->HallState  =(uint8_t) ((LL_GPIO_IsInputPinSet( pHandle->H3Port, pHandle->H3Pin ) << 2)
                             | (LL_GPIO_IsInputPinSet( pHandle->H2Port, pHandle->H2Pin ) << 1)
                             | LL_GPIO_IsInputPinSet( pHandle->H1Port, pHandle->H1Pin ) );
+      HALL_SetState(pHandle->HallState);
     }
     else
     {
       pHandle->HallState  = (uint8_t) ((( LL_GPIO_IsInputPinSet( pHandle->H2Port, pHandle->H2Pin ) ^ 1 ) << 2)
                             | (LL_GPIO_IsInputPinSet( pHandle->H3Port, pHandle->H3Pin ) << 1)
                             | LL_GPIO_IsInputPinSet( pHandle->H1Port, pHandle->H1Pin ) );
+      HALL_SetState(pHandle->HallState);
     }
 
     switch ( pHandle->HallState )
@@ -702,12 +707,14 @@ static void HALL_Init_Electrical_Angle( HALL_Handle_t * pHandle )
     pHandle->HallState  = LL_GPIO_IsInputPinSet( pHandle->H3Port, pHandle->H3Pin ) << 2
                           | LL_GPIO_IsInputPinSet( pHandle->H2Port, pHandle->H2Pin ) << 1
                           | LL_GPIO_IsInputPinSet( pHandle->H1Port, pHandle->H1Pin );
+    HALL_SetState(pHandle->HallState);
   }
   else
   {
     pHandle->HallState  = ( LL_GPIO_IsInputPinSet( pHandle->H2Port, pHandle->H2Pin ) ^ 1 ) << 2
                           | LL_GPIO_IsInputPinSet( pHandle->H3Port, pHandle->H3Pin ) << 1
                           | LL_GPIO_IsInputPinSet( pHandle->H1Port, pHandle->H1Pin );
+    HALL_SetState(pHandle->HallState);
   }
 
   switch ( pHandle->HallState )
@@ -758,7 +765,25 @@ __weak void HALL_SetMecAngle( HALL_Handle_t * pHandle, int16_t hMecAngle )
 {
 }
 
+void HALL_SetState(uint8_t hallState)
+{
+	HallSensorState = hallState;
+	setHallState(HallSensorState);
+}
 
+uint8_t HALL_GetState()
+{
+	return HallSensorState;
+}
+
+bool HallSensorFail()
+{
+	if( (HALL_GetState() == STATE_0) || (HALL_GetState() == STATE_7) )
+	{
+		return true;
+	}
+	return false;
+}
 /**
   * @}
   */
