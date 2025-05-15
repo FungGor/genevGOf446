@@ -41,6 +41,8 @@ void OBD_HardwareDiagnosis()
    /*Check Voltage Sensors 4-Bytes*/
    OBD_t[0] = motorPtr->milliVolts;
    OBD_Driver[0] = OBD_t[0];
+
+   calcDC();
    /*Check Current 4-Bytes*/
    OBD_t[1] = motorPtr->milliAmpere;
    OBD_Driver[1] = OBD_t[1];
@@ -53,9 +55,13 @@ void OBD_HardwareDiagnosis()
    /*Check Speed Feedback 4-Bytes*/
    OBD_t[4] = (uint32_t)motorPtr->hallSensorState;
    OBD_Motor[1] = OBD_t[4];
+
+   motor_speed();
    /*Check Motor Speed 4-Bytes*/
    OBD_t[5] = (uint32_t)motorPtr->SPEED;
    OBD_Motor[2] = OBD_t[5];
+
+   CHECK_MOTOR_STATUS();
    /*Check Current Error 4-Bytes*/
    OBD_t[6] = (uint32_t)GET_MOTOR_ERROR_REPORT();
    OBD_Fault[0] = OBD_t[6];

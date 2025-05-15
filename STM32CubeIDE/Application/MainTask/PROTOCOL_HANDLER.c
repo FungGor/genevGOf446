@@ -8,10 +8,12 @@
 #include "PROTOCOL_HANDLER.h"
 
 static STM32MCP_protocolHandle_t *STM32MCP_protocolHandle;
-uint8_t packetLoss = 0x00;
-uint8_t expiration = 0x00;
-uint8_t payLoad = 0x00;
-bool inConnection = false;
+static uint8_t packetLoss = 0x00;
+static uint8_t expiration = 0x00;
+static uint8_t payLoad = 0x00;
+static bool inConnection = false;
+static uint8_t connectSkin = 0xFF;
+static uint8_t reconnection = 0;
 /*********************************************************************
  * @fn      STM32MCP_registerTimer
  *
@@ -64,7 +66,6 @@ void timeOutStop()
  *
  * @return  None
  */
-uint8_t reconnection = 0;
 void timeOutHandler()
 {
 
@@ -126,7 +127,7 @@ bool getConnectionStatus()
 	return inConnection;
 }
 
-uint8_t connectSkin = 0xFF;
+
 void checkConnectionStatus()
 {
 	if (getConnectionStatus() == true)

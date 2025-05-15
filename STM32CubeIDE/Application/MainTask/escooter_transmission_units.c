@@ -28,26 +28,25 @@
 static osThreadId driveHandle;
 static osPriority priority;
 
-ETU_StateHandle_t ETU_State;
+static ETU_StateHandle_t ETU_State;
 
-static uint8_t N1_ticks = 0;
-static uint8_t N2_ticks = 0;
-static uint8_t N3_ticks = 0;
+static uint8_t N1_ticks = N1_TIME / GeneralTask_TIME;
+static uint8_t N2_ticks = N2_TIME / GeneralTask_TIME;
+static uint8_t N3_ticks = N3_TIME / GeneralTask_TIME;
 
 
 //tail light variables
-static uint8_t tail_light_status_old = 0;      //either: 1 = 0N    or   0 = OFF
-static uint8_t tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF;   // toggle = 0x05, ON = 0x08, OFF = 0x06
-static uint8_t tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
-static uint16_t taskSleepCount = 0;
+static uint32_t taskSleepCount = 0;  //2025-05-12
 static uint8_t ledIndicatorStatus = 0;
 
-bool *ptr_drive_POWER_ON;
+static bool *ptr_drive_POWER_ON;
 static uint8_t *ptr_error_report;       /*MOTOR CONTROLLER HARDWARE ERROR*/
 static uint8_t *software_error_report;  /*SOFTWARE ERROR*/
+static bool *ptrOBDflag;
+static uint8_t isPowerByBattery = 0x00;
+static uint8_t ETU_Start[2];
 
-uint8_t isPowerByBattery = 0x00;
-uint8_t mainTaskStart = 0x00;
+static void GeneralTasks(void const * argument);
 
 void go_powerOnRegister(bool *ptrpowerOn)
 {
@@ -63,6 +62,11 @@ void go_errorReportRegister(uint8_t *report)
 void software_errorReportRegister(uint8_t *fault)
 {
 	software_error_report = fault;
+}
+
+void OBD_flagRegister(bool *ptrOBD)
+{
+	ptrOBDflag = ptrOBD;
 }
 
 /* Safety Power Cutting 2025-03-25 */
@@ -84,21 +88,14 @@ void GoInit()
 	set_tail_light_off();
 	/*Handles transmission timeout when the connection is lost*/
 	UDHAL_TIMEOUT_init();
-
 	/*Idle Task*/
 	powerManagementInit();
     /*UART Connection Status is also monitored in Background Task*/
 	BACKGROUND_CONNECTION_MONITOR_INIT();
 	/*Idle Task*/
 	run_background_tasks();
-
 	/*It is the main task for controlling the E-Scooter*/
 	createDrivingTasks();
-
-
-	N1_ticks = N1_TIME / GeneralTask_TIME;
-	N2_ticks = N2_TIME / GeneralTask_TIME;
-	N3_ticks = N3_TIME / GeneralTask_TIME;
 	ETU_Init(&ETU_State);
 	etu_state_ptr_register(&ETU_State);
 }
@@ -110,42 +107,47 @@ void createDrivingTasks(void)
 	driveHandle = osThreadCreate(osThread(drive), NULL);
 }
 
-/*This is the main task for E-Scooter Transmission Unit  (ETU)
- *Why it drains a lots in the battery for the E-Scooter!
- * */
-void GeneralTasks(void const * argument)
+void ETU_BootRoutine(uint8_t diagnosis)
 {
-	priority = osThreadGetPriority(NULL);
-
 	if(ETU_GetState(&ETU_State) == BOOT_CHECK)
 	{
-		if(getBootSource() == 0x7B)
-		{
-			isPowerByBattery = 0x01;
-		}
+		if(getBootSource() == CONNECT_BATTERY) isPowerByBattery = 0x01;
 
 		if(isPowerByBattery == 0x00)
 		{
-			/* Starts Hardware Diagnosis and Checking
-			 * 1. Hall Sensor
-			 * 2. Battery Voltage
-			 * 3. Brake and Throttle Sensor
-			 * 4. Speed Checking
-			 * */
-			if(mainTaskStart == 0x00)
-			{
-				ETU_NextState(&ETU_State,ETU_START);
-			}
-			else if(mainTaskStart == 0x01)
-			{
-				ETU_NextState(&ETU_State,ETU_OBD);
-			}
+			/* ETU doesn't go into OBD Mode when the E-Scooter is operating, to enter into OBD
+			 * Backdoor command should be given externally, i.e. software means
+			 */
+			if(diagnosis == 0x00) { ETU_NextState(&ETU_State,ETU_START);}
+			else if(diagnosis == 0x01){ ETU_NextState(&ETU_State,ETU_OBD);}
 		}
 		else if(isPowerByBattery == 0x01)
 		{
 			ETU_NextState(&ETU_State,ETU_OFF_TRANSITION);
 		}
 	}
+}
+
+
+void gearReady()
+{
+   /*  Make a bit array/register. To ready for driving (D-Mode), the following conditions should be met:
+    *  https://www.cs.emory.edu/~cheung/Courses/255/Syllabus/1-C-intro/bit-array.html
+    *  1. *ptr_error_report == 0  --> gear is ready
+    *  2. *software_error_report == 0 --> gear is ready
+    *  3.  --> If Iq = 0 / ptr_brakeAndThrottle.throttleTriggered = false --> gear is not ready; If Iq != 0 / ptr_brakeAndThrottle.throttleTriggered = true --> gear is ready
+    *  If any of bits in GearReady[] register is 0, the gear is not ready yet, throttleSignalInput() is not triggered --> go back to N (Neutral) mode.
+    * */
+}
+
+/*This is the main task for E-Scooter Transmission Unit  (ETU)
+ *Why it drains a lots in the battery for the E-Scooter!
+ * */
+static void GeneralTasks(void const * argument)
+{
+	priority = osThreadGetPriority(NULL);
+
+	ETU_BootRoutine(SKIP_DIAGNOSIS);
 
 	if(ETU_GetState(&ETU_State) == ETU_START)
 	{
@@ -162,67 +164,41 @@ void GeneralTasks(void const * argument)
 			  {
 				 ledIndicatorStatus = led_indicator_on();
 			  }
-
-			  /*Sends Motor Fault Report to the Dash-board*/
-			  CHECK_MOTOR_STATUS();
-			  /*Is the throttle twisted ?*/
-			  refreshThrottleStatus();
-			  lightSensorStateChange();
-			  /*Get Iq values to control the motor*/
-			  get_ThrottleInformation();
-			  motor_speed();
-			  motor_rms_current();
-
 	       /***************************************************************
 	       * N1_TIME = 100 ms
 	       *
 	       * if GeneralTasks_TIME = 0.02 seconds, N1_TIME = 0.100 seconds, then N_1 = 5
 	       * The following loop is refreshed/executed every N_1 loops
 	       *
+	       * Regularly checks ETU Status
 	       **************************************************************/
 		     if((taskSleepCount % N1_ticks) == 0)
 		     {
 			   /*Read Motor Parameters*/
 			   getIqIdMotor();
+			   /*Check DC Current*/
 			   calcDC();
+			   /*Sends Motor Fault Report to the Dash-board*/
+			   CHECK_MOTOR_STATUS();
+			   /*Is the throttle twisted ?*/
+			   refreshThrottleStatus();
+			   /*Tail Light Control*/
+			   lightSensorStateChange();
+			   /*Monitor Motor Speed*/
+			   motor_speed();
+			   /*Motor Root Mean Square Current*/
+			   motor_rms_current();
 		     }
 	       /***************************************************************
 	        * N2_TIME = 200 ms
 	        *
 	        * if GeneralTasks_TIME = 0.02 seconds, N2_TIME = 0.200 seconds, then N_2 = 10
 	        * The following loop is refreshed/executed every N_2 loops
-	        *
+	        * --> Toggle The Tail Light
 	        **************************************************************/
 		     if((taskSleepCount % N2_ticks) == 0)
 		     {
-		    	tail_light_mode = get_tail_light_mode();
-		    	if(tail_light_mode == ESCOOTER_TOGGLE_TAIL_LIGHT)
-		    	{
-		    		tail_light_status_old = toggle_tail_light(tail_light_status_old);
-		    		tail_light_mode_old = ESCOOTER_TOGGLE_TAIL_LIGHT;
-		    	}
-		    	else
-		    	{
-		    		if(tail_light_mode_old != tail_light_mode)
-		    		{
-		    			if(tail_light_mode == ESCOOTER_TAIL_LIGHT_OFF)
-		    			{
-		    				set_tail_light_off();
-		    				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
-		    				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF;
-		    			}
-		    			else if(tail_light_mode == ESCOOTER_TAIL_LIGHT_ON)
-		    			{
-		    				set_tail_light_on();
-		    				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
-		    				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_ON;
-		    			}
-		    			else
-		    			{
-		    				// shouldn't get here
-		    			}
-		    		}
-		    	}
+		    	 tailLightStateMachine();
 		     }
 	        /***************************************************************
 	         * N3_TIME = 500 ms
@@ -236,7 +212,7 @@ void GeneralTasks(void const * argument)
 				checkConnectionStatus();
 		     }
 
-		     if(GET_SOFTWARE_ERROR_REPORT() != 0x00)
+		     if(*software_error_report != 0x00)
 		     {
 				ETU_PowerShutDown();
 				ledIndicatorStatus = led_indicator_off();
@@ -244,17 +220,17 @@ void GeneralTasks(void const * argument)
 				error_indicator_off(); //2025-05-03
 				timeOutStop();         //2025-05-03
 				ETU_NextState(&ETU_State,ETU_OFF);
-		    	/*Please comment break; out if you are still working on software/hardware debugging*/
-		    	break; //Auto-Shutdown triggered when connection is lost
+		    	break;
 		     }
 
 
+		     /*Might Be replaced by void engineReady() */
 			 if(*ptr_error_report == 0x00)
 			 {
 			    throttleSignalInput();
 			 }
-			else if(*ptr_error_report != 0x00)            /*Usually comes from the hardware's fatal errors */
-			{
+			 else if(*ptr_error_report != 0x00)            /*Usually comes from the hardware's fatal errors */
+			 {
 				setIQ(0);
 				set_ThrottlePercent(0);
 				throttleSignalInput();
@@ -262,8 +238,11 @@ void GeneralTasks(void const * argument)
 				//ETU_PowerShutDown();
 				/*Turn Off the Motor Controller after stopping the motor*/
 				error_indicator_on();
+				//timeOutStop();
 				/*Toggle to the next ETU State: ETU_FAULT*/
-			}
+				//ETU_NextState(&ETU_State,ETU_FAULT);
+				//break;
+			 }
 		 }
 		 else if(*ptr_drive_POWER_ON == false)
 		 {
@@ -277,6 +256,7 @@ void GeneralTasks(void const * argument)
 			/*Try to create a new RTOS Task which handles LOW POWER MODE*/
 		 }
 		taskSleepCount++;
+		if(taskSleepCount == UINT32_MAX)taskSleepCount = 0;
 	  }
 	}
 

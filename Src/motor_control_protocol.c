@@ -31,6 +31,7 @@
 #include "motor_param.h"
 #include "ETU_OBD.h"
 #include "flash_internal.h"
+#include "backgroundTask.h"
 /**
  * @addtogroup MCSDK
  * @{
@@ -752,7 +753,10 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
 
     	   case OBD_MODE:
     	   {
-
+    		   /*$2E$01$0E$3D*/
+    		   RequireAck = false;
+    		   bNoError = true;
+    		   enterOBD();
     	   }
     	   break;
 
@@ -819,6 +823,9 @@ __weak void MCP_ReceivedFrame(MCP_Handle_t *pHandle, uint8_t Code, uint8_t *buff
     		   break;
 
     	   case OBD_THROTTLE_BRAKE_CHECK:
+    		   break;
+
+    	   case OBD_TIMEOUT:
     		   break;
 
     	   default:

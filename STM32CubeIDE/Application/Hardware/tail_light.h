@@ -19,32 +19,31 @@ extern "C"{
 #define ESCOOTER_TAIL_LIGHT_OFF          0x06
 #define ESCOOTER_TAIL_LIGHT_ON           0x08
 
-void tail_light_init();
+extern void tail_light_toggle();
 
-void tail_light_toggle();
+extern void set_tail_light_on();
 
-void set_tail_light_on();
+extern void set_tail_light_off();
 
-void set_tail_light_off();
+extern uint8_t led_indicator_on();
 
-uint8_t led_indicator_on();
+extern uint8_t led_indicator_off();
 
-uint8_t led_indicator_off();
+extern void error_indicator_on();
 
-void error_indicator_on();
+extern void error_indicator_off();
 
-void error_indicator_off();
+extern void set_tail_light_status(uint8_t status);
 
-void set_tail_light_status(uint8_t status);
+extern uint8_t get_tail_light_status();
 
-uint8_t get_tail_light_status();
+extern uint8_t get_tail_light_mode();
 
-uint8_t get_tail_light_mode();
+extern uint8_t toggle_tail_light(uint8_t tailLightStatusOld);
 
-uint8_t toggle_tail_light(uint8_t tailLightStatusOld);
+extern void lightSensorStateChange();
 
-void lightSensorStateChange();
-
+extern void tailLightStateMachine();
 
 #ifdef __cplusplus
 }

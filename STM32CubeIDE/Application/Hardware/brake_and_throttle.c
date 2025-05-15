@@ -98,14 +98,6 @@ void changeSpeedMode(int16_t speed_mode_IQmax, int16_t allowable_rpm, uint16_t r
 	ptr_brakeAndThrottle.ramp_rate        = ramp_rate;
 }
 
-int16_t Iq_applied = 0;
-uint16_t Iq_Percentage = 0;
-void get_ThrottleInformation()
-{
-    Iq_applied = getIQ();
-    Iq_Percentage = getThrottlePercent();
-}
-
 void driveStop()
 {
 	motorStop();

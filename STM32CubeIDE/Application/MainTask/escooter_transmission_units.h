@@ -29,23 +29,31 @@ extern "C"{
 #define N2_TIME               200
 #define N3_TIME               300
 
-void go_powerOnRegister(bool *ptrpowerOn);
+#define CONNECT_BATTERY       0x7B
+#define SKIP_DIAGNOSIS        0x00
+#define ENTER_DIAGNOSIS       0x01
 
-void go_errorReportRegister(uint8_t *report);
+extern void go_powerOnRegister(bool *ptrpowerOn);
 
-void software_errorReportRegister(uint8_t *fault);
+extern void go_errorReportRegister(uint8_t *report);
+
+extern void software_errorReportRegister(uint8_t *fault);
+
+extern void OBD_flagRegister(bool *ptrOBD);
 
 /* Safety Power Cutting 2025-03-25 */
-void ETU_PowerShutDown();
+extern void ETU_PowerShutDown();
 
 /* Initializes GENEV-GO core according to user defined parameters. */
-void GoInit();
+extern void GoInit();
 
 /*Starts Driving*/
-void createDrivingTasks(void);
+extern void createDrivingTasks(void);
 
-/* Runs all the Tasks of GENEV-GO cockpit */
-void GeneralTasks(void const * argument);
+extern void ETU_BootRoutine(uint8_t diagnosis);
+
+extern void gearReady();
+
 #ifdef __cplusplus
 }
 #endif

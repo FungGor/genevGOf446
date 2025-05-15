@@ -213,7 +213,8 @@ typedef enum
 	OBD_DRIVER_CHECK,          /*0x00*/
 	OBD_MOTOR_CHECK,           /*0x01*/
 	OBD_FAULT_CHECK,           /*0x02*/
-	OBD_THROTTLE_BRAKE_CHECK   /*0x03*/
+	OBD_THROTTLE_BRAKE_CHECK,  /*0x03*/
+	OBD_TIMEOUT                /*0x04*/
 }ETU_OBD_t;
 
 /* @brief To configure the UI use MAIN Sensor (4bit)|AUX Sensor (4 bit) as first byte of CFG.*/

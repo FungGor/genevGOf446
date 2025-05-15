@@ -13,11 +13,9 @@
 
 uint8_t lightStatus;
 
-void tail_light_init()
-{
-    /*The tail light is off*/
-	//GPIO_Init();
-}
+static uint8_t tail_light_status_old = 0;      //either: 1 = 0N    or   0 = OFF
+static uint8_t tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF;   // toggle = 0x05, ON = 0x08, OFF = 0x06
+static uint8_t tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
 
 void tail_light_toggle()
 {
@@ -117,4 +115,36 @@ void lightSensorStateChange()
    {
 	   set_tail_light_off();
    }
+}
+
+void tailLightStateMachine()
+{
+	tail_light_mode = get_tail_light_mode();
+	if(tail_light_mode == ESCOOTER_TOGGLE_TAIL_LIGHT)
+	{
+		tail_light_status_old = toggle_tail_light(tail_light_status_old);
+		tail_light_mode_old = ESCOOTER_TOGGLE_TAIL_LIGHT;
+	}
+	else
+	{
+		if(tail_light_mode_old != tail_light_mode)
+		{
+			if(tail_light_mode == ESCOOTER_TAIL_LIGHT_OFF)
+			{
+				set_tail_light_off();
+				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
+				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF;
+			}
+			else if(tail_light_mode == ESCOOTER_TAIL_LIGHT_ON)
+			{
+				set_tail_light_on();
+				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
+				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_ON;
+			}
+			else
+			{
+				// shouldn't get here
+			}
+		}
+	}
 }
