@@ -18,8 +18,9 @@ extern "C"{
 
 typedef enum
 {
-	NEUTRAL = 0,   /*Neutral Mode --> Isolates Electric (Gear) Transmission*/
-	DRIVE   = 1    /*Drive Mode --> Transmits Electric Power to the Motor (Car starts moving)*/
+	PARK = 0,
+	NEUTRAL = 1,   /*Neutral Mode --> Isolates Electric (Gear) Transmission*/
+	DRIVE   = 2    /*Drive Mode --> Transmits Electric Power to the Motor (Car starts moving)*/
 }GearMode_t;
 
 typedef struct

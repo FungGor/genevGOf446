@@ -8,8 +8,8 @@
 
 void GearInit(GearMode_Handle_t *transmission)
 {
-	/*E-Scooter should be in neutral mode (N) during start-up*/
-	transmission->Mode = NEUTRAL;
+	/*E-Scooter should be in PARKING mode (N) during start-up*/
+	transmission->Mode = PARK;
 }
 
 void GearToggle(GearMode_Handle_t *transmission, GearMode_t tMode)
@@ -18,10 +18,18 @@ void GearToggle(GearMode_Handle_t *transmission, GearMode_t tMode)
 	GearMode_t tCurrentMode = transmission->Mode;
 	GearMode_t tNewMode = tCurrentMode;
 
-	/*Changes Gear automatically: N D */
+	/*Changes Gear automatically:P N D */
 	/*Toggles between DRIVE and NEUTRAL mode*/
 	switch( tCurrentMode )
 	{
+	   case PARK: /*It's only executed once when the E-Scooter starts. It will not go back to PARK until the car is rebooted once electrical transmission is triggered*/
+		   if ( (tMode == NEUTRAL) )
+		   {
+			   tNewMode = tMode;
+			   tChangeState = true;
+		   }
+		   break;
+
 	   case NEUTRAL:
 		   if( (tMode == DRIVE) )
 		   {

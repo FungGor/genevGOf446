@@ -255,8 +255,23 @@ void GearTransmitControlPanel()
 	/*Is "Gear" Transmission Ready ? */
 	uint8_t gearStop =  gearAvailable();
 
+	motor_speed();
 	switch (gearMode)
 	{
+	    case PARK:
+	    {
+	         if(getThrottlePercent() != 0) //Hand-Brake
+	         {
+	        	 if(getRPM() < 80)
+	        	 {
+		              throttleSignalInput();
+		              GearToggle(&transmissionMode, NEUTRAL);
+	        	 }
+	          }
+
+	    }
+	    break;
+
 	    case NEUTRAL:
 	    {
 	    	if(gearStop == 0){
@@ -265,7 +280,7 @@ void GearTransmitControlPanel()
 	    		GearToggle(&transmissionMode, DRIVE);
 	    	}
 	    	else if(gearStop == 1){
-		    	setIQ(0);
+		    	setIQ(0); //It must not be neglected
 		    	throttleSignalInput();
 	    	}
 	    }
@@ -275,7 +290,7 @@ void GearTransmitControlPanel()
 	    {
 	    	if(gearStop == 0)
 	    	{
-	    		ETU_GearTransmitStart();
+	    		ETU_GearTransmitStart(); // IQ != 0
 	    	}
 	    	else if(gearStop == 1)
 	    	{
