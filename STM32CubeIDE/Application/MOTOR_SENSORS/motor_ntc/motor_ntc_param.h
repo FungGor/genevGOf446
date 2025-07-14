@@ -15,7 +15,7 @@ extern "C" {
 #include "stdint.h"
 #include "parameters_conversion.h"
 
-#define SUPPLY_VOLTAGE                        5       //Motor NTC Supply Voltage
+#define NTC_MOTOTR_SUPPLY_VOLTAGE              5       //Motor NTC Supply Voltage
 #define ADC_VOLTAGE_RANGE                     3.30    //Vdd
 #define RESISTANCE_OUTPUT                     (float)5100    //R4
 #define RESISTANCE_INPUT                      (float)1500    //R3

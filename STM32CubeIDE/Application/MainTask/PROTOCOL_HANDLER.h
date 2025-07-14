@@ -19,6 +19,16 @@ extern "C"{
 #define TIMEOUT_EXPIRATION                 0x0A
 /*Allows reconnection automatically*/
 #define MAX_CHANCE_RECONNECTION            0x06
+
+typedef struct
+{
+	volatile uint8_t lossPacket;          /*Packet Loss*/
+	volatile uint8_t timeOutExpiration;   /*Timeout Expired*/
+	volatile uint16_t payLoadReceived;    /*ACK Received Payload*/
+	volatile bool stillConnection;        /*Is UART still online?*/
+	volatile bool lostConnection;         /*Is UART disconnected ?*/
+	volatile uint8_t reconnection;        /*Reconnect again*/
+}protocol_t;
 /*********************************************************************
  * @Structure STM32MCP_timerManager_t
  *

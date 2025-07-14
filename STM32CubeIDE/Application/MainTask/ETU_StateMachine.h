@@ -24,8 +24,7 @@ typedef enum
 	ETU_START          =  1,  /*Start E-Scooter Driving*/
 	ETU_FAULT          =  2,  /*E-Scooter Hardware / Software Fault*/
 	ETU_OBD            =  3,  /*Enters E-Scooter Diagnosis Mode*/
-	ETU_OFF_TRANSITION =  4,  /*Ready to End E-Scooter Driving Task*/
-	ETU_OFF            =  5   /*The End of E-Scooter's Driving Task*/
+	ETU_OFF            =  4   /*The End of E-Scooter's Driving Task*/
 }ETU_State_t;
 
 typedef struct

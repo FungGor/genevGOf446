@@ -14,6 +14,7 @@
 "./Application/MOTOR_SENSORS/motor_ntc/CMFAX103F3950FB.o"
 "./Application/MOTOR_SENSORS/motor_ntc/motor_ntc.o"
 "./Application/MainTask/ETU_StateMachine.o"
+"./Application/MainTask/GearControl.o"
 "./Application/MainTask/PROTOCOL_HANDLER.o"
 "./Application/MainTask/backgroundTask.o"
 "./Application/MainTask/escooter_transmission_units.o"

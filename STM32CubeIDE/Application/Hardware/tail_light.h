@@ -19,6 +19,16 @@ extern "C"{
 #define ESCOOTER_TAIL_LIGHT_OFF          0x06
 #define ESCOOTER_TAIL_LIGHT_ON           0x08
 
+typedef struct
+{
+	uint8_t lightStatus;
+	uint8_t tail_light_status_old;
+	uint8_t tail_light_mode;
+	uint8_t tail_light_mode_old;
+}Tail_Light_t;
+
+extern void tail_light_status_Init();
+
 extern void tail_light_toggle();
 
 extern void set_tail_light_on();

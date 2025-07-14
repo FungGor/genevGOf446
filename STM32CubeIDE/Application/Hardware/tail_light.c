@@ -11,11 +11,14 @@
 
 #include "../../UDHAL/UDHAL_GPIO.h"
 
-uint8_t lightStatus;
+static Tail_Light_t tailLight;
 
-static uint8_t tail_light_status_old = 0;      //either: 1 = 0N    or   0 = OFF
-static uint8_t tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF;   // toggle = 0x05, ON = 0x08, OFF = 0x06
-static uint8_t tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
+void tail_light_status_Init()
+{
+	tailLight.tail_light_status_old = 0;  //either: 1 = 0N    or   0 = OFF
+	tailLight.tail_light_mode = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
+	tailLight.tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF; // toggle = 0x05, ON = 0x08, OFF = 0x06
+}
 
 void tail_light_toggle()
 {
@@ -58,13 +61,13 @@ void error_indicator_off()
 
 void set_tail_light_status(uint8_t status)
 {
-	lightStatus = status;
+	tailLight.lightStatus = status;
 
 }
 
 uint8_t get_tail_light_status()
 {
-	return lightStatus;
+	return tailLight.lightStatus;
 }
 
 uint8_t get_tail_light_mode()
@@ -76,11 +79,11 @@ uint8_t get_tail_light_mode()
 	}
 	else if(getBrakeStatus() == 0x00)
 	{
-		if(lightStatus == 0x01)
+		if(tailLight.lightStatus == 0x01)
 		{
 			mode = ESCOOTER_TAIL_LIGHT_ON;
 		}
-		else if(lightStatus == 0x00)
+		else if(tailLight.lightStatus == 0x00)
 		{
 			mode = ESCOOTER_TAIL_LIGHT_OFF;
 		}
@@ -119,27 +122,27 @@ void lightSensorStateChange()
 
 void tailLightStateMachine()
 {
-	tail_light_mode = get_tail_light_mode();
-	if(tail_light_mode == ESCOOTER_TOGGLE_TAIL_LIGHT)
+	tailLight.tail_light_mode = get_tail_light_mode();
+	if(tailLight.tail_light_mode == ESCOOTER_TOGGLE_TAIL_LIGHT)
 	{
-		tail_light_status_old = toggle_tail_light(tail_light_status_old);
-		tail_light_mode_old = ESCOOTER_TOGGLE_TAIL_LIGHT;
+		tailLight.tail_light_status_old = toggle_tail_light(tailLight.tail_light_status_old);
+		tailLight.tail_light_mode_old = ESCOOTER_TOGGLE_TAIL_LIGHT;
 	}
 	else
 	{
-		if(tail_light_mode_old != tail_light_mode)
+		if(tailLight.tail_light_mode_old != tailLight.tail_light_mode)
 		{
-			if(tail_light_mode == ESCOOTER_TAIL_LIGHT_OFF)
+			if(tailLight.tail_light_mode == ESCOOTER_TAIL_LIGHT_OFF)
 			{
 				set_tail_light_off();
-				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
-				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF;
+				tailLight.tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
+				tailLight.tail_light_mode_old = ESCOOTER_TAIL_LIGHT_OFF;
 			}
-			else if(tail_light_mode == ESCOOTER_TAIL_LIGHT_ON)
+			else if(tailLight.tail_light_mode == ESCOOTER_TAIL_LIGHT_ON)
 			{
 				set_tail_light_on();
-				tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
-				tail_light_mode_old = ESCOOTER_TAIL_LIGHT_ON;
+				tailLight.tail_light_status_old = get_tail_light_status(); // either: 1 = ON   or 0 = OFF CAUTION: THIS PARAMETER IS CONTROLLED BY UART
+				tailLight.tail_light_mode_old = ESCOOTER_TAIL_LIGHT_ON;
 			}
 			else
 			{

@@ -10,7 +10,6 @@
 #include "ETU_OBD.h"
 
 brakeAndThrottle_t ptr_brakeAndThrottle;
-int16_t torque = 0;
 
 void brake_and_throttle_init()
 {
@@ -45,28 +44,27 @@ uint16_t getThrottlePercent()
 	return ptr_brakeAndThrottle.throttlePercent;
 }
 
+uint8_t percentage = 0x00;
 void throttleSignalInput()
 {
+	percentage = getThrottlePercent();
 	accelerateIQMotor(ptr_brakeAndThrottle.IQ_applied,0);
 #ifdef MOTOR_CONTROL
 	accelerateIQMotor(ptr_brakeAndThrottle->IQ_applied,0);
 #endif
 }
 
-void refreshThrottleStatus()
+bool getThrottleStatus()
 {
+	/*Electric is not transferred to the motor driver*/
 	if (getIQ() == 0)
 	{
 		ptr_brakeAndThrottle.throttleTriggered = false;
 	}
-	else if(getIQ() > 0)
+	else if(getIQ() > 0) /*Electric is transferred to the motor driver*/
 	{
 		ptr_brakeAndThrottle.throttleTriggered = true;
 	}
-}
-
-bool getThrottleStatus()
-{
 	return ptr_brakeAndThrottle.throttleTriggered;
 }
 

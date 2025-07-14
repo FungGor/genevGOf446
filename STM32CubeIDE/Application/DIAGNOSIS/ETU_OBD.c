@@ -13,15 +13,15 @@ MOTOR *motorPtr;
 brakeAndThrottle_t *brakeThrottleSensorPtr;
 
 /*Save in the Flash Memory*/
-uint32_t OBD_t[SIZE_OF_FLASH_PAYLOAD] ={0};
+static uint32_t OBD_t[SIZE_OF_FLASH_PAYLOAD] ={0};
 /*Stores Driver Parameters*/
-uint32_t OBD_Driver[DRIVER_PARAM_PAYLOAD] = {0};
+static uint32_t OBD_Driver[DRIVER_PARAM_PAYLOAD] = {0};
 /*Stores Motor Parameters*/
-uint32_t OBD_Motor[MOTOR_PARAM_PAYLOAD] = {0};
+static uint32_t OBD_Motor[MOTOR_PARAM_PAYLOAD] = {0};
 /*Stores Error Report*/
-uint32_t OBD_Fault[FAULT_PAYLOAD] = {0};
+static uint32_t OBD_Fault[FAULT_PAYLOAD] = {0};
 /*Stores Brake and Throttle Parameters*/
-uint16_t OBD_BrakeThrottleSensor[BRAKE_THROTTLE_SENSOR_PAYLOAD] = {0};
+static uint16_t OBD_BrakeThrottleSensor[BRAKE_THROTTLE_SENSOR_PAYLOAD] = {0};
 
 void ETU_StatusRegister(MOTOR *Motor)
 {

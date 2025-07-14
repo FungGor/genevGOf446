@@ -12,14 +12,15 @@
 
 static bool POWER_ON = true;
 
-void powerModeInit()
-{
-	go_powerOnRegister(&POWER_ON);
-}
 
 void powerManagementInit()
 {
 	power_management_register(&POWER_ON);
+}
+
+void POWER_FLAG_INIT()
+{
+	 power_flag_register(&POWER_ON);
 }
 
 void changePowerMode()

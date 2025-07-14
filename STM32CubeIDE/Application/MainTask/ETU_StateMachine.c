@@ -26,7 +26,9 @@
   */
 void ETU_Init(ETU_StateHandle_t *etuHandle)
 {
+	/* The First ETU State of the E-Scooter : BOOT_CHECK */
 	etuHandle->eState = BOOT_CHECK;
+	/* Assuming the E-Scooter has no any faults*/
 	etuHandle->Faults = ETU_NO_FAULTS;
 }
 
@@ -50,8 +52,7 @@ void ETU_NextState(ETU_StateHandle_t *etuHandle, ETU_State_t eState)
 	switch( eCurrentState )
 	{
 	   case BOOT_CHECK:
-		  if( (eState == ETU_START) || (eState == ETU_OFF_TRANSITION) || (eState == ETU_OBD) || (eState == ETU_FAULT)
-			   || (eState == ETU_OFF))
+		  if( (eState == ETU_START)  || (eState == ETU_OBD) || (eState == ETU_FAULT) || (eState == ETU_OFF) )
 		  {
 			  eNewState = eState;
 			  eChangeState = true;
@@ -59,7 +60,7 @@ void ETU_NextState(ETU_StateHandle_t *etuHandle, ETU_State_t eState)
 		  break;
 
 	   case ETU_START:
-		   if((eState == ETU_OBD) || (eState == ETU_OFF) || (eState == ETU_FAULT))
+		   if( (eState == ETU_OBD) || (eState == ETU_OFF) || (eState == ETU_FAULT) )
 		   {
 			   eNewState = eState;
 			   eChangeState = true;
@@ -79,15 +80,6 @@ void ETU_NextState(ETU_StateHandle_t *etuHandle, ETU_State_t eState)
 			   eChangeState = true;
 		   }
 		   break;
-
-	   case ETU_OFF_TRANSITION:
-		   if(eState == ETU_OFF)
-		   {
-			   eNewState = eState;
-			   eChangeState = true;
-		   }
-		   break;
-
 
 	   case ETU_OFF:
 		   eNewState = eState;

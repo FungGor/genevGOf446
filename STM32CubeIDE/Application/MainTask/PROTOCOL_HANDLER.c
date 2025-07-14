@@ -7,13 +7,9 @@
 #include <ERROR_REPORT.h>
 #include "PROTOCOL_HANDLER.h"
 
+static protocol_t protocol;
 static STM32MCP_protocolHandle_t *STM32MCP_protocolHandle;
-static uint8_t packetLoss = 0x00;
-static uint8_t expiration = 0x00;
-static uint8_t payLoad = 0x00;
-static bool inConnection = false;
-static uint8_t connectSkin = 0xFF;
-static uint8_t reconnection = 0;
+
 /*********************************************************************
  * @fn      STM32MCP_registerTimer
  *
@@ -69,34 +65,34 @@ void timeOutStop()
 void timeOutHandler()
 {
 
-	expiration++;
-	if( (expiration%4) == 0)
+	protocol.timeOutExpiration++;
+	if( (protocol.timeOutExpiration%4) == 0)
 	{
-		payLoad = 0x00;
+		protocol.payLoadReceived = 0x00;
 	}
-	if(payLoad == 0x00)
+	if(protocol.payLoadReceived == 0x00)
 	{
-		packetLoss ++;
-		if(packetLoss > MAXIMUM_NUMBER_OF_LOST_PACKETS)
+		protocol.lossPacket ++;
+		if(protocol.lossPacket > MAXIMUM_NUMBER_OF_LOST_PACKETS)
 		{
 			//SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
 			//updateConnectionStatus(false,payLoad);
-			reconnection ++;
+			protocol.reconnection ++;
 		}
 	}
-	else if(payLoad > 0)
+	else if(protocol.payLoadReceived > 0)
 	{
-		packetLoss = 0;
-		reconnection = 0;
+		protocol.lossPacket = 0;
+		protocol.reconnection = 0;
 	}
 
 	/*
 	 * The following codes are modified on 2025-04-11
 	 */
-	if(reconnection == MAX_CHANCE_RECONNECTION)
+	if(protocol.reconnection == MAX_CHANCE_RECONNECTION)
 	{
 		SEND_SOFTWARE_ERROR_REPORT(TIMEOUT_EXPIRATION);
-		updateConnectionStatus(false,payLoad);
+		updateConnectionStatus(false,protocol.payLoadReceived);
 	}
 }
 
@@ -112,19 +108,19 @@ void timeOutHandler()
  */
 void timeOutReset()
 {
-    packetLoss = 0x00;
+	protocol.lossPacket = 0x00;
     timeOutStop();
 }
 
 void updateConnectionStatus(bool received, uint8_t packageCount)
 {
-	inConnection = received;
-	payLoad = packageCount;
+	protocol.stillConnection = received;
+	protocol.payLoadReceived = packageCount;
 }
 
 bool getConnectionStatus()
 {
-	return inConnection;
+	return protocol.stillConnection;
 }
 
 
@@ -132,10 +128,10 @@ void checkConnectionStatus()
 {
 	if (getConnectionStatus() == true)
 	{
-		connectSkin = 0x00;
+		protocol.lostConnection = 0x00;
 	}
 	else if(getConnectionStatus() == false)
 	{
-		connectSkin = 0x01;
+		protocol.lostConnection = 0x01;
 	}
 }

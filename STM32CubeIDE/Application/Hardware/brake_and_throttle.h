@@ -34,33 +34,31 @@ typedef struct
 	uint16_t throttle_voltage;
 }brakeAndThrottle_t;
 
-void brake_and_throttle_init();
+extern void brake_and_throttle_init();
 
-void setIQ(int16_t IQ);
+extern void setIQ(int16_t IQ);
 
-int16_t getIQ();
+extern int16_t getIQ();
 
-void set_ThrottlePercent(uint16_t percentage);
+extern void set_ThrottlePercent(uint16_t percentage);
 
-uint16_t getThrottlePercent();
+extern uint16_t getThrottlePercent();
 
-void throttleSignalInput();
+extern void throttleSignalInput();
 
-void refreshThrottleStatus();
+extern bool getThrottleStatus();
 
-bool getThrottleStatus();
+extern void setThrottle_Voltage(uint16_t percentage);
 
-void setThrottle_Voltage(uint16_t percentage);
+extern uint16_t getThrottle_Voltage();
 
-uint16_t getThrottle_Voltage();
+extern void updateBrakeStatus(bool status);
 
-void updateBrakeStatus(bool status);
+extern bool getBrakeStatus();
 
-bool getBrakeStatus();
+extern void changeSpeedMode(int16_t speed_mode_IQmax, int16_t allowable_rpm, uint16_t ramp_rate);
 
-void changeSpeedMode(int16_t speed_mode_IQmax, int16_t allowable_rpm, uint16_t ramp_rate);
-
-void driveStop();
+extern void driveStop();
 #ifdef __cplusplus
 }
 #endif

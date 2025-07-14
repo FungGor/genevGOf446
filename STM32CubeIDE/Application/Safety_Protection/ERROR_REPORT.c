@@ -12,18 +12,19 @@
 #include "main.h"
 
 /*System is normal in default*/
-uint8_t ERROR_OCCURRED = MC_NO_ERROR;
-uint8_t ERROR_CODE = SYSTEM_NORMAL;
-uint8_t SOFTWARE_ERROR = SOFTWARE_OK;
+static uint8_t ERROR_OCCURRED = MC_NO_ERROR;
+static uint8_t ERROR_CODE = SYSTEM_NORMAL;
+static uint8_t SOFTWARE_ERROR = SOFTWARE_OK;
 
-void ERROR_REPORT_INIT()
+
+void MOTOR_FAULT_FLAG_INIT()
 {
-	go_errorReportRegister(&ERROR_OCCURRED);
+	motor_fault_signal(&ERROR_OCCURRED);
 }
 
-void SOFTWARE_ERROR_REPORT_INIT()
+void CONNECTION_FAIL_FLAG_INIT()
 {
-	software_errorReportRegister(&SOFTWARE_ERROR);
+	connection_flag_register(&SOFTWARE_ERROR);
 }
 
 void BACKGROUND_CONNECTION_MONITOR_INIT()

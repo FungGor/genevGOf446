@@ -14,8 +14,8 @@ extern "C"{
 #include "stdbool.h"
 #include "stdint.h"
 
-extern void powerModeInit();
 extern void powerManagementInit();
+extern void POWER_FLAG_INIT();
 extern void changePowerMode();
 extern void gotoSLEEP();
 extern void wakeUp();

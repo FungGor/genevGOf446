@@ -29,8 +29,8 @@ extern "C"{
 #define HALL_SENSOR_ERROR_CODE    0x3A
 #define MOTOR_TEMP_ERROR_CODE     0x3C
 
-extern void ERROR_REPORT_INIT();
-extern void SOFTWARE_ERROR_REPORT_INIT();
+extern void MOTOR_FAULT_FLAG_INIT();
+extern void CONNECTION_FAIL_FLAG_INIT();
 extern void BACKGROUND_CONNECTION_MONITOR_INIT();
 extern void CHECK_MOTOR_STATUS();
 extern void SEND_SOFTWARE_ERROR_REPORT(uint8_t fault);

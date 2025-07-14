@@ -18,6 +18,12 @@ extern "C"{
 #include "mc_api.h"
 #include "parameters_conversion.h"
 
+#define SAMPLE LENGTH                  128u
+#define MOTOR_OVERTEMP_THRESHOLD         90
+#define DRIVER_OVERTEMP_THRESHOLD        70
+#define LOW_BATTERY_THRESHOLD         33000
+#define OVER_VOLTAGE                  60000
+
 typedef struct
 {
 	int16_t  SPEED;
@@ -36,12 +42,6 @@ typedef struct
 	uint8_t hallSensorState;
 	int16_t electricAngle;
 }MOTOR;
-
-#define SAMPLE LENGTH                  128u
-#define MOTOR_OVERTEMP_THRESHOLD         90
-#define DRIVER_OVERTEMP_THRESHOLD        70
-#define LOW_BATTERY_THRESHOLD         33000
-#define OVER_VOLTAGE                  60000
 
 extern void motor_param_init();
 

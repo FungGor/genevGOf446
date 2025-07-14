@@ -132,7 +132,7 @@ __weak void MOTORTEMP_CalcAvR_Value(MotorTemp_Handle_t *pHandle)
 	float resistanceTemp = 0;
 	uint32_t NTC_R = 0;
     outputVoltage = ((float)(pHandle->avgNTCVoltage)/CONVERSION_RANGE)*ADC_VOLTAGE_RANGE;
-    resistanceTemp = (5*pHandle->Resistance_Equivalent);
+    resistanceTemp = (NTC_MOTOTR_SUPPLY_VOLTAGE*pHandle->Resistance_Equivalent);
     resistanceTemp = resistanceTemp / (outputVoltage*pHandle->alpha);
     resistanceTemp = resistanceTemp - pHandle->Resistance_Equivalent;
     NTC_R = (uint32_t) resistanceTemp;

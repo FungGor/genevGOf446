@@ -19,7 +19,7 @@ typedef struct
 	uint8_t SpeedSensorFail;
 	uint8_t MotorTempFail;
 	uint8_t DriverTempFail;
-	uint8_t HealthCheckFail;
+	uint8_t HealthCheckFail;;
 }Health_Check_Handler_t;
 
 extern void HealthCheckInit();
