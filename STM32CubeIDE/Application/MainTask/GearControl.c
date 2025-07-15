@@ -22,7 +22,7 @@ void GearToggle(GearMode_Handle_t *transmission, GearMode_t tMode)
 	/*Toggles between DRIVE and NEUTRAL mode*/
 	switch( tCurrentMode )
 	{
-	   case PARK: /*It's only executed once when the E-Scooter starts. It will not go back to PARK until the car is rebooted once electrical transmission is triggered*/
+	   case PARK:
 		   if ( (tMode == NEUTRAL) )
 		   {
 			   tNewMode = tMode;

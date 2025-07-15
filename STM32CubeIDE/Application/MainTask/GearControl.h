@@ -13,7 +13,7 @@ extern "C"{
 
 #include "stdbool.h"
 
-/*GearControl.h imitates Automatic Gear Transmission System's behaviors in the Car: P N D R
+/*GearControl.h imitates Automatic Gear Transmission System's behaviors in the Car: P N D
  *Realization of Automatic Gear Transmission System*/
 
 typedef enum

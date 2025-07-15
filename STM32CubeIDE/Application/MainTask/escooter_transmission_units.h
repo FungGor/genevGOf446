@@ -49,7 +49,6 @@ typedef struct
 	uint8_t gearStop;                 /*Signals if Gear Transmission is ready which determines Transmission Mode*/
 	uint8_t isFault;                  /*The Fault Flag is raised to 1 if any kinds of faults occurs including UART Fault*/
 	uint8_t ETU_Fault_Record[5];      /*Saves ETU Fault Record*/
-	uint8_t systemExit;
 }ETU_Status_Handle_t;
 
 

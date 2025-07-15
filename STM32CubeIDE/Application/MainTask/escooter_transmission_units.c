@@ -91,7 +91,6 @@ void ETU_StatusHandlerInit()
 		status.ETU_Fault_Record[i] = 0xFF;
 	}
 	status.gearStop   = 0xFF;
-	status.systemExit  = 0x00;
 }
 
 void GoInit()
@@ -173,14 +172,9 @@ void saveFaultRecord(uint8_t errorCode)
 	}
 }
 
-uint8_t parking = 0x01;
-uint16_t driving = 0x00;
 /* Safety Power Cutting 2025-03-25 */
 void ETU_PowerShutDown()
 {
-	parking = 0x01;
-	status.systemExit  = 0x01;
-	driving = 0x00;
 	Motor_ShutDown();
 }
 
@@ -197,7 +191,6 @@ void ETU_connectionFaultHandler()
 
 void ETU_GearTransmitStart()
 {
-	driving += 1;
 	throttleSignalInput();
 }
 
@@ -260,12 +253,17 @@ void GearTransmitControlPanel()
 	{
 	    case PARK:
 	    {
-	         if(getThrottlePercent() != 0) //Hand-Brake
+	    	/* In Parking Mode (P), Electrical transmission is disengaged.
+	    	 * In kick-off stage / while the car is standstill, a little pressing of throttle is enough to start the engine (engage electrical transmission).
+	    	 * When Parking Mode is neglected, the situation occurs:
+	    	 *   - Inrush choking in the motor because of back emf at the time the E-Scooter is turned on while the user is pushing the car.
+	    	 */
+	         if(getThrottlePercent() != 0) //throttle percentage should not be sent (from the dashboard) until the boot process is finished in the dashboard
 	         {
 	        	 if(getRPM() < 80)
 	        	 {
-		              throttleSignalInput();
-		              GearToggle(&transmissionMode, NEUTRAL);
+			          throttleSignalInput();
+			          GearToggle(&transmissionMode, NEUTRAL);
 	        	 }
 	          }
 
@@ -276,7 +274,6 @@ void GearTransmitControlPanel()
 	    {
 	    	if(gearStop == 0){
 	    		/*Shift the Gear to D from N to start driving*/
-	    		status.systemExit  = 0x00;
 	    		GearToggle(&transmissionMode, DRIVE);
 	    	}
 	    	else if(gearStop == 1){
@@ -344,7 +341,6 @@ static void GeneralTasks(void const * argument)
 				checkConnectionStatus();
 		     }
 
-		     /*Put line 348 - line 364 into a function which handles system fault*/
 		     if((*status.ptrMotorFault) != 0)
 		     {
 		    	 setIQ(0);
@@ -353,10 +349,9 @@ static void GeneralTasks(void const * argument)
 		    	 error_indicator_on();
 		     }
 
+		     /*The motor stops when ECU loses UART connection*/
 		     if((*status.ptrConnectFault) != 0)
 		     {
-		    	 driving = 0;
-		    	 parking = 0x01;
 		    	 setIQ(0);
 		    	 throttleSignalInput();
 		    	 driveStop();
