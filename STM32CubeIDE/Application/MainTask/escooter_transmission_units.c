@@ -35,6 +35,7 @@ ETU_Status_Handle_t status;
 
 /*Handles Handbrake*/
 static uint8_t handBrakeLock = 1;
+static uint8_t handBrakeCheck = 0;
 
 /*RTOS Handler*/
 static osThreadId driveHandle;
@@ -266,22 +267,21 @@ static void pausehandBrakeTimer()
 	osTimerStop(handBrakeHandle);
 }
 
-uint8_t isReady = 0;
 static void handBrakeReady()
 {
 	motor_speed();
-	if (isReady == 4)
+	if (handBrakeCheck == 4)
 	{
-		if(getRPM() == 0)
+		if(getThrottlePercent() == 0) //More simple to be handled compared to RPM
 		{
 			unlockHandbrake();
 		}
 		else
 		{
-			isReady = 0;
+			handBrakeCheck = 0;
 		}
 	}
-	isReady++;
+	handBrakeCheck++;
 }
 
 /*Automatic gear selection*/
@@ -302,7 +302,7 @@ static void GearTransmitControlPanel()
 	    	 * When Parking Mode is neglected, the situation occurs:
 	    	 *   - Inrush choking in the motor because of back emf at the time the E-Scooter is turned on while the user is pushing the car.
 	    	 */
-	    	if(handBrakeLock == 0) //Automatic Hand-brake unlock
+	    	if(handBrakeLock == 0)
 	    	{
 	    		pausehandBrakeTimer();
 		         if(getThrottlePercent() != 0)
