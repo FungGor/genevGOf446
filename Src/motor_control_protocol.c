@@ -32,6 +32,7 @@
 #include "ETU_OBD.h"
 #include "flash_internal.h"
 #include "backgroundTask.h"
+#include "escooter_transmission_units.h"
 /**
  * @addtogroup MCSDK
  * @{

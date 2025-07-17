@@ -33,6 +33,8 @@ static GearMode_Handle_t transmissionMode;
 /*Assign ETU_Status_Handle_t object*/
 ETU_Status_Handle_t status;
 
+/*Handles Handbrake*/
+static uint8_t handBrakeLock = 1;
 
 /*RTOS Handler*/
 static osThreadId driveHandle;
@@ -47,11 +49,19 @@ static uint8_t N1_ticks = N1_TIME / GeneralTask_TIME;
 static uint8_t N2_ticks = N2_TIME / GeneralTask_TIME;
 static uint8_t N3_ticks = N3_TIME / GeneralTask_TIME;
 
-
 //Those variables should be centralised in typedef struct ETU_Status_Handle_t
 //tail light variables
-static volatile uint32_t taskSleepCount = 0;  //2025-05-12
+static volatile uint32_t taskSleepCount = 0;
+static void createDrivingTasks(void);
+static uint8_t gearAvailable();
+static void GearTransmitControlPanel();
 static void GeneralTasks(void const * argument);
+
+static osTimerId handBrakeHandle;
+static void unlockHandbrake();
+static void handBrakeTimerStart();
+static void pausehandBrakeTimer();
+static void handBrakeReady();
 
 static uint8_t faultRecordCount = 0;
 
@@ -93,6 +103,18 @@ void ETU_StatusHandlerInit()
 	status.gearStop   = 0xFF;
 }
 
+static void unlockHandbrake()
+{
+	handBrakeLock = 0;
+}
+
+static void createDrivingTasks(void)
+{
+	/*Starts Driving Task*/
+	osThreadDef(drive, GeneralTasks,osPriorityBelowNormal,0,128);
+	driveHandle = osThreadCreate(osThread(drive), NULL);
+}
+
 void GoInit()
 {
 	ETU_StatusHandlerInit();
@@ -128,14 +150,7 @@ void GoInit()
 	etu_state_ptr_register(&ETU_State);
 }
 
-void createDrivingTasks(void)
-{
-	/*Starts Driving Task*/
-	osThreadDef(drive, GeneralTasks,osPriorityBelowNormal,0,128);
-	driveHandle = osThreadCreate(osThread(drive), NULL);
-}
-
-void ETU_BootRoutine(uint8_t diagnosis)
+static void ETU_BootRoutine(uint8_t diagnosis)
 {
 	if(ETU_GetState(&ETU_State) == BOOT_CHECK)
 	{
@@ -201,7 +216,7 @@ void ETU_SignalIndicatorOFF()
 	error_indicator_off();
 }
 
-uint8_t gearAvailable()
+static uint8_t gearAvailable()
 {
    /*  Make a bit array/register. To ready for driving (D-Mode), the following conditions should be met:
     *  https://www.cs.emory.edu/~cheung/Courses/255/Syllabus/1-C-intro/bit-array.html
@@ -239,8 +254,38 @@ uint8_t gearAvailable()
     return status.gearStop;
 }
 
+static void handBrakeTimerStart()
+{
+	osTimerDef(handbrake,handBrakeReady);
+	handBrakeHandle = osTimerCreate(osTimer(handbrake),osTimerPeriodic,NULL);
+	osTimerStart(handBrakeHandle,CHECK_HANDBRAKE);
+}
+
+static void pausehandBrakeTimer()
+{
+	osTimerStop(handBrakeHandle);
+}
+
+uint8_t isReady = 0;
+static void handBrakeReady()
+{
+	motor_speed();
+	if (isReady == 4)
+	{
+		if(getRPM() == 0)
+		{
+			unlockHandbrake();
+		}
+		else
+		{
+			isReady = 0;
+		}
+	}
+	isReady++;
+}
+
 /*Automatic gear selection*/
-void GearTransmitControlPanel()
+static void GearTransmitControlPanel()
 {
 	/*What's the current gear*/
 	GearMode_t gearMode = getCurrentGear(&transmissionMode);
@@ -248,7 +293,6 @@ void GearTransmitControlPanel()
 	/*Is "Gear" Transmission Ready ? */
 	uint8_t gearStop =  gearAvailable();
 
-	motor_speed();
 	switch (gearMode)
 	{
 	    case PARK:
@@ -258,15 +302,15 @@ void GearTransmitControlPanel()
 	    	 * When Parking Mode is neglected, the situation occurs:
 	    	 *   - Inrush choking in the motor because of back emf at the time the E-Scooter is turned on while the user is pushing the car.
 	    	 */
-	         if(getThrottlePercent() != 0) //throttle percentage should not be sent (from the dashboard) until the boot process is finished in the dashboard
-	         {
-	        	 if(getRPM() < 80)
-	        	 {
-			          throttleSignalInput();
-			          GearToggle(&transmissionMode, NEUTRAL);
-	        	 }
-	          }
-
+	    	if(handBrakeLock == 0) //Automatic Hand-brake unlock
+	    	{
+	    		pausehandBrakeTimer();
+		         if(getThrottlePercent() != 0)
+		         {
+					  throttleSignalInput();
+					  GearToggle(&transmissionMode, NEUTRAL);
+		         }
+	    	}
 	    }
 	    break;
 
@@ -311,9 +355,11 @@ static void GeneralTasks(void const * argument)
 	{
 	   updateConnectionStatus(false,0);
 	   timeOutStart();
+	   handBrakeTimerStart();
 	   for(;;)
 	   {
 		   osDelay(GeneralTask_TIME);
+		   motor_speed();
 		   /****************  Task timing & sleep *******************/
 		   /* Task sleep must be positioned at the beginning of the for loop */
 		   if( (*status.ptrPower) == true)

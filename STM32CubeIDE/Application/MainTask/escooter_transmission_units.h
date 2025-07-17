@@ -29,6 +29,7 @@ extern "C"{
 #define N1_TIME               100
 #define N2_TIME               200
 #define N3_TIME               300
+#define CHECK_HANDBRAKE       500
 
 #define CONNECT_BATTERY       0x7B
 #define SKIP_DIAGNOSIS        0x00
@@ -65,11 +66,6 @@ extern void ETU_StatusHandlerInit();
 /* Initializes GENEV-GO core according to user defined parameters. */
 extern void GoInit();
 
-/*Starts Driving*/
-extern void createDrivingTasks(void);
-
-extern void ETU_BootRoutine(uint8_t diagnosis);
-
 extern void saveFaultRecord(uint8_t errorCode);
 
 /* Safety Power Cutting 2025-03-25 */
@@ -83,9 +79,6 @@ extern void ETU_SignalIndicatorOFF();
 
 extern void ETU_FaultHandler();
 
-extern uint8_t gearAvailable();
-
-extern void GearTransmitControlPanel();
 
 #ifdef __cplusplus
 }
