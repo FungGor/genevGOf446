@@ -3,6 +3,7 @@
 "./Application/DIAGNOSIS/DataProcess.o"
 "./Application/DIAGNOSIS/ETU_OBD.o"
 "./Application/FLASH_MEMORY/flash_internal.o"
+"./Application/Hardware/battery_manager.o"
 "./Application/Hardware/brake_and_throttle.o"
 "./Application/Hardware/lightSensor.o"
 "./Application/Hardware/motor_param.o"
