@@ -4,5 +4,5 @@
  *  Created on: Jul 18, 2025
  *      Author: TerenceLeung
  */
-#include "battery_manager.h"
+#include <battery_service.h>
 

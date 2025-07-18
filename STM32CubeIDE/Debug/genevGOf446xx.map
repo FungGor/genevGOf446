@@ -378,6 +378,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/BootAndShutDown/SleepAndWake.o
  .group         0x00000000        0xc ./Application/BootAndShutDown/SleepAndWake.o
  .group         0x00000000        0xc ./Application/BootAndShutDown/SleepAndWake.o
+ .group         0x00000000        0xc ./Application/BootAndShutDown/SleepAndWake.o
  .text          0x00000000        0x0 ./Application/BootAndShutDown/SleepAndWake.o
  .data          0x00000000        0x0 ./Application/BootAndShutDown/SleepAndWake.o
  .bss           0x00000000        0x0 ./Application/BootAndShutDown/SleepAndWake.o
@@ -878,143 +879,143 @@ Discarded input sections
  .debug_frame   0x00000000       0x60 ./Application/FLASH_MEMORY/flash_internal.o
  .ARM.attributes
                 0x00000000       0x30 ./Application/FLASH_MEMORY/flash_internal.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .group         0x00000000        0xc ./Application/Hardware/battery_manager.o
- .text          0x00000000        0x0 ./Application/Hardware/battery_manager.o
- .data          0x00000000        0x0 ./Application/Hardware/battery_manager.o
- .bss           0x00000000        0x0 ./Application/Hardware/battery_manager.o
- .debug_info    0x00000000      0x138 ./Application/Hardware/battery_manager.o
- .debug_abbrev  0x00000000       0x62 ./Application/Hardware/battery_manager.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .group         0x00000000        0xc ./Application/Hardware/battery_service.o
+ .text          0x00000000        0x0 ./Application/Hardware/battery_service.o
+ .data          0x00000000        0x0 ./Application/Hardware/battery_service.o
+ .bss           0x00000000        0x0 ./Application/Hardware/battery_service.o
+ .debug_info    0x00000000      0x138 ./Application/Hardware/battery_service.o
+ .debug_abbrev  0x00000000       0x62 ./Application/Hardware/battery_service.o
  .debug_aranges
-                0x00000000       0x18 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x305 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0xade ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x8e ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x51 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x103 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x6a ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1df ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x10 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x2e ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x28 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0xd9 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000     0x102d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x11f ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000    0x16749 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x6d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x2a1 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000     0x367e ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x189 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x5c ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0xc90 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x9fe ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x115 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1a0 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0xa5 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x16d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x287 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x5f ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x236 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0xb5b ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x38b ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x17d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0xf9 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x132 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x29c ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x2e ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x11a ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0xe8 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x89 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x8e6 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x4d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x295 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x126 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x216 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x5fa ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x149 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1bb ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x24d ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1e6 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1db ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1bc ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x46 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x58 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x158 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x5e ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000      0x1c6 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_manager.o
- .debug_macro   0x00000000       0x16 ./Application/Hardware/battery_manager.o
- .debug_line    0x00000000      0x9b4 ./Application/Hardware/battery_manager.o
- .debug_str     0x00000000    0xe0b15 ./Application/Hardware/battery_manager.o
- .comment       0x00000000       0x44 ./Application/Hardware/battery_manager.o
+                0x00000000       0x18 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x305 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0xade ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x8e ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x51 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x103 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x6a ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1df ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x10 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x2e ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x28 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0xd9 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000     0x102d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x11f ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000    0x16749 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x6d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x2a1 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000     0x367e ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x189 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x5c ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0xc90 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x9fe ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x115 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1a0 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0xa5 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x16d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x287 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x5f ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x236 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0xb5b ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x38b ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x17d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0xf9 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x132 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x29c ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x2e ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x11a ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0xe8 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x89 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x8e6 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x4d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x295 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x126 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x216 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x5fa ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x149 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1bb ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x24d ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1e6 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1db ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1bc ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x46 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x58 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x158 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x5e ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000      0x1c6 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x22 ./Application/Hardware/battery_service.o
+ .debug_macro   0x00000000       0x1c ./Application/Hardware/battery_service.o
+ .debug_line    0x00000000      0xa1a ./Application/Hardware/battery_service.o
+ .debug_str     0x00000000    0xe0b2e ./Application/Hardware/battery_service.o
+ .comment       0x00000000       0x44 ./Application/Hardware/battery_service.o
  .ARM.attributes
-                0x00000000       0x30 ./Application/Hardware/battery_manager.o
+                0x00000000       0x30 ./Application/Hardware/battery_service.o
  .group         0x00000000        0xc ./Application/Hardware/brake_and_throttle.o
  .group         0x00000000        0xc ./Application/Hardware/brake_and_throttle.o
  .group         0x00000000        0xc ./Application/Hardware/brake_and_throttle.o
@@ -2582,6 +2583,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/MainTask/backgroundTask.o
  .group         0x00000000        0xc ./Application/MainTask/backgroundTask.o
  .group         0x00000000        0xc ./Application/MainTask/backgroundTask.o
+ .group         0x00000000        0xc ./Application/MainTask/backgroundTask.o
  .text          0x00000000        0x0 ./Application/MainTask/backgroundTask.o
  .data          0x00000000        0x0 ./Application/MainTask/backgroundTask.o
  .bss           0x00000000        0x0 ./Application/MainTask/backgroundTask.o
@@ -2693,7 +2695,9 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/MainTask/backgroundTask.o
  .debug_macro   0x00000000       0x52 ./Application/MainTask/backgroundTask.o
  .debug_macro   0x00000000       0x1c ./Application/MainTask/backgroundTask.o
+ .debug_macro   0x00000000       0x1c ./Application/MainTask/backgroundTask.o
  .debug_macro   0x00000000       0x22 ./Application/MainTask/backgroundTask.o
+ .group         0x00000000        0xc ./Application/MainTask/escooter_transmission_units.o
  .group         0x00000000        0xc ./Application/MainTask/escooter_transmission_units.o
  .group         0x00000000        0xc ./Application/MainTask/escooter_transmission_units.o
  .group         0x00000000        0xc ./Application/MainTask/escooter_transmission_units.o
@@ -2919,8 +2923,10 @@ Discarded input sections
  .debug_macro   0x00000000       0x22 ./Application/MainTask/escooter_transmission_units.o
  .debug_macro   0x00000000       0x52 ./Application/MainTask/escooter_transmission_units.o
  .debug_macro   0x00000000       0x1c ./Application/MainTask/escooter_transmission_units.o
+ .debug_macro   0x00000000       0x1c ./Application/MainTask/escooter_transmission_units.o
  .debug_macro   0x00000000       0x22 ./Application/MainTask/escooter_transmission_units.o
  .debug_macro   0x00000000       0x1c ./Application/MainTask/escooter_transmission_units.o
+ .group         0x00000000        0xc ./Application/Safety_Protection/ERROR_REPORT.o
  .group         0x00000000        0xc ./Application/Safety_Protection/ERROR_REPORT.o
  .group         0x00000000        0xc ./Application/Safety_Protection/ERROR_REPORT.o
  .group         0x00000000        0xc ./Application/Safety_Protection/ERROR_REPORT.o
@@ -3142,6 +3148,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x58 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x22 ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000       0x22 ./Application/Safety_Protection/ERROR_REPORT.o
  .debug_macro   0x00000000      0x369 ./Application/Safety_Protection/ERROR_REPORT.o
@@ -4803,6 +4810,7 @@ Discarded input sections
  .group         0x00000000        0xc ./Application/User/motor_control_protocol.o
  .group         0x00000000        0xc ./Application/User/motor_control_protocol.o
  .group         0x00000000        0xc ./Application/User/motor_control_protocol.o
+ .group         0x00000000        0xc ./Application/User/motor_control_protocol.o
  .text          0x00000000        0x0 ./Application/User/motor_control_protocol.o
  .data          0x00000000        0x0 ./Application/User/motor_control_protocol.o
  .bss           0x00000000        0x0 ./Application/User/motor_control_protocol.o
@@ -4919,6 +4927,7 @@ Discarded input sections
  .debug_macro   0x00000000       0x19 ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0xf2 ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0x52 ./Application/User/motor_control_protocol.o
+ .debug_macro   0x00000000       0x1c ./Application/User/motor_control_protocol.o
  .debug_macro   0x00000000       0x22 ./Application/User/motor_control_protocol.o
  .group         0x00000000        0xc ./Application/User/motorcontrol.o
  .group         0x00000000        0xc ./Application/User/motorcontrol.o
@@ -14350,7 +14359,7 @@ LOAD ./Application/BootAndShutDown/SleepAndWake.o
 LOAD ./Application/DIAGNOSIS/DataProcess.o
 LOAD ./Application/DIAGNOSIS/ETU_OBD.o
 LOAD ./Application/FLASH_MEMORY/flash_internal.o
-LOAD ./Application/Hardware/battery_manager.o
+LOAD ./Application/Hardware/battery_service.o
 LOAD ./Application/Hardware/brake_and_throttle.o
 LOAD ./Application/Hardware/lightSensor.o
 LOAD ./Application/Hardware/motor_param.o
@@ -17066,384 +17075,385 @@ LOAD C:/ST/STM32CubeIDE_1.12.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_rnglists
                 0x000032d6       0x19 ./UDHAL/UDHAL_UART.o
 
-.debug_macro    0x00000000    0x12420
- .debug_macro   0x00000000      0x5d9 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000005d9      0x10a ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000006e3      0x15a ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x0000083d       0xde ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x0000091b       0x1c ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000937       0x26 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x0000095d       0x61 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000009be       0x2a ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000009e8       0x43 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000a2b       0x34 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000a5f       0x16 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000a75       0x43 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000ab8       0x34 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000aec       0x10 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000afc       0x58 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000b54       0x8e ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000be2       0x1c ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000bfe      0x177 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000d75       0x10 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000d85       0x35 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00000dba      0x4f7 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000012b1       0xb5 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00001366       0xaa ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00001410       0x91 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000014a1       0x8d ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x0000152e       0x7e ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000015ac       0x19 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000015c5       0xf2 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000016b7       0x10 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000016c7       0x34 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000016fb       0x1c ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00001717       0x22 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x00001739       0x52 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x0000178b       0x1c ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000017a7       0x22 ./Application/BootAndShutDown/SleepAndWake.o
- .debug_macro   0x000017c9      0x520 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_macro   0x00001ce9       0x16 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_macro   0x00001cff      0x369 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_macro   0x00002068       0x16 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_macro   0x0000207e       0x29 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_macro   0x000020a7      0x44f ./Application/Hardware/brake_and_throttle.o
- .debug_macro   0x000024f6       0x76 ./Application/Hardware/lightSensor.o
- .debug_macro   0x0000256c      0x4ff ./Application/Hardware/motor_param.o
- .debug_macro   0x00002a6b       0xb1 ./Application/Hardware/tail_light.o
- .debug_macro   0x00002b1c       0x16 ./Application/Hardware/tail_light.o
- .debug_macro   0x00002b32      0x2d8 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
- .debug_macro   0x00002e0a       0x22 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
- .debug_macro   0x00002e2c      0x407 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003233       0x5b ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x0000328e       0x94 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003322       0x57 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003379       0x9e ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003417      0x10b ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003522       0x56 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_macro   0x00003578      0x274 ./Application/MainTask/ETU_StateMachine.o
- .debug_macro   0x000037ec       0x24 ./Application/MainTask/GearControl.o
- .debug_macro   0x00003810       0x8a ./Application/MainTask/PROTOCOL_HANDLER.o
- .debug_macro   0x0000389a       0x52 ./Application/MainTask/PROTOCOL_HANDLER.o
- .debug_macro   0x000038ec       0x16 ./Application/MainTask/PROTOCOL_HANDLER.o
- .debug_macro   0x00003902      0x5cb ./Application/MainTask/backgroundTask.o
- .debug_macro   0x00003ecd      0x627 ./Application/MainTask/escooter_transmission_units.o
- .debug_macro   0x000044f4       0x1c ./Application/MainTask/escooter_transmission_units.o
- .debug_macro   0x00004510       0x10 ./Application/MainTask/escooter_transmission_units.o
- .debug_macro   0x00004520      0x739 ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00004c59       0x4c ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00004ca5       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00004cc1       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00004cdd      0x17d ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_macro   0x00004e5a      0x666 ./Application/User/freertos.o
- .debug_macro   0x000054c0      0x6f0 ./Application/User/main.o
- .debug_macro   0x00005bb0      0x10a ./Application/User/main.o
- .debug_macro   0x00005cba       0x16 ./Application/User/main.o
- .debug_macro   0x00005cd0      0x5d2 ./Application/User/mc_api.o
- .debug_macro   0x000062a2      0x622 ./Application/User/mc_config.o
- .debug_macro   0x000068c4       0x28 ./Application/User/mc_config.o
- .debug_macro   0x000068ec      0x2b0 ./Application/User/mc_interface.o
- .debug_macro   0x00006b9c       0x16 ./Application/User/mc_interface.o
- .debug_macro   0x00006bb2      0x2f2 ./Application/User/mc_math.o
- .debug_macro   0x00006ea4      0x5fb ./Application/User/mc_parameters.o
- .debug_macro   0x0000749f      0x731 ./Application/User/mc_tasks.o
- .debug_macro   0x00007bd0       0x10 ./Application/User/mc_tasks.o
- .debug_macro   0x00007be0      0x631 ./Application/User/motor_control_protocol.o
- .debug_macro   0x00008211       0x16 ./Application/User/motor_control_protocol.o
- .debug_macro   0x00008227      0x61a ./Application/User/motorcontrol.o
- .debug_macro   0x00008841       0x22 ./Application/User/motorcontrol.o
- .debug_macro   0x00008863      0x5d4 ./Application/User/regular_conversion_manager.o
- .debug_macro   0x00008e37      0x5ef ./Application/User/stm32f4xx_hal_msp.o
- .debug_macro   0x00009426      0x1f6 ./Application/User/stm32f4xx_hal_timebase_tim.o
- .debug_macro   0x0000961c      0x5f9 ./Application/User/stm32f4xx_it.o
- .debug_macro   0x00009c15      0x617 ./Application/User/stm32f4xx_mc_it.o
- .debug_macro   0x0000a22c      0x5ee ./Application/User/ui_task.o
- .debug_macro   0x0000a81a      0x5d6 ./Application/User/user_interface.o
- .debug_macro   0x0000adf0      0x1f6 ./Drivers/CMSIS/system_stm32f4xx.o
- .debug_macro   0x0000afe6      0x256 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
- .debug_macro   0x0000b23c      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
- .debug_macro   0x0000b433      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
- .debug_macro   0x0000b629      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
- .debug_macro   0x0000b81f      0x1fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
- .debug_macro   0x0000ba1b      0x20e ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
- .debug_macro   0x0000bc29      0x20e ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
- .debug_macro   0x0000be37      0x21a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
- .debug_macro   0x0000c051      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
- .debug_macro   0x0000c247      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
- .debug_macro   0x0000c43e      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
- .debug_macro   0x0000c634      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
- .debug_macro   0x0000c82b      0x210 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_macro   0x0000ca3b       0x10 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_macro   0x0000ca4b       0x20 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_macro   0x0000ca6b       0xc7 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_macro   0x0000cb32      0x1c0 ./Middlewares/FreeRTOS/heap_4.o
- .debug_macro   0x0000ccf2      0x199 ./Middlewares/FreeRTOS/list.o
- .debug_macro   0x0000ce8b      0x233 ./Middlewares/FreeRTOS/port.o
- .debug_macro   0x0000d0be      0x228 ./Middlewares/FreeRTOS/queue.o
- .debug_macro   0x0000d2e6       0x16 ./Middlewares/FreeRTOS/queue.o
- .debug_macro   0x0000d2fc       0x87 ./Middlewares/FreeRTOS/queue.o
- .debug_macro   0x0000d383      0x28b ./Middlewares/FreeRTOS/tasks.o
- .debug_macro   0x0000d60e       0x10 ./Middlewares/FreeRTOS/tasks.o
- .debug_macro   0x0000d61e      0x1ee ./Middlewares/FreeRTOS/timers.o
- .debug_macro   0x0000d80c       0x97 ./Middlewares/FreeRTOS/timers.o
- .debug_macro   0x0000d8a3      0x309 ./Middlewares/MotorControl/bus_voltage_sensor.o
- .debug_macro   0x0000dbac      0x282 ./Middlewares/MotorControl/circle_limitation.o
- .debug_macro   0x0000de2e      0x42b ./Middlewares/MotorControl/frame_communication_protocol.o
- .debug_macro   0x0000e259      0x36f ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
- .debug_macro   0x0000e5c8       0x16 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
- .debug_macro   0x0000e5de      0x2b8 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
- .debug_macro   0x0000e896       0x2e ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
- .debug_macro   0x0000e8c4      0x306 ./Middlewares/MotorControl/motor_power_measurement.o
- .debug_macro   0x0000ebca      0x27d ./Middlewares/MotorControl/ntc_temperature_sensor.o
- .debug_macro   0x0000ee47      0x273 ./Middlewares/MotorControl/pid_regulator.o
- .debug_macro   0x0000f0ba      0x323 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
- .debug_macro   0x0000f3dd      0x275 ./Middlewares/MotorControl/pwm_common.o
- .debug_macro   0x0000f652      0x278 ./Middlewares/MotorControl/pwm_curr_fdbk.o
- .debug_macro   0x0000f8ca      0x321 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
- .debug_macro   0x0000fbeb      0x26f ./Middlewares/MotorControl/ramp_ext_mngr.o
- .debug_macro   0x0000fe5a      0x2b6 ./Middlewares/MotorControl/revup_ctrl.o
- .debug_macro   0x00010110      0x26f ./Middlewares/MotorControl/speed_pos_fdbk.o
- .debug_macro   0x0001037f      0x291 ./Middlewares/MotorControl/speed_torq_ctrl.o
- .debug_macro   0x00010610      0x26f ./Middlewares/MotorControl/state_machine.o
- .debug_macro   0x0001087f      0x2ab ./Middlewares/MotorControl/usart_frame_communication_protocol.o
- .debug_macro   0x00010b2a       0x52 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
- .debug_macro   0x00010b7c      0x5f9 ./UDHAL/UDHAL_GPIO.o
- .debug_macro   0x00011175      0x2b8 ./UDHAL/UDHAL_MOTOR.o
- .debug_macro   0x0001142d      0x21e ./UDHAL/UDHAL_POWERMODE.o
- .debug_macro   0x0001164b      0x5f9 ./UDHAL/UDHAL_SYSCLK.o
- .debug_macro   0x00011c44      0x1d9 ./UDHAL/UDHAL_TIMEOUT.o
- .debug_macro   0x00011e1d      0x603 ./UDHAL/UDHAL_UART.o
+.debug_macro    0x00000000    0x1249e
+ .debug_macro   0x00000000      0x5ec ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000005ec      0x10a ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000006f6      0x15a ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000850       0xde ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000092e       0x1c ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000094a       0x26 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000970       0x61 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000009d1       0x2a ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000009fb       0x43 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000a3e       0x34 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000a72       0x16 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000a88       0x43 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000acb       0x34 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000aff       0x10 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000b0f       0x58 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000b67       0x8e ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000bf5       0x1c ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000c11      0x177 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000d88       0x10 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000d98       0x35 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00000dcd      0x4f7 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000012c4       0xb5 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00001379       0xaa ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00001423       0x91 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000014b4       0x8d ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x00001541       0x7e ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000015bf       0x19 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000015d8       0xf2 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000016ca       0x10 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000016da       0x34 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000170e       0x1c ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000172a       0x22 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000174c       0x52 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x0000179e       0x1c ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000017ba       0x1c ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000017d6       0x22 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_macro   0x000017f8      0x520 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_macro   0x00001d18       0x16 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_macro   0x00001d2e      0x369 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_macro   0x00002097       0x16 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_macro   0x000020ad       0x29 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_macro   0x000020d6      0x44f ./Application/Hardware/brake_and_throttle.o
+ .debug_macro   0x00002525       0x76 ./Application/Hardware/lightSensor.o
+ .debug_macro   0x0000259b      0x4ff ./Application/Hardware/motor_param.o
+ .debug_macro   0x00002a9a       0xb1 ./Application/Hardware/tail_light.o
+ .debug_macro   0x00002b4b       0x16 ./Application/Hardware/tail_light.o
+ .debug_macro   0x00002b61      0x2d8 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
+ .debug_macro   0x00002e39       0x22 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
+ .debug_macro   0x00002e5b      0x407 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x00003262       0x5b ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x000032bd       0x94 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x00003351       0x57 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x000033a8       0x9e ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x00003446      0x10b ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x00003551       0x56 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_macro   0x000035a7      0x274 ./Application/MainTask/ETU_StateMachine.o
+ .debug_macro   0x0000381b       0x24 ./Application/MainTask/GearControl.o
+ .debug_macro   0x0000383f       0x8a ./Application/MainTask/PROTOCOL_HANDLER.o
+ .debug_macro   0x000038c9       0x52 ./Application/MainTask/PROTOCOL_HANDLER.o
+ .debug_macro   0x0000391b       0x16 ./Application/MainTask/PROTOCOL_HANDLER.o
+ .debug_macro   0x00003931      0x5de ./Application/MainTask/backgroundTask.o
+ .debug_macro   0x00003f0f      0x63b ./Application/MainTask/escooter_transmission_units.o
+ .debug_macro   0x0000454a       0x1c ./Application/MainTask/escooter_transmission_units.o
+ .debug_macro   0x00004566       0x10 ./Application/MainTask/escooter_transmission_units.o
+ .debug_macro   0x00004576      0x74d ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00004cc3       0x4c ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00004d0f       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00004d2b       0x1c ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00004d47      0x17d ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_macro   0x00004ec4      0x666 ./Application/User/freertos.o
+ .debug_macro   0x0000552a      0x6f0 ./Application/User/main.o
+ .debug_macro   0x00005c1a      0x10a ./Application/User/main.o
+ .debug_macro   0x00005d24       0x16 ./Application/User/main.o
+ .debug_macro   0x00005d3a      0x5d2 ./Application/User/mc_api.o
+ .debug_macro   0x0000630c      0x622 ./Application/User/mc_config.o
+ .debug_macro   0x0000692e       0x28 ./Application/User/mc_config.o
+ .debug_macro   0x00006956      0x2b0 ./Application/User/mc_interface.o
+ .debug_macro   0x00006c06       0x16 ./Application/User/mc_interface.o
+ .debug_macro   0x00006c1c      0x2f2 ./Application/User/mc_math.o
+ .debug_macro   0x00006f0e      0x5fb ./Application/User/mc_parameters.o
+ .debug_macro   0x00007509      0x731 ./Application/User/mc_tasks.o
+ .debug_macro   0x00007c3a       0x10 ./Application/User/mc_tasks.o
+ .debug_macro   0x00007c4a      0x645 ./Application/User/motor_control_protocol.o
+ .debug_macro   0x0000828f       0x16 ./Application/User/motor_control_protocol.o
+ .debug_macro   0x000082a5      0x61a ./Application/User/motorcontrol.o
+ .debug_macro   0x000088bf       0x22 ./Application/User/motorcontrol.o
+ .debug_macro   0x000088e1      0x5d4 ./Application/User/regular_conversion_manager.o
+ .debug_macro   0x00008eb5      0x5ef ./Application/User/stm32f4xx_hal_msp.o
+ .debug_macro   0x000094a4      0x1f6 ./Application/User/stm32f4xx_hal_timebase_tim.o
+ .debug_macro   0x0000969a      0x5f9 ./Application/User/stm32f4xx_it.o
+ .debug_macro   0x00009c93      0x617 ./Application/User/stm32f4xx_mc_it.o
+ .debug_macro   0x0000a2aa      0x5ee ./Application/User/ui_task.o
+ .debug_macro   0x0000a898      0x5d6 ./Application/User/user_interface.o
+ .debug_macro   0x0000ae6e      0x1f6 ./Drivers/CMSIS/system_stm32f4xx.o
+ .debug_macro   0x0000b064      0x256 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
+ .debug_macro   0x0000b2ba      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
+ .debug_macro   0x0000b4b1      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
+ .debug_macro   0x0000b6a7      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
+ .debug_macro   0x0000b89d      0x1fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
+ .debug_macro   0x0000ba99      0x20e ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
+ .debug_macro   0x0000bca7      0x20e ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
+ .debug_macro   0x0000beb5      0x21a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
+ .debug_macro   0x0000c0cf      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
+ .debug_macro   0x0000c2c5      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
+ .debug_macro   0x0000c4bc      0x1f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
+ .debug_macro   0x0000c6b2      0x1f7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
+ .debug_macro   0x0000c8a9      0x210 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_macro   0x0000cab9       0x10 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_macro   0x0000cac9       0x20 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_macro   0x0000cae9       0xc7 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_macro   0x0000cbb0      0x1c0 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_macro   0x0000cd70      0x199 ./Middlewares/FreeRTOS/list.o
+ .debug_macro   0x0000cf09      0x233 ./Middlewares/FreeRTOS/port.o
+ .debug_macro   0x0000d13c      0x228 ./Middlewares/FreeRTOS/queue.o
+ .debug_macro   0x0000d364       0x16 ./Middlewares/FreeRTOS/queue.o
+ .debug_macro   0x0000d37a       0x87 ./Middlewares/FreeRTOS/queue.o
+ .debug_macro   0x0000d401      0x28b ./Middlewares/FreeRTOS/tasks.o
+ .debug_macro   0x0000d68c       0x10 ./Middlewares/FreeRTOS/tasks.o
+ .debug_macro   0x0000d69c      0x1ee ./Middlewares/FreeRTOS/timers.o
+ .debug_macro   0x0000d88a       0x97 ./Middlewares/FreeRTOS/timers.o
+ .debug_macro   0x0000d921      0x309 ./Middlewares/MotorControl/bus_voltage_sensor.o
+ .debug_macro   0x0000dc2a      0x282 ./Middlewares/MotorControl/circle_limitation.o
+ .debug_macro   0x0000deac      0x42b ./Middlewares/MotorControl/frame_communication_protocol.o
+ .debug_macro   0x0000e2d7      0x36f ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_macro   0x0000e646       0x16 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_macro   0x0000e65c      0x2b8 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_macro   0x0000e914       0x2e ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_macro   0x0000e942      0x306 ./Middlewares/MotorControl/motor_power_measurement.o
+ .debug_macro   0x0000ec48      0x27d ./Middlewares/MotorControl/ntc_temperature_sensor.o
+ .debug_macro   0x0000eec5      0x273 ./Middlewares/MotorControl/pid_regulator.o
+ .debug_macro   0x0000f138      0x323 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
+ .debug_macro   0x0000f45b      0x275 ./Middlewares/MotorControl/pwm_common.o
+ .debug_macro   0x0000f6d0      0x278 ./Middlewares/MotorControl/pwm_curr_fdbk.o
+ .debug_macro   0x0000f948      0x321 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
+ .debug_macro   0x0000fc69      0x26f ./Middlewares/MotorControl/ramp_ext_mngr.o
+ .debug_macro   0x0000fed8      0x2b6 ./Middlewares/MotorControl/revup_ctrl.o
+ .debug_macro   0x0001018e      0x26f ./Middlewares/MotorControl/speed_pos_fdbk.o
+ .debug_macro   0x000103fd      0x291 ./Middlewares/MotorControl/speed_torq_ctrl.o
+ .debug_macro   0x0001068e      0x26f ./Middlewares/MotorControl/state_machine.o
+ .debug_macro   0x000108fd      0x2ab ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_macro   0x00010ba8       0x52 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_macro   0x00010bfa      0x5f9 ./UDHAL/UDHAL_GPIO.o
+ .debug_macro   0x000111f3      0x2b8 ./UDHAL/UDHAL_MOTOR.o
+ .debug_macro   0x000114ab      0x21e ./UDHAL/UDHAL_POWERMODE.o
+ .debug_macro   0x000116c9      0x5f9 ./UDHAL/UDHAL_SYSCLK.o
+ .debug_macro   0x00011cc2      0x1d9 ./UDHAL/UDHAL_TIMEOUT.o
+ .debug_macro   0x00011e9b      0x603 ./UDHAL/UDHAL_UART.o
 
-.debug_line     0x00000000    0x59425
- .debug_line    0x00000000     0x121d ./Application/BootAndShutDown/SleepAndWake.o
- .debug_line    0x0000121d     0x1212 ./Application/DIAGNOSIS/ETU_OBD.o
- .debug_line    0x0000242f      0xfe2 ./Application/Hardware/brake_and_throttle.o
- .debug_line    0x00003411      0x461 ./Application/Hardware/lightSensor.o
- .debug_line    0x00003872     0x1332 ./Application/Hardware/motor_param.o
- .debug_line    0x00004ba4      0x8bc ./Application/Hardware/tail_light.o
- .debug_line    0x00005460      0xbf5 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
- .debug_line    0x00006055      0xe10 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
- .debug_line    0x00006e65      0x977 ./Application/MainTask/ETU_StateMachine.o
- .debug_line    0x000077dc      0x20e ./Application/MainTask/GearControl.o
- .debug_line    0x000079ea      0x68c ./Application/MainTask/PROTOCOL_HANDLER.o
- .debug_line    0x00008076     0x1358 ./Application/MainTask/backgroundTask.o
- .debug_line    0x000093ce     0x195b ./Application/MainTask/escooter_transmission_units.o
- .debug_line    0x0000ad29     0x15e6 ./Application/Safety_Protection/ERROR_REPORT.o
- .debug_line    0x0000c30f       0x7a ./Application/Startup/startup_stm32f446retx.o
- .debug_line    0x0000c389     0x12d8 ./Application/User/freertos.o
- .debug_line    0x0000d661     0x1cb6 ./Application/User/main.o
- .debug_line    0x0000f317     0x148d ./Application/User/mc_api.o
- .debug_line    0x000107a4     0x118c ./Application/User/mc_config.o
- .debug_line    0x00011930      0xf20 ./Application/User/mc_interface.o
- .debug_line    0x00012850      0xec7 ./Application/User/mc_math.o
- .debug_line    0x00013717     0x115f ./Application/User/mc_parameters.o
- .debug_line    0x00014876     0x1d03 ./Application/User/mc_tasks.o
- .debug_line    0x00016579     0x1db9 ./Application/User/motor_control_protocol.o
- .debug_line    0x00018332     0x11d9 ./Application/User/motorcontrol.o
- .debug_line    0x0001950b     0x174a ./Application/User/regular_conversion_manager.o
- .debug_line    0x0001ac55     0x1510 ./Application/User/stm32f4xx_hal_msp.o
- .debug_line    0x0001c165      0x8c3 ./Application/User/stm32f4xx_hal_timebase_tim.o
- .debug_line    0x0001ca28     0x1185 ./Application/User/stm32f4xx_it.o
- .debug_line    0x0001dbad     0x1624 ./Application/User/stm32f4xx_mc_it.o
- .debug_line    0x0001f1d1     0x12f2 ./Application/User/ui_task.o
- .debug_line    0x000204c3     0x1877 ./Application/User/user_interface.o
- .debug_line    0x00021d3a      0x866 ./Drivers/CMSIS/system_stm32f4xx.o
- .debug_line    0x000225a0      0xb8b ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
- .debug_line    0x0002312b     0x1839 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
- .debug_line    0x00024964     0x1390 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
- .debug_line    0x00025cf4      0xe0d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
- .debug_line    0x00026b01      0xe26 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
- .debug_line    0x00027927      0xa5a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
- .debug_line    0x00028381      0xb60 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
- .debug_line    0x00028ee1     0x1176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
- .debug_line    0x0002a057     0x19b7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
- .debug_line    0x0002ba0e     0x64bf ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
- .debug_line    0x00031ecd     0x1f52 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
- .debug_line    0x00033e1f     0x4c5d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
- .debug_line    0x00038a7c     0x1d63 ./Middlewares/FreeRTOS/cmsis_os.o
- .debug_line    0x0003a7df      0xccf ./Middlewares/FreeRTOS/heap_4.o
- .debug_line    0x0003b4ae      0x89d ./Middlewares/FreeRTOS/list.o
- .debug_line    0x0003bd4b      0xd5c ./Middlewares/FreeRTOS/port.o
- .debug_line    0x0003caa7     0x3139 ./Middlewares/FreeRTOS/queue.o
- .debug_line    0x0003fbe0     0x3770 ./Middlewares/FreeRTOS/tasks.o
- .debug_line    0x00043350     0x1575 ./Middlewares/FreeRTOS/timers.o
- .debug_line    0x000448c5      0xb21 ./Middlewares/MotorControl/bus_voltage_sensor.o
- .debug_line    0x000453e6      0x992 ./Middlewares/MotorControl/circle_limitation.o
- .debug_line    0x00045d78      0xe86 ./Middlewares/MotorControl/frame_communication_protocol.o
- .debug_line    0x00046bfe     0x1951 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
- .debug_line    0x0004854f     0x16d4 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
- .debug_line    0x00049c23      0xb8a ./Middlewares/MotorControl/motor_power_measurement.o
- .debug_line    0x0004a7ad      0xad8 ./Middlewares/MotorControl/ntc_temperature_sensor.o
- .debug_line    0x0004b285      0xd2f ./Middlewares/MotorControl/pid_regulator.o
- .debug_line    0x0004bfb4      0xb58 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
- .debug_line    0x0004cb0c      0xb15 ./Middlewares/MotorControl/pwm_common.o
- .debug_line    0x0004d621      0xead ./Middlewares/MotorControl/pwm_curr_fdbk.o
- .debug_line    0x0004e4ce      0xdde ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
- .debug_line    0x0004f2ac      0xb96 ./Middlewares/MotorControl/ramp_ext_mngr.o
- .debug_line    0x0004fe42     0x1075 ./Middlewares/MotorControl/revup_ctrl.o
- .debug_line    0x00050eb7      0xadf ./Middlewares/MotorControl/speed_pos_fdbk.o
- .debug_line    0x00051996      0xde1 ./Middlewares/MotorControl/speed_torq_ctrl.o
- .debug_line    0x00052777      0xb8d ./Middlewares/MotorControl/state_machine.o
- .debug_line    0x00053304      0xea4 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
- .debug_line    0x000541a8     0x12d1 ./UDHAL/UDHAL_GPIO.o
- .debug_line    0x00055479      0xb1a ./UDHAL/UDHAL_MOTOR.o
- .debug_line    0x00055f93      0x8a0 ./UDHAL/UDHAL_POWERMODE.o
- .debug_line    0x00056833     0x121f ./UDHAL/UDHAL_SYSCLK.o
- .debug_line    0x00057a52      0x7da ./UDHAL/UDHAL_TIMEOUT.o
- .debug_line    0x0005822c     0x11f9 ./UDHAL/UDHAL_UART.o
+.debug_line     0x00000000    0x5948e
+ .debug_line    0x00000000     0x1232 ./Application/BootAndShutDown/SleepAndWake.o
+ .debug_line    0x00001232     0x1212 ./Application/DIAGNOSIS/ETU_OBD.o
+ .debug_line    0x00002444      0xfe2 ./Application/Hardware/brake_and_throttle.o
+ .debug_line    0x00003426      0x461 ./Application/Hardware/lightSensor.o
+ .debug_line    0x00003887     0x1332 ./Application/Hardware/motor_param.o
+ .debug_line    0x00004bb9      0x8bc ./Application/Hardware/tail_light.o
+ .debug_line    0x00005475      0xbf5 ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
+ .debug_line    0x0000606a      0xe10 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_line    0x00006e7a      0x977 ./Application/MainTask/ETU_StateMachine.o
+ .debug_line    0x000077f1      0x20e ./Application/MainTask/GearControl.o
+ .debug_line    0x000079ff      0x68c ./Application/MainTask/PROTOCOL_HANDLER.o
+ .debug_line    0x0000808b     0x136d ./Application/MainTask/backgroundTask.o
+ .debug_line    0x000093f8     0x1970 ./Application/MainTask/escooter_transmission_units.o
+ .debug_line    0x0000ad68     0x15fb ./Application/Safety_Protection/ERROR_REPORT.o
+ .debug_line    0x0000c363       0x7a ./Application/Startup/startup_stm32f446retx.o
+ .debug_line    0x0000c3dd     0x12d8 ./Application/User/freertos.o
+ .debug_line    0x0000d6b5     0x1cb6 ./Application/User/main.o
+ .debug_line    0x0000f36b     0x148d ./Application/User/mc_api.o
+ .debug_line    0x000107f8     0x118c ./Application/User/mc_config.o
+ .debug_line    0x00011984      0xf20 ./Application/User/mc_interface.o
+ .debug_line    0x000128a4      0xec7 ./Application/User/mc_math.o
+ .debug_line    0x0001376b     0x115f ./Application/User/mc_parameters.o
+ .debug_line    0x000148ca     0x1d03 ./Application/User/mc_tasks.o
+ .debug_line    0x000165cd     0x1dce ./Application/User/motor_control_protocol.o
+ .debug_line    0x0001839b     0x11d9 ./Application/User/motorcontrol.o
+ .debug_line    0x00019574     0x174a ./Application/User/regular_conversion_manager.o
+ .debug_line    0x0001acbe     0x1510 ./Application/User/stm32f4xx_hal_msp.o
+ .debug_line    0x0001c1ce      0x8c3 ./Application/User/stm32f4xx_hal_timebase_tim.o
+ .debug_line    0x0001ca91     0x1185 ./Application/User/stm32f4xx_it.o
+ .debug_line    0x0001dc16     0x1624 ./Application/User/stm32f4xx_mc_it.o
+ .debug_line    0x0001f23a     0x12f2 ./Application/User/ui_task.o
+ .debug_line    0x0002052c     0x1877 ./Application/User/user_interface.o
+ .debug_line    0x00021da3      0x866 ./Drivers/CMSIS/system_stm32f4xx.o
+ .debug_line    0x00022609      0xb8b ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
+ .debug_line    0x00023194     0x1839 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
+ .debug_line    0x000249cd     0x1390 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
+ .debug_line    0x00025d5d      0xe0d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
+ .debug_line    0x00026b6a      0xe26 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
+ .debug_line    0x00027990      0xa5a ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
+ .debug_line    0x000283ea      0xb60 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
+ .debug_line    0x00028f4a     0x1176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
+ .debug_line    0x0002a0c0     0x19b7 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
+ .debug_line    0x0002ba77     0x64bf ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
+ .debug_line    0x00031f36     0x1f52 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
+ .debug_line    0x00033e88     0x4c5d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
+ .debug_line    0x00038ae5     0x1d63 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_line    0x0003a848      0xccf ./Middlewares/FreeRTOS/heap_4.o
+ .debug_line    0x0003b517      0x89d ./Middlewares/FreeRTOS/list.o
+ .debug_line    0x0003bdb4      0xd5c ./Middlewares/FreeRTOS/port.o
+ .debug_line    0x0003cb10     0x3139 ./Middlewares/FreeRTOS/queue.o
+ .debug_line    0x0003fc49     0x3770 ./Middlewares/FreeRTOS/tasks.o
+ .debug_line    0x000433b9     0x1575 ./Middlewares/FreeRTOS/timers.o
+ .debug_line    0x0004492e      0xb21 ./Middlewares/MotorControl/bus_voltage_sensor.o
+ .debug_line    0x0004544f      0x992 ./Middlewares/MotorControl/circle_limitation.o
+ .debug_line    0x00045de1      0xe86 ./Middlewares/MotorControl/frame_communication_protocol.o
+ .debug_line    0x00046c67     0x1951 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_line    0x000485b8     0x16d4 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_line    0x00049c8c      0xb8a ./Middlewares/MotorControl/motor_power_measurement.o
+ .debug_line    0x0004a816      0xad8 ./Middlewares/MotorControl/ntc_temperature_sensor.o
+ .debug_line    0x0004b2ee      0xd2f ./Middlewares/MotorControl/pid_regulator.o
+ .debug_line    0x0004c01d      0xb58 ./Middlewares/MotorControl/pqd_motor_power_measurement.o
+ .debug_line    0x0004cb75      0xb15 ./Middlewares/MotorControl/pwm_common.o
+ .debug_line    0x0004d68a      0xead ./Middlewares/MotorControl/pwm_curr_fdbk.o
+ .debug_line    0x0004e537      0xdde ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
+ .debug_line    0x0004f315      0xb96 ./Middlewares/MotorControl/ramp_ext_mngr.o
+ .debug_line    0x0004feab     0x1075 ./Middlewares/MotorControl/revup_ctrl.o
+ .debug_line    0x00050f20      0xadf ./Middlewares/MotorControl/speed_pos_fdbk.o
+ .debug_line    0x000519ff      0xde1 ./Middlewares/MotorControl/speed_torq_ctrl.o
+ .debug_line    0x000527e0      0xb8d ./Middlewares/MotorControl/state_machine.o
+ .debug_line    0x0005336d      0xea4 ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_line    0x00054211     0x12d1 ./UDHAL/UDHAL_GPIO.o
+ .debug_line    0x000554e2      0xb1a ./UDHAL/UDHAL_MOTOR.o
+ .debug_line    0x00055ffc      0x8a0 ./UDHAL/UDHAL_POWERMODE.o
+ .debug_line    0x0005689c     0x121f ./UDHAL/UDHAL_SYSCLK.o
+ .debug_line    0x00057abb      0x7da ./UDHAL/UDHAL_TIMEOUT.o
+ .debug_line    0x00058295     0x11f9 ./UDHAL/UDHAL_UART.o
 
-.debug_str      0x00000000    0xfdccd
- .debug_str     0x00000000    0xe845d ./Application/BootAndShutDown/SleepAndWake.o
-                              0xe9102 (size before relaxing)
- .debug_str     0x000e845d     0x19bd ./Application/DIAGNOSIS/ETU_OBD.o
+.debug_str      0x00000000    0xfdd5f
+ .debug_str     0x00000000    0xe84ef ./Application/BootAndShutDown/SleepAndWake.o
+                              0xe9194 (size before relaxing)
+ .debug_str     0x000e84ef     0x19bd ./Application/DIAGNOSIS/ETU_OBD.o
                               0xe4787 (size before relaxing)
- .debug_str     0x000e9e1a      0x14c ./Application/Hardware/brake_and_throttle.o
+ .debug_str     0x000e9eac      0x14c ./Application/Hardware/brake_and_throttle.o
                               0xe1440 (size before relaxing)
- .debug_str     0x000e9f66       0x90 ./Application/Hardware/lightSensor.o
+ .debug_str     0x000e9ff8       0x90 ./Application/Hardware/lightSensor.o
                                0x3e8d (size before relaxing)
- .debug_str     0x000e9ff6      0xa3c ./Application/Hardware/motor_param.o
+ .debug_str     0x000ea088      0xa3c ./Application/Hardware/motor_param.o
                               0xe4ea4 (size before relaxing)
- .debug_str     0x000eaa32      0x2aa ./Application/Hardware/tail_light.o
+ .debug_str     0x000eaac4      0x2aa ./Application/Hardware/tail_light.o
                                0x4281 (size before relaxing)
- .debug_str     0x000eacdc      0x3fe ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
+ .debug_str     0x000ead6e      0x3fe ./Application/MOTOR_SENSORS/Battery/battery_current_sensors.o
                               0xe0df2 (size before relaxing)
- .debug_str     0x000eb0da      0xa43 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
+ .debug_str     0x000eb16c      0xa43 ./Application/MOTOR_SENSORS/motor_driver_ntc/NTCG163JF103FT.o
                               0xe4f3b (size before relaxing)
- .debug_str     0x000ebb1d      0x106 ./Application/MainTask/ETU_StateMachine.o
+ .debug_str     0x000ebbaf      0x106 ./Application/MainTask/ETU_StateMachine.o
                               0xdeeb5 (size before relaxing)
- .debug_str     0x000ebc23       0xc8 ./Application/MainTask/GearControl.o
+ .debug_str     0x000ebcb5       0xc8 ./Application/MainTask/GearControl.o
                                0x2fc0 (size before relaxing)
- .debug_str     0x000ebceb      0x1bc ./Application/MainTask/PROTOCOL_HANDLER.o
+ .debug_str     0x000ebd7d      0x1bc ./Application/MainTask/PROTOCOL_HANDLER.o
                                0x41da (size before relaxing)
- .debug_str     0x000ebea7      0x748 ./Application/MainTask/backgroundTask.o
-                              0xe988d (size before relaxing)
- .debug_str     0x000ec5ef      0x4cc ./Application/MainTask/escooter_transmission_units.o
-                              0xe9fa3 (size before relaxing)
- .debug_str     0x000ecabb     0x1019 ./Application/Safety_Protection/ERROR_REPORT.o
-                              0xec6ac (size before relaxing)
- .debug_str     0x000edad4       0x4b ./Application/Startup/startup_stm32f446retx.o
+ .debug_str     0x000ebf39      0x748 ./Application/MainTask/backgroundTask.o
+                              0xe991f (size before relaxing)
+ .debug_str     0x000ec681      0x4cc ./Application/MainTask/escooter_transmission_units.o
+                              0xea035 (size before relaxing)
+ .debug_str     0x000ecb4d     0x1019 ./Application/Safety_Protection/ERROR_REPORT.o
+                              0xec73e (size before relaxing)
+ .debug_str     0x000edb66       0x4b ./Application/Startup/startup_stm32f446retx.o
                                  0xa2 (size before relaxing)
- .debug_str     0x000edb1f      0x138 ./Application/User/freertos.o
+ .debug_str     0x000edbb1      0x138 ./Application/User/freertos.o
                               0xea2df (size before relaxing)
- .debug_str     0x000edc57     0x10ec ./Application/User/main.o
+ .debug_str     0x000edce9     0x10ec ./Application/User/main.o
                               0xed97d (size before relaxing)
- .debug_str     0x000eed43      0xb25 ./Application/User/mc_api.o
+ .debug_str     0x000eedd5      0xb25 ./Application/User/mc_api.o
                               0xe675c (size before relaxing)
- .debug_str     0x000ef868     0x217c ./Application/User/mc_config.o
+ .debug_str     0x000ef8fa     0x217c ./Application/User/mc_config.o
                               0xe8d1e (size before relaxing)
- .debug_str     0x000f19e4      0x20f ./Application/User/mc_interface.o
+ .debug_str     0x000f1a76      0x20f ./Application/User/mc_interface.o
                               0xdfb42 (size before relaxing)
- .debug_str     0x000f1bf3      0xabd ./Application/User/mc_math.o
+ .debug_str     0x000f1c85      0xabd ./Application/User/mc_math.o
                               0xdfaa6 (size before relaxing)
- .debug_str     0x000f26b0       0x58 ./Application/User/mc_parameters.o
+ .debug_str     0x000f2742       0x58 ./Application/User/mc_parameters.o
                               0xe6191 (size before relaxing)
- .debug_str     0x000f2708      0x860 ./Application/User/mc_tasks.o
+ .debug_str     0x000f279a      0x860 ./Application/User/mc_tasks.o
                               0xef141 (size before relaxing)
- .debug_str     0x000f2f68     0x1477 ./Application/User/motor_control_protocol.o
-                              0xed251 (size before relaxing)
- .debug_str     0x000f43df      0x1bf ./Application/User/motorcontrol.o
+ .debug_str     0x000f2ffa     0x1477 ./Application/User/motor_control_protocol.o
+                              0xed2e3 (size before relaxing)
+ .debug_str     0x000f4471      0x1bf ./Application/User/motorcontrol.o
                               0xe8217 (size before relaxing)
- .debug_str     0x000f459e      0x2c3 ./Application/User/regular_conversion_manager.o
+ .debug_str     0x000f4630      0x2c3 ./Application/User/regular_conversion_manager.o
                               0xe5e94 (size before relaxing)
- .debug_str     0x000f4861      0x423 ./Application/User/stm32f4xx_hal_msp.o
+ .debug_str     0x000f48f3      0x423 ./Application/User/stm32f4xx_hal_msp.o
                               0xe6ffc (size before relaxing)
- .debug_str     0x000f4c84      0x187 ./Application/User/stm32f4xx_hal_timebase_tim.o
+ .debug_str     0x000f4d16      0x187 ./Application/User/stm32f4xx_hal_timebase_tim.o
                               0xd63f8 (size before relaxing)
- .debug_str     0x000f4e0b       0x90 ./Application/User/stm32f4xx_it.o
+ .debug_str     0x000f4e9d       0x90 ./Application/User/stm32f4xx_it.o
                               0xe650b (size before relaxing)
- .debug_str     0x000f4e9b      0x2c4 ./Application/User/stm32f4xx_mc_it.o
+ .debug_str     0x000f4f2d      0x2c4 ./Application/User/stm32f4xx_mc_it.o
                               0xe869d (size before relaxing)
- .debug_str     0x000f515f      0x173 ./Application/User/ui_task.o
+ .debug_str     0x000f51f1      0x173 ./Application/User/ui_task.o
                               0xe81b6 (size before relaxing)
- .debug_str     0x000f52d2      0x2b1 ./Application/User/user_interface.o
+ .debug_str     0x000f5364      0x2b1 ./Application/User/user_interface.o
                               0xe8fec (size before relaxing)
- .debug_str     0x000f5583      0x117 ./Drivers/CMSIS/system_stm32f4xx.o
+ .debug_str     0x000f5615      0x117 ./Drivers/CMSIS/system_stm32f4xx.o
                               0xd58c0 (size before relaxing)
- .debug_str     0x000f569a      0x5f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
+ .debug_str     0x000f572c      0x5f6 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal.o
                               0xd648a (size before relaxing)
- .debug_str     0x000f5c90      0x2fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
+ .debug_str     0x000f5d22      0x2fc ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc.o
                               0xd5e8d (size before relaxing)
- .debug_str     0x000f5f8c      0x21f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
+ .debug_str     0x000f601e      0x21f ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_adc_ex.o
                               0xd5ee1 (size before relaxing)
- .debug_str     0x000f61ab      0x349 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
+ .debug_str     0x000f623d      0x349 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_cortex.o
                               0xd6198 (size before relaxing)
- .debug_str     0x000f64f4      0x176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
+ .debug_str     0x000f6586      0x176 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_gpio.o
                               0xd5a40 (size before relaxing)
- .debug_str     0x000f666a      0x2ab ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
+ .debug_str     0x000f66fc      0x2ab ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr.o
                               0xd5afb (size before relaxing)
- .debug_str     0x000f6915      0x162 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
+ .debug_str     0x000f69a7      0x162 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_pwr_ex.o
                               0xd5a9d (size before relaxing)
- .debug_str     0x000f6a77      0x319 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
+ .debug_str     0x000f6b09      0x319 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc.o
                               0xd5d0f (size before relaxing)
- .debug_str     0x000f6d90      0x35d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
+ .debug_str     0x000f6e22      0x35d ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_rcc_ex.o
                               0xd5d42 (size before relaxing)
- .debug_str     0x000f70ed      0xce4 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
+ .debug_str     0x000f717f      0xce4 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim.o
                               0xd6c1a (size before relaxing)
- .debug_str     0x000f7dd1      0x3db ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
+ .debug_str     0x000f7e63      0x3db ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_tim_ex.o
                               0xd6436 (size before relaxing)
- .debug_str     0x000f81ac      0x651 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
+ .debug_str     0x000f823e      0x651 ./Drivers/STM32F4xx_HAL_Driver/stm32f4xx_hal_uart.o
                               0xd6284 (size before relaxing)
- .debug_str     0x000f87fd      0xa60 ./Middlewares/FreeRTOS/cmsis_os.o
+ .debug_str     0x000f888f      0xa60 ./Middlewares/FreeRTOS/cmsis_os.o
                                0xeccd (size before relaxing)
- .debug_str     0x000f925d      0x3d4 ./Middlewares/FreeRTOS/heap_4.o
+ .debug_str     0x000f92ef      0x3d4 ./Middlewares/FreeRTOS/heap_4.o
                                0xb5a6 (size before relaxing)
- .debug_str     0x000f9631      0x163 ./Middlewares/FreeRTOS/list.o
+ .debug_str     0x000f96c3      0x163 ./Middlewares/FreeRTOS/list.o
                                0xac64 (size before relaxing)
- .debug_str     0x000f9794      0x846 ./Middlewares/FreeRTOS/port.o
+ .debug_str     0x000f9826      0x846 ./Middlewares/FreeRTOS/port.o
                                0xa418 (size before relaxing)
- .debug_str     0x000f9fda      0x806 ./Middlewares/FreeRTOS/queue.o
+ .debug_str     0x000fa06c      0x806 ./Middlewares/FreeRTOS/queue.o
                                0xc659 (size before relaxing)
- .debug_str     0x000fa7e0      0xf3b ./Middlewares/FreeRTOS/tasks.o
+ .debug_str     0x000fa872      0xf3b ./Middlewares/FreeRTOS/tasks.o
                                0xd377 (size before relaxing)
- .debug_str     0x000fb71b      0x51a ./Middlewares/FreeRTOS/timers.o
+ .debug_str     0x000fb7ad      0x51a ./Middlewares/FreeRTOS/timers.o
                                0xcedd (size before relaxing)
- .debug_str     0x000fbc35       0xc4 ./Middlewares/MotorControl/bus_voltage_sensor.o
+ .debug_str     0x000fbcc7       0xc4 ./Middlewares/MotorControl/bus_voltage_sensor.o
                               0xe0cc1 (size before relaxing)
- .debug_str     0x000fbcf9       0xb3 ./Middlewares/MotorControl/circle_limitation.o
+ .debug_str     0x000fbd8b       0xb3 ./Middlewares/MotorControl/circle_limitation.o
                               0xdf0bf (size before relaxing)
- .debug_str     0x000fbdac      0x106 ./Middlewares/MotorControl/frame_communication_protocol.o
+ .debug_str     0x000fbe3e      0x106 ./Middlewares/MotorControl/frame_communication_protocol.o
                               0xe3ad2 (size before relaxing)
- .debug_str     0x000fbeb2      0x4c6 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
+ .debug_str     0x000fbf44      0x4c6 ./Middlewares/MotorControl/hall_speed_pos_fdbk.o
                               0xe142d (size before relaxing)
- .debug_str     0x000fc378      0x3e7 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
+ .debug_str     0x000fc40a      0x3e7 ./Middlewares/MotorControl/ics_f4xx_pwm_curr_fdbk.o
                               0xdf9b8 (size before relaxing)
- .debug_str     0x000fc75f       0xcd ./Middlewares/MotorControl/motor_power_measurement.o
+ .debug_str     0x000fc7f1       0xcd ./Middlewares/MotorControl/motor_power_measurement.o
                               0xe0c5e (size before relaxing)
- .debug_str     0x000fc82c       0xd7 ./Middlewares/MotorControl/ntc_temperature_sensor.o
+ .debug_str     0x000fc8be       0xd7 ./Middlewares/MotorControl/ntc_temperature_sensor.o
                               0xdf025 (size before relaxing)
- .debug_str     0x000fc903      0x257 ./Middlewares/MotorControl/pid_regulator.o
+ .debug_str     0x000fc995      0x257 ./Middlewares/MotorControl/pid_regulator.o
                               0xdf159 (size before relaxing)
- .debug_str     0x000fcb5a       0x9b ./Middlewares/MotorControl/pqd_motor_power_measurement.o
+ .debug_str     0x000fcbec       0x9b ./Middlewares/MotorControl/pqd_motor_power_measurement.o
                               0xe0e32 (size before relaxing)
- .debug_str     0x000fcbf5      0x16c ./Middlewares/MotorControl/pwm_common.o
+ .debug_str     0x000fcc87      0x16c ./Middlewares/MotorControl/pwm_common.o
                               0xdf0b8 (size before relaxing)
- .debug_str     0x000fcd61      0x354 ./Middlewares/MotorControl/pwm_curr_fdbk.o
+ .debug_str     0x000fcdf3      0x354 ./Middlewares/MotorControl/pwm_curr_fdbk.o
                               0xdf46b (size before relaxing)
- .debug_str     0x000fd0b5       0xf6 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
+ .debug_str     0x000fd147       0xf6 ./Middlewares/MotorControl/r_divider_bus_voltage_sensor.o
                               0xe0e35 (size before relaxing)
- .debug_str     0x000fd1ab      0x155 ./Middlewares/MotorControl/ramp_ext_mngr.o
+ .debug_str     0x000fd23d      0x155 ./Middlewares/MotorControl/ramp_ext_mngr.o
                               0xdef24 (size before relaxing)
- .debug_str     0x000fd300      0x239 ./Middlewares/MotorControl/revup_ctrl.o
+ .debug_str     0x000fd392      0x239 ./Middlewares/MotorControl/revup_ctrl.o
                               0xdfb92 (size before relaxing)
- .debug_str     0x000fd539      0x125 ./Middlewares/MotorControl/speed_pos_fdbk.o
+ .debug_str     0x000fd5cb      0x125 ./Middlewares/MotorControl/speed_pos_fdbk.o
                               0xdf049 (size before relaxing)
- .debug_str     0x000fd65e      0x169 ./Middlewares/MotorControl/speed_torq_ctrl.o
+ .debug_str     0x000fd6f0      0x169 ./Middlewares/MotorControl/speed_torq_ctrl.o
                               0xdf484 (size before relaxing)
- .debug_str     0x000fd7c7       0xed ./Middlewares/MotorControl/state_machine.o
+ .debug_str     0x000fd859       0xed ./Middlewares/MotorControl/state_machine.o
                               0xdefbf (size before relaxing)
- .debug_str     0x000fd8b4      0x20a ./Middlewares/MotorControl/usart_frame_communication_protocol.o
+ .debug_str     0x000fd946      0x20a ./Middlewares/MotorControl/usart_frame_communication_protocol.o
                               0xdf544 (size before relaxing)
- .debug_str     0x000fdabe       0x34 ./UDHAL/UDHAL_GPIO.o
+ .debug_str     0x000fdb50       0x34 ./UDHAL/UDHAL_GPIO.o
                               0xe679d (size before relaxing)
- .debug_str     0x000fdaf2       0xe5 ./UDHAL/UDHAL_MOTOR.o
+ .debug_str     0x000fdb84       0xe5 ./UDHAL/UDHAL_MOTOR.o
                               0xdf0ac (size before relaxing)
- .debug_str     0x000fdbd7       0x26 ./UDHAL/UDHAL_POWERMODE.o
+ .debug_str     0x000fdc69       0x26 ./UDHAL/UDHAL_POWERMODE.o
                               0xd58d2 (size before relaxing)
- .debug_str     0x000fdbfd       0x18 ./UDHAL/UDHAL_SYSCLK.o
+ .debug_str     0x000fdc8f       0x18 ./UDHAL/UDHAL_SYSCLK.o
                               0xe625c (size before relaxing)
- .debug_str     0x000fdc15       0x92 ./UDHAL/UDHAL_TIMEOUT.o
+ .debug_str     0x000fdca7       0x92 ./UDHAL/UDHAL_TIMEOUT.o
                                0xc0e0 (size before relaxing)
- .debug_str     0x000fdca7       0x26 ./UDHAL/UDHAL_UART.o
+ .debug_str     0x000fdd39       0x26 ./UDHAL/UDHAL_UART.o
                               0xe6453 (size before relaxing)
 
 .comment        0x00000000       0x43

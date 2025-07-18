@@ -5,15 +5,16 @@
  *      Author: TerenceLeung
  */
 
-#ifndef APPLICATION_HARDWARE_BATTERY_MANAGER_H_
-#define APPLICATION_HARDWARE_BATTERY_MANAGER_H_
+#ifndef APPLICATION_HARDWARE_BATTERY_SERVICE_H_
+#define APPLICATION_HARDWARE_BATTERY_SERVICE_H_
 
 #ifdef __cplusplus
 extern "C"{
 #endif
 #include "motor_param.h"
 
-#define  VOLTAGE_SAMPLES               10
+#define  WINDOW_SIZE                   20
+#define  MOVING_AVERAGE_COEFFICIENT     5
 #define  DELTA_THRESHOLD_CHARGING     400
 #define  DELTA_THRESHOLD_DISCHARGING  400
 
@@ -24,11 +25,17 @@ extern "C"{
  * 4. Find out the moving average (delta)
  * 5. Determines the charging state based on the defined threshold
  *    --> delta is a dynamic parameter which indicates the battery is in charging stage
+ *
+ * when r = dv/dt closes to zero, system should exit the Charging State.....
+ * (Optional) You could make use of int32_t deltaMovingAverage to find out the battery's discharging rate
+ * Provides a feature for battery health monitoring
  * */
 
 typedef struct{
-	int32_t batteryVoltage[VOLTAGE_SAMPLES];
-	int32_t deltaMovingAverage;
+	int32_t batteryVoltage[WINDOW_SIZE];
+	int32_t instant_delta_MovingAverage;          /*r = +- dv/dt which determines if the battery is chargine / discharging*/
+	int32_t delta_ChargingRateMovingAverage;      /*r = +dv/dt  units: + mV/s */
+	int32_t delta_DischargingRateMovingAverage;   /*r = -dv/dt  units: - mV/s */
 	bool isCharging;
 }batteryMgnt_t;
 
@@ -38,7 +45,11 @@ typedef enum
 	CHARGING    = 1
 }BatteryState_t;
 
+/*Should be called regularly*/
 extern int32_t checkBattery();
+
+/*The rate of charging or discharging += dv/dt*/
+extern void calRate();
 
 /*The signal determines ETU State
  *It's also sent to the dash-board to notify the charging state
@@ -55,4 +66,4 @@ BatteryState_t battery_GetState(BatteryState_t *batteryHandle);
 #ifdef __cplusplus
 }
 #endif
-#endif /* APPLICATION_HARDWARE_BATTERY_MANAGER_H_ */
+#endif /* APPLICATION_HARDWARE_BATTERY_SERVICE_H_ */

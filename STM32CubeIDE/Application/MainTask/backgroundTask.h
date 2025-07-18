@@ -7,6 +7,7 @@
 
 #ifndef APPLICATION_MAINTASK_BACKGROUNDTASK_H_
 #define APPLICATION_MAINTASK_BACKGROUNDTASK_H_
+
 #ifdef __cplusplus
 extern "C"{
 #endif
@@ -18,6 +19,7 @@ extern "C"{
 #include "escooter_transmission_units.h"
 #include "PROTOCOL_HANDLER.h"
 #include "ERROR_REPORT.h"
+#include <battery_service.h>
 
 #define POWER_TASK_DELAY       100
 #define POWER_ON_INTERVAL      100
