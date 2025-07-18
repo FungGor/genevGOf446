@@ -18,7 +18,10 @@ extern "C"{
 #define  DELTA_THRESHOLD_CHARGING     400
 #define  DELTA_THRESHOLD_DISCHARGING  400
 
-/*             Battery Charging Service Manager
+/*                    Battery Service
+ *  a) Monitors Battery Charging / Discharging Status
+ *  b) Calculates +dv/dt or -dv/dt while charging / discharging
+ * To find out charging rate............
  * 1. Regularly checks the battery voltage with 10 raw samples
  * 2. Calculates delta while checking the battery voltage
  * 3. Store a group of delta in an array
@@ -29,9 +32,18 @@ extern "C"{
  * when r = dv/dt closes to zero, system should exit the Charging State.....
  * (Optional) You could make use of int32_t deltaMovingAverage to find out the battery's discharging rate
  * Provides a feature for battery health monitoring
+ *
+ * For GenevGO's application, this module extension is not necessary, but it might be useful in the future's development.
  * */
 
+typedef enum
+{
+	DISCHARGING = 0,
+	CHARGING    = 1
+}BatteryState_t;
+
 typedef struct{
+	BatteryState_t batteryState;
 	int32_t batteryVoltage[WINDOW_SIZE];
 	int32_t instant_delta_MovingAverage;          /*r = +- dv/dt which determines if the battery is chargine / discharging*/
 	int32_t delta_ChargingRateMovingAverage;      /*r = +dv/dt  units: + mV/s */
@@ -39,11 +51,8 @@ typedef struct{
 	bool isCharging;
 }batteryMgnt_t;
 
-typedef enum
-{
-	DISCHARGING = 0,
-	CHARGING    = 1
-}BatteryState_t;
+/*Initialize Battery Service*/
+extern void batteryServiceInit(batteryMgnt_t *batteryMgnt);
 
 /*Should be called regularly*/
 extern int32_t checkBattery();

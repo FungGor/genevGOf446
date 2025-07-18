@@ -1,9 +1,0 @@
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:173:13:MCP_ReceivedFrame	72	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:144:13:MCP_WaitNextFrame	8	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:109:13:MCP_Init	24	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:134:13:MCP_OnTimeOut	8	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:159:13:MCP_SentFrame	8	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:871:13:MCP_SendOverrunMessage	16	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:882:13:MCP_SendTimeoutMessage	16	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:893:13:MCP_SendATRMessage	64	static
-C:/Users/Public/Documents/Motor_Control/GENEV_GO_F446/genevGOf446xx/Src/motor_control_protocol.c:934:13:MCP_SendBadCRCMessage	16	static

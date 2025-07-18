@@ -317,6 +317,7 @@ static void GearTransmitControlPanel()
 	    	{
 	    		pausehandBrakeTimer();
 	    		//Hand-Brake Check State is Flag is set to zero forever
+	    		//For covering the accelerator sensors' tolerance, u can set getThrottlePercent() > X which is 0 < x <= 5
 		        if(getThrottlePercent() != 0)
 		        {
 					  throttleSignalInput();
