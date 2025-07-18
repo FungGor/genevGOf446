@@ -50,14 +50,17 @@ static uint8_t N1_ticks = N1_TIME / GeneralTask_TIME;
 static uint8_t N2_ticks = N2_TIME / GeneralTask_TIME;
 static uint8_t N3_ticks = N3_TIME / GeneralTask_TIME;
 
-//Those variables should be centralised in typedef struct ETU_Status_Handle_t
-//tail light variables
+static void ETU_StatusHandlerInit();
+
 static volatile uint32_t taskSleepCount = 0;
 static void createDrivingTasks(void);
 static uint8_t gearAvailable();
 static void GearTransmitControlPanel();
 static void GeneralTasks(void const * argument);
 
+/*There's no physical hand-brakes in GenevGO, it simulates hand-brake's behaviors for safety manners
+ *It is to protect motor drivers from inrush current
+ * */
 static osTimerId handBrakeHandle;
 static void unlockHandbrake();
 static void handBrakeTimerStart();
@@ -284,6 +287,12 @@ static void handBrakeReady()
 	handBrakeCheck++;
 }
 
+/* void PARKGearTimerOV()
+ * Counts down for 10 seconds.......
+ * If time elapsed for 10 seconds:
+ * --> PARK Gear Overflow flag is set to 1
+ * */
+
 /*Automatic gear selection*/
 static void GearTransmitControlPanel()
 {
@@ -302,15 +311,28 @@ static void GearTransmitControlPanel()
 	    	 * When Parking Mode is neglected, the situation occurs:
 	    	 *   - Inrush choking in the motor because of back emf at the time the E-Scooter is turned on while the user is pushing the car.
 	    	 */
+	    	//When Hand-Brake Check State Flag is 1.......(The default Flag is set to 1)
+	    	//The following instructions are only executed once
 	    	if(handBrakeLock == 0)
 	    	{
 	    		pausehandBrakeTimer();
-		         if(getThrottlePercent() != 0)
-		         {
+	    		//Hand-Brake Check State is Flag is set to zero forever
+		        if(getThrottlePercent() != 0)
+		        {
 					  throttleSignalInput();
 					  GearToggle(&transmissionMode, NEUTRAL);
-		         }
+		        }
 	    	}
+	    	/* When Hand-Brake Check State Flag is zero........
+	    	 * 1. MOTOR Stop --> Electric Transmission is disengaged
+	    	 * 2. Park Gear Countdown Timer Stopped
+	    	 * 3. Checks if driver twists the throttle i.e. getThrottlePercentage() > 0 ?
+	    	 *    a) when getThrottlePercentage() > 0
+	    	 *       Electric Transmission is engaged again
+	    	 *       Shit to Neutral Gear
+	    	 *       PARK Gear Overflow Flag is reset
+	    	 * */
+
 	    }
 	    break;
 
@@ -323,6 +345,11 @@ static void GearTransmitControlPanel()
 	    	else if(gearStop == 1){
 		    	setIQ(0); //It must not be neglected
 		    	throttleSignalInput();
+		    	/*  Checks if PARK Gear Overflow flag is set to 1 (Timer signals)
+		    	 *  When PARK Gear Overflow Flag is 1:
+		    	 *  --> Stop the motor (disengages electric gear transmission)
+		    	 *  --> Shift to PARK Gear
+		    	 */
 	    	}
 	    }
 	    break;
@@ -359,7 +386,6 @@ static void GeneralTasks(void const * argument)
 	   for(;;)
 	   {
 		   osDelay(GeneralTask_TIME);
-		   motor_speed();
 		   /****************  Task timing & sleep *******************/
 		   /* Task sleep must be positioned at the beginning of the for loop */
 		   if( (*status.ptrPower) == true)
@@ -386,6 +412,18 @@ static void GeneralTasks(void const * argument)
 		    	lightSensorStateChange();
 				checkConnectionStatus();
 		     }
+
+		     /* Regularly check the motor's rpm
+		      * timerStart flag is set to zero in default
+		      * when RPM is zero i.e. standstill....
+		      * if timerStart flag is 0:
+		      * --> PARK Gear Timer Starts (is only executed once)
+		      * --> timerStart flag is set to 0 (so, don't need to start timer again)
+		      * When timerStart flag is 1:
+		      * --> Checks if getThrottlePercentage() > 0 ?
+		      *    a) True: Stop PARK Gear Timer
+		      *    b) timerStartFlag is reset to 0
+		      */
 
 		     if((*status.ptrMotorFault) != 0)
 		     {

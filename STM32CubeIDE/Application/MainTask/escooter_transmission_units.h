@@ -61,8 +61,6 @@ extern void connection_flag_register(uint8_t *ptrConnectionFlag);
 
 extern void obd_mode_flag_register(bool *ptrOBDFlag);
 
-extern void ETU_StatusHandlerInit();
-
 /* Initializes GENEV-GO core according to user defined parameters. */
 extern void GoInit();
 
