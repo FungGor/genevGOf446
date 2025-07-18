@@ -15,8 +15,8 @@ extern "C"{
 
 #define  WINDOW_SIZE                   20
 #define  MOVING_AVERAGE_COEFFICIENT     5
-#define  DELTA_THRESHOLD_CHARGING     400
-#define  DELTA_THRESHOLD_DISCHARGING  400
+#define  CHARGING_RATE_THRESHOLD       50
+#define  DISCHARGING_RATE_THRESHOLD    50
 
 /*                    Battery Service
  *  a) Monitors Battery Charging / Discharging Status
